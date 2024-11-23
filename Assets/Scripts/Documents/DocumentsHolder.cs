@@ -6,55 +6,36 @@ namespace FishyBusiness.Documents
 {
     public class DocumentsHolder
     {
-        public event Action<IDocument> OnDocumentSelected;
-        public event Action<IDocument> OnDocumentUnselected;
-
         public event Action<IDocument> OnDocumentAdded;
         public event Action<IDocument> OnDocumentRemoved;
 
-        private List<IDocument> documents;
+        public bool IsFull => documents.Count >= maxSize;
 
-        public IDocument SelectedDocument { get; private set; }
+        public bool IsEmpty => documents.Count == 0;
 
-        public DocumentsHolder(params IDocument[] documents)
+        private readonly List<IDocument> documents;
+
+        private readonly int maxSize;
+
+        public DocumentsHolder(int maxSize, params IDocument[] documents)
         {
+            this.maxSize = maxSize;
             this.documents = new List<IDocument>(documents);
         }
 
-        public void SelectDocument(IDocument document)
-        {
-            if (SelectedDocument == null)
-                return;
-
-            if(SelectedDocument == document)
-                return;
-
-            UnselectCurrentDocument();
-            SelectedDocument = document;
-            OnDocumentSelected?.Invoke(document);
-        }
-
-        private void UnselectCurrentDocument()
-        {
-            if (SelectedDocument != null)
-            {
-                SelectedDocument = null;
-                OnDocumentUnselected?.Invoke(SelectedDocument);
-            }
-        }
-
-
         public void AddDocument(IDocument document)
         {
-            documents.Add(document);
-            OnDocumentAdded?.Invoke(document);
+            if (maxSize > 0 && documents.Count < maxSize)
+            {
+                documents.Add(document);
+                OnDocumentAdded?.Invoke(document);
+            }
         }
 
         public void RemoveDocument(IDocument document)
         {
-            if(documents.Remove(document))
+            if (documents.Remove(document))
                 OnDocumentRemoved?.Invoke(document);
         }
-
     }
 }

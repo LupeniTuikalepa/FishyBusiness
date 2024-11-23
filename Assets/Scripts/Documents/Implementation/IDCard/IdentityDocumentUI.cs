@@ -1,13 +1,12 @@
 using FishyBusiness.Documents.UI;
 using TMPro;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-namespace FishyBusiness
+namespace FishyBusiness.Documents
 {
-    public class IdentityDocumentUI : DocumentUI<IdentityDocument>
+    public class IdentityDocumentUI : DocumentVisual<IdentityDocument>
     {
 
         [SerializeField]
