@@ -20,18 +20,25 @@ namespace FishyBusiness.GameSystem
         {
             T context = handler.GetContext();
             game.Begin(ref context);
+            
+            handler.UpdateContext(context);
         }
         
         public bool Refresh()
         {
             T context = handler.GetContext();
-            return game.Refresh(ref context);
+            var result = game.Refresh(ref context);
+            
+            handler.UpdateContext(context);
+            return result;
         }
         
         public void End()
         {
             T context = handler.GetContext();
             game.End(ref context);
+            
+            handler.UpdateContext(context);
         }
     }
 }

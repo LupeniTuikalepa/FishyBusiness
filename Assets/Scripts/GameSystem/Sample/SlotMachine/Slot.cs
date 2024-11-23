@@ -6,8 +6,8 @@ namespace FishyBusiness.GameSystem.Sample
     {
         public override void Begin(ref SlotContext context)
         {
-            context.status = GameStatus.Pending;
             context.Content.StartSlotMachine(context);
+            context.status = GameStatus.Pending;
         }
 
         public override bool Refresh(ref SlotContext context)
@@ -16,12 +16,14 @@ namespace FishyBusiness.GameSystem.Sample
             {
                 context.status = slotResult ? GameStatus.Success : GameStatus.Failure;
             }
+            
             return context.status != GameStatus.Pending;
         }
 
         public override void End(ref SlotContext context)
         {
             context.Content.ShowResult(context);
+            context.status = GameStatus.None;
         }
     }
 }

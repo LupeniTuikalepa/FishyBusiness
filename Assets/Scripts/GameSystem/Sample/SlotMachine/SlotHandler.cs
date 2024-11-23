@@ -11,9 +11,35 @@ namespace FishyBusiness.GameSystem.Sample
         [SerializeField] private SlotContent content;
         [SerializeField] private Player player;
         [SerializeField] private TMP_InputField moneyBet;
+        [SerializeField] private TMP_Text playerMoney;
         private int betAmount;
         
         private Slot slot;
+
+        private void OnEnable()
+        {
+            GameManager.Instance.OnGameStopped += GameStopped;
+        }
+        
+        private void OnDisable()
+        {
+            GameManager.Instance.OnGameStopped -= GameStopped;
+        }
+
+        private void GameStopped(IGameRunner obj)
+        {
+            playerMoney.text = player.Money.ToString();
+        }
+
+        private void RefreshMoney()
+        {
+            playerMoney.text = player.Money.ToString();
+        }
+
+        private void Start()
+        {
+            RefreshMoney();
+        }
 
         public void StartGame()
         {
@@ -22,6 +48,15 @@ namespace FishyBusiness.GameSystem.Sample
                 GameController.Logger.LogError(this, $"This is not a valid Bet ! {nameof(betAmount)} = {betAmount} - {nameof(player.Money)} = {player.Money}");
                 return;
             }
+
+            if (context.status != GameStatus.None)
+            {
+                GameController.Logger.LogError(this, $"Can't start a new game ! {nameof(context.status)} = {context.status}");
+                return;
+            }
+            
+            player.RemoveMoney(betAmount);
+            RefreshMoney();
             
             slot = new Slot();
             GameManager.Instance.StartGame(slot, this);
@@ -33,8 +68,15 @@ namespace FishyBusiness.GameSystem.Sample
             {
                 Player = player,
                 Content = content,
-                BetAmount = betAmount
+                BetAmount = betAmount,
+                status = context.status
             };
+        }
+
+        private SlotContext context;
+        public void UpdateContext(SlotContext context)
+        {
+            this.context = context;
         }
 
         public void GetBetAmount(string value)
