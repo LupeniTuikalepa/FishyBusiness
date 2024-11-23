@@ -29,7 +29,7 @@ namespace FishyBusiness.GameSystem
             {
                 if (gameRunnersBuffer[i].Refresh())
                 {
-                    StopGame(gameRunnersBuffer[i].Game, true);
+                    StopGame(gameRunnersBuffer[i].Game);
                 }
             }
         }
@@ -47,11 +47,11 @@ namespace FishyBusiness.GameSystem
             OnGameStarted?.Invoke(gameRunner);
         }
         
-        public void StopGame(IGame Game, bool isSuccess)
+        public void StopGame(IGame Game)
         {
             if (TryGetGameRunner(Game, out IGameRunner runner))
             {
-                runner.End(isSuccess);
+                runner.End();
                 gameRunners.Remove(runner);
                 
                 OnGameStopped?.Invoke(runner);
