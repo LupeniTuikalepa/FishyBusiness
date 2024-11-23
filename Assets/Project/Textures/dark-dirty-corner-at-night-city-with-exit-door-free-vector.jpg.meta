@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b528545a5d0efac4da95adebd6e3f541
+guid: 52617c3b01ebbcf4db191e1113b181ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4149893810283785890
-    second: Luis_fish_0
+      213: 1016039774428757513
+    second: dark-dirty-corner-at-night-city-with-exit-door-free-vector_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,9 +46,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Luis_fish_0
+      name: dark-dirty-corner-at-night-city-with-exit-door-free-vector_0
       rect:
         serializedVersion: 2
-        x: 220
+        x: 0
         y: 0
-        width: 689
-        height: 850
+        width: 1920
+        height: 960
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e51517e019d9866c0800000000000000
-      internalID: -4149893810283785890
+      spriteID: 90e7e78aac2b91e00800000000000000
+      internalID: 1016039774428757513
       vertices: []
       indices: 
       edges: []
@@ -164,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -173,8 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Luis_fish_0: -4149893810283785890
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
