@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 1ae7bb727bbfb654e8ddb8c45ac16b8d
+guid: 8716e5f44473e2d4bae61974d1199c42
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6963322998463068953
-    second: maxresdefault_0
+      213: -4031560179906916228
+    second: Marine_Le_Pen_Signature.svg_0
+  - first:
+      213: -6423591744519152124
+    second: Marine_Le_Pen_Signature.svg_1
+  - first:
+      213: 2755217639409615031
+    second: Marine_Le_Pen_Signature.svg_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: maxresdefault_0
+      name: Marine_Le_Pen_Signature.svg_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1280
-        height: 720
+        x: 91
+        y: 42
+        width: 567
+        height: 659
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 91bf2b3bf51b2a060800000000000000
-      internalID: 6963322998463068953
+      spriteID: c70d90260650d08c0800000000000000
+      internalID: -4031560179906916228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marine_Le_Pen_Signature.svg_1
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 377
+        width: 72
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40eddcd8751dad6a0800000000000000
+      internalID: -6423591744519152124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Marine_Le_Pen_Signature.svg_2
+      rect:
+        serializedVersion: 2
+        x: 753
+        y: 376
+        width: 380
+        height: 292
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b086e368df7c3620800000000000000
+      internalID: 2755217639409615031
       vertices: []
       indices: 
       edges: []
@@ -134,8 +184,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      maxresdefault_0: 6963322998463068953
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

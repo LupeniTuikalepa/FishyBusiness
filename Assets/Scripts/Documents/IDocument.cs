@@ -1,5 +1,4 @@
 using System;
-using FishyBusiness.Documents.Data;
 using UnityEngine;
 
 namespace FishyBusiness.Documents
@@ -7,6 +6,6 @@ namespace FishyBusiness.Documents
 
     public interface IDocument
     {
-        DocumentData Data { get; }
+        GameObject DocumentPrefab { get; }
     }
 }
