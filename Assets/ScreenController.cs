@@ -1,3 +1,4 @@
+using Michsky.UI.ModernUIPack;
 using TMPro;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class ScreenController : MonoBehaviour
 {
     private ComputerManager computerManager;
     private int ID;
+    [SerializeField] private WindowDragger dragger;
     
     [Header("References")]
     [SerializeField] private TextMeshProUGUI titleText;
@@ -14,6 +16,7 @@ public class ScreenController : MonoBehaviour
         titleText.text = title;
         ID = id;
         this.computerManager = computerManager;
+        dragger.dragArea = this.computerManager.screenObject.GetComponent<RectTransform>();
     }
     
     public void Close()

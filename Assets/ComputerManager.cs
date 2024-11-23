@@ -6,6 +6,7 @@ public class ComputerManager : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private GameObject taskBar;
+    public GameObject screenObject;
     [SerializeField] private GameObject pfbTaskBarIcon;
     
     private Dictionary<int, GameObject> taskBarIcons = new Dictionary<int, GameObject>();

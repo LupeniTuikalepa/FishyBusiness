@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      dark-dirty-corner-at-night-city-with-exit-door-free-vector_0: 1016039774428757513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

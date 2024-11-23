@@ -4,30 +4,48 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4dd9c9c2-ffbb-4531-9bcf-123a9bce19d8" name="Changes" comment="" />
+    <list default="true" id="4dd9c9c2-ffbb-4531-9bcf-123a9bce19d8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.FishyBusiness/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FishyBusiness/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MovementBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MovementBar.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/Prefabs/Shortcut.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Prefabs/Shortcut.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/Textures/comptoir_scene.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Textures/comptoir_scene.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/Textures/dark-dirty-corner-at-night-city-with-exit-door-free-vector.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Textures/dark-dirty-corner-at-night-city-with-exit-door-free-vector.jpg.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/Textures/imagdade.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Textures/imagdade.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/Textures/imsefages-removebg-preview.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Textures/imsefages-removebg-preview.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/all_cards.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/all_cards.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Computer.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Computer.unity" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Blackjack" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "LuisNietoD"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;LuisNietoD&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/LupeniTuikalepa/FishyBusiness.git",
-    "accountId": "1564b9e1-5398-4dc3-9778-9cfdc65f1508"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/LupeniTuikalepa/FishyBusiness.git&quot;,
+    &quot;accountId&quot;: &quot;1564b9e1-5398-4dc3-9778-9cfdc65f1508&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/ComputerLink.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ContentWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/FishController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MenuAction.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MovementBar.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/RandomFish.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ScreenController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -39,18 +57,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Computer",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Computer&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.25f1\Editor\Unity.exe" />
