@@ -6,12 +6,12 @@ namespace FishyBusiness.Documents.DeskSprite
     {
         protected override void OnSelected()
         {
-            throw new System.NotImplementedException();
+
         }
 
         protected override void OnUnselected()
         {
-            throw new System.NotImplementedException();
+
         }
     }
 }

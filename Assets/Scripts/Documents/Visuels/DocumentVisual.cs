@@ -8,14 +8,12 @@ namespace FishyBusiness.Documents.UI
 
         protected virtual void Bind(T document)
         {
-            document.OnSelected += OnSelected;
-            document.OnUnselected += OnUnselected;
+
         }
 
         protected virtual void Unbind(T document)
         {
-            document.OnSelected -= OnSelected;
-            document.OnUnselected -= OnUnselected;
+
         }
 
         void IDocumentVisual.Bind(IDocument document)

@@ -1,24 +1,14 @@
 ﻿using System;
-using FishyBusiness.Data;
+using FishyBusiness.Documents.Data;
 using UnityEngine;
 
 namespace FishyBusiness.Documents.Visuals
 {
-    public class DeskAnchor : MonoBehaviour
+    public class DocumentVisualAnchor : MonoBehaviour
     {
         [SerializeField]
         private DocumentData documentData;
 
         public DocumentData DocumentData => documentData;
-
-        private void OnEnable()
-        {
-
-        }
-
-        private void OnDisable()
-        {
-
-        }
     }
 }
