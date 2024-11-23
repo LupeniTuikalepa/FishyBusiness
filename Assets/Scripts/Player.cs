@@ -2,9 +2,9 @@
 using FishyBusiness.Documents;
 using UnityEngine;
 
-namespace FishyBusiness.Core
+namespace FishyBusiness
 {
-    public class Player : MonoBehaviour
+    public partial class Player : MonoBehaviour
     {
         public Desk Desk { get; private set; }
 

@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using FishyBusiness.Core;
+﻿using System.Collections.Generic;
 using FishyBusiness.Data;
 using FishyBusiness.Documents.UI;
 using LTX.Tools;
 using UnityEngine;
-using Object = System.Object;
 
 namespace FishyBusiness.Documents.Visuals
 {
