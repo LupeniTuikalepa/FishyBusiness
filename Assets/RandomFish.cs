@@ -14,4 +14,10 @@ public class RandomFish : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = fishes[Random.Range(0, fishes.Count)];
         }
     }
+
+    public void GetRandomFish()
+    {
+        GetComponent<SpriteRenderer>().sprite = fishes[Random.Range(0, fishes.Count)];
+
+    }
 }
