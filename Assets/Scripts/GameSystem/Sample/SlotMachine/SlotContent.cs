@@ -6,44 +6,49 @@ namespace FishyBusiness.GameSystem.Sample
 {
     public class SlotContent : MonoBehaviour
     {
-        [SerializeField] private TMP_Text result;
+        [SerializeField] private TMP_Text resultText;
         private bool isTimerActive;
 
         internal SlotHandler handler;
 
+        private bool result;
+
+        public void StartSlotMachine(SlotContext context)
+        {
+            result = Random.Range(0, 2) == 0;
+            resultText.text = "";
+            StartCoroutine(WaitSeconds(2f, context));
+        }
+
         public bool GetResult(out bool slotResult)
         {
-            slotResult = Random.Range(0, 2) == 0;
+            slotResult = result;
             if (isTimerActive)
             {
                 return false;
             }
             
-            result.text = "";
             return true;
         }
-        
-        public void ShowResult(bool slotResult, Player player, int betAmount)
-        {
-            StartCoroutine(WaitSeconds(2f, slotResult, player, betAmount));
-        }
 
-        private IEnumerator WaitSeconds(float time, bool slotResult, Player player, int betAmount)
+        public void ShowResult(SlotContext context)
         {
-            isTimerActive = true;
-            yield return new WaitForSeconds(time);
-            
-            if (slotResult)
+            if (result)
             {
-                player.AddMoney(betAmount);
-                result.text = "Won !!!";
+                context.Player.AddMoney(context.BetAmount);
+                resultText.text = "Won !!!";
             }
             else
             {
-                player.RemoveMoney(betAmount);
-                result.text = "Loser...";
+                context.Player.RemoveMoney(context.BetAmount);
+                resultText.text = "Loser...";
             }
-            
+        }
+        
+        private IEnumerator WaitSeconds(float time, SlotContext context)
+        {
+            isTimerActive = true;
+            yield return new WaitForSeconds(time);
             isTimerActive = false;
         }
     }

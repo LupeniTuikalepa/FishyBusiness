@@ -28,10 +28,10 @@ namespace FishyBusiness.GameSystem
             return game.Refresh(ref context);
         }
         
-        public void End(bool isSuccess)
+        public void End()
         {
             T context = handler.GetContext();
-            game.End(ref context, isSuccess);
+            game.End(ref context);
         }
     }
 }
