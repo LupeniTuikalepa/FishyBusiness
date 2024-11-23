@@ -6,14 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4dd9c9c2-ffbb-4531-9bcf-123a9bce19d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FishyBusiness/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FishyBusiness/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ComputerLink.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ComputerLink.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ComputerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ComputerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Extensions/Modern UI Pack/Textures/Icon/Navigation/Subtract.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Extensions/Modern UI Pack/Textures/Icon/Navigation/Subtract.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Project/Prefabs/ControlBox.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Prefabs/ControlBox.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/Prefabs/Shortcut.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Prefabs/Shortcut.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/Textures/Luis_fish.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Textures/Luis_fish.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Computer.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Computer.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ScreenController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/ScreenController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/RandomFish.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/RandomFish.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +30,7 @@
   }
 }]]></component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/ContentWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/MenuAction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/RandomFish.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/ScreenController.cs" root0="FORCE_HIGHLIGHTING" />
@@ -109,7 +104,7 @@
       <workItem from="1732316720231" duration="10000" />
       <workItem from="1732317289024" duration="37000" />
       <workItem from="1732317353535" duration="414000" />
-      <workItem from="1732390409158" duration="1885000" />
+      <workItem from="1732390409158" duration="3279000" />
     </task>
     <servers />
   </component>
