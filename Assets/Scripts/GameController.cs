@@ -6,6 +6,7 @@ namespace FishyBusiness
     {
         private static GameMetrics gameMetrics;
         public static SceneController SceneController { get; private set; }
+        public static Logger Logger { get; private set; }
 
         public static GameMetrics Metrics
         {
@@ -25,6 +26,7 @@ namespace FishyBusiness
             Application.targetFrameRate = 60;
 
             SceneController = new SceneController();
+            Logger = new Logger();
         }
 
         private static bool UnLoad()
