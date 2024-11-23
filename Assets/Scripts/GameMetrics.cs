@@ -1,7 +1,6 @@
-using FishyBusiness.Core;
 using UnityEngine;
 
-namespace FishyBusiness.Core
+namespace FishyBusiness
 {
     [CreateAssetMenu(fileName = "GameMetrics", menuName = "FishyBusiness/GameMetrics")]
     public class GameMetrics : ScriptableObject
