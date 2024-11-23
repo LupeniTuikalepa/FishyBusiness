@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b528545a5d0efac4da95adebd6e3f541
+guid: a99075326f0558742940948ada6a6d99
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4149893810283785890
-    second: Luis_fish_0
+      213: -5872051970093730483
+    second: Luis_fish 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,7 +139,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Luis_fish_0
+      name: Luis_fish 1_0
       rect:
         serializedVersion: 2
         x: 220
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e51517e019d9866c0800000000000000
-      internalID: -4149893810283785890
+      spriteID: d453eeb38d7428ea0800000000000000
+      internalID: -5872051970093730483
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Luis_fish_0: -4149893810283785890
+      Luis_fish 1_0: -5872051970093730483
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

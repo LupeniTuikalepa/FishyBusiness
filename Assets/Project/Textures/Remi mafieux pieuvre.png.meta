@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: b528545a5d0efac4da95adebd6e3f541
+guid: 6af26b0b6da07a14bafa93e24938e205
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4149893810283785890
-    second: Luis_fish_0
+      213: -6317730851803349279
+    second: Remi mafieux pieuvre_0
+  - first:
+      213: 4874473635868685959
+    second: Remi mafieux pieuvre_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 120
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,23 +142,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Luis_fish_0
+      name: Remi mafieux pieuvre_0
       rect:
         serializedVersion: 2
-        x: 220
-        y: 0
-        width: 689
-        height: 850
+        x: 345
+        y: 474
+        width: 1322
+        height: 1497
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e51517e019d9866c0800000000000000
-      internalID: -4149893810283785890
+      spriteID: 1ee3cb75349e258a0800000000000000
+      internalID: -6317730851803349279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Remi mafieux pieuvre_1
+      rect:
+        serializedVersion: 2
+        x: 1666
+        y: 1323
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 786b5fc12fb95a340800000000000000
+      internalID: 4874473635868685959
       vertices: []
       indices: 
       edges: []
@@ -174,7 +199,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Luis_fish_0: -4149893810283785890
+      Remi mafieux pieuvre_0: -6317730851803349279
+      Remi mafieux pieuvre_1: 4874473635868685959
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

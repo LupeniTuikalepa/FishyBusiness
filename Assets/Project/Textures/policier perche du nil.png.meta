@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b528545a5d0efac4da95adebd6e3f541
+guid: 0e93398bc73387347b1a2c46be024901
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4149893810283785890
-    second: Luis_fish_0
+      213: -4001448992610368569
+    second: policier perche du nil_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,23 +139,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Luis_fish_0
+      name: policier perche du nil_0
       rect:
         serializedVersion: 2
-        x: 220
-        y: 0
-        width: 689
-        height: 850
+        x: 190
+        y: 301
+        width: 1526
+        height: 1666
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e51517e019d9866c0800000000000000
-      internalID: -4149893810283785890
+      spriteID: 7c34d90875ff778c0800000000000000
+      internalID: -4001448992610368569
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Luis_fish_0: -4149893810283785890
+      policier perche du nil_0: -4001448992610368569
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
