@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class ScreenController : MonoBehaviour
 {
-    public ComputerManager computerManager;
-    public int ID;
-    public TextMeshProUGUI titleText;
+    private ComputerManager computerManager;
+    private int ID;
+    
+    [Header("References")]
+    [SerializeField] private TextMeshProUGUI titleText;
 
     public void Initialize(string title, int id, ComputerManager computerManager)
     {

@@ -4,20 +4,23 @@ using UnityEngine.UI;
 
 public class ComputerLink : MonoBehaviour, IPointerClickHandler
 {
-    public string screenName;
-    public GameObject pfbScreenToLoad;
-    private GameObject loadedScreen;
-    public int ID;
-
-    public Image icon;
+    [SerializeField] private string screenName;
+    [SerializeField] private int ID;
     
-    public ComputerManager computerManager;
+    private GameObject loadedScreen;
+    
+    [Header("References")]
+    [SerializeField] private GameObject pfbScreenToLoad;
+    [SerializeField] private Image icon;
+    [SerializeField] private ComputerManager computerManager;
 
     public void OnPointerClick(PointerEventData eventData)
     {
         if (loadedScreen != null)
         {
-            loadedScreen.GetComponent<ScreenController>().ToggleVisibility();
+            loadedScreen.SetActive(true);
+            loadedScreen.transform.SetAsLastSibling();
+            loadedScreen.transform.localPosition = Vector3.zero;
             return;
         }
 

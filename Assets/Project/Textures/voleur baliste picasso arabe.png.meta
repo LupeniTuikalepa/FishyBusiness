@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b528545a5d0efac4da95adebd6e3f541
+guid: cc6a8668f17b03f40867c5964728b8a8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4149893810283785890
-    second: Luis_fish_0
+      213: 1138679099149156168
+    second: voleur baliste picasso arabe_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 150
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Luis_fish_0
+      name: voleur baliste picasso arabe_0
       rect:
         serializedVersion: 2
-        x: 220
-        y: 0
-        width: 689
-        height: 850
+        x: 72
+        y: 8
+        width: 1656
+        height: 1685
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e51517e019d9866c0800000000000000
-      internalID: -4149893810283785890
+      spriteID: 84f72f19b966dcf00800000000000000
+      internalID: 1138679099149156168
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Luis_fish_0: -4149893810283785890
+      voleur baliste picasso arabe_0: 1138679099149156168
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
