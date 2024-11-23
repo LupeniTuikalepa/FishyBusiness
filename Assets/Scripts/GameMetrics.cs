@@ -9,5 +9,8 @@ namespace FishyBusiness
 
         [field: SerializeField]
         public int Version { get; private set; }
+
+        [field: SerializeField]
+        public int Year { get; private set; } = 2024;
     }
 }
