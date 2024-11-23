@@ -1,7 +1,7 @@
 using FishyBusiness.Data;
 using UnityEngine;
 
-namespace FishyBusiness
+namespace FishyBusiness.Documents
 {
     public interface IIdentityDocumentInfos
     {

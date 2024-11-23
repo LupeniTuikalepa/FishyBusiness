@@ -6,6 +6,8 @@ namespace FishyBusiness.Documents.UI
     {
         public IDocument Document { get; private set; }
 
+
+
         protected virtual void Bind(T document)
         {
 
@@ -34,7 +36,5 @@ namespace FishyBusiness.Documents.UI
             }
         }
 
-        protected abstract void OnSelected();
-        protected abstract void OnUnselected();
     }
 }

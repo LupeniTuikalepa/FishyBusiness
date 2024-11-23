@@ -1,11 +1,11 @@
 using FishyBusiness.Data;
-using FishyBusiness.Documents;
 using UnityEngine;
 
-namespace FishyBusiness
+namespace FishyBusiness.Documents
 {
     public readonly struct IdentityDocument : IDocument
     {
+        public DocumentType DocumentType => DocumentType.IDCard;
 
         public readonly string name;
         public readonly int birthYear;
