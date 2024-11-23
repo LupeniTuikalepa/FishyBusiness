@@ -1,10 +1,11 @@
 using UnityEngine;
 
-namespace FishyBusiness.Core
+namespace FishyBusiness
 {
     public static class GameController
     {
         private static GameMetrics gameMetrics;
+        public static SceneController SceneController { get; private set; }
 
         public static GameMetrics Metrics
         {
@@ -22,6 +23,8 @@ namespace FishyBusiness.Core
         {
             Application.wantsToQuit += UnLoad;
             Application.targetFrameRate = 60;
+
+            SceneController = new SceneController();
         }
 
         private static bool UnLoad()
