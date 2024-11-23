@@ -5,6 +5,6 @@ namespace FishyBusiness.GameSystem.Interfaces
         IGame Game { get; }
         void Begin();
         bool Refresh();
-        void End(bool isSuccess);
+        void End();
     }
 }

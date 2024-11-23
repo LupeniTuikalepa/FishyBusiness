@@ -6,7 +6,7 @@ namespace FishyBusiness.GameSystem.Sample
 {
     public class SlotHandler : MonoBehaviour, IGameHandler<SlotContext>, ILogSource
     {
-        public string Name { get; }
+        public string Name => nameof(SlotHandler);
         
         [SerializeField] private SlotContent content;
         [SerializeField] private Player player;
@@ -19,7 +19,7 @@ namespace FishyBusiness.GameSystem.Sample
         {
             if (betAmount > player.Money || betAmount <= 0)
             {
-                GameController.Logger.LogError(this, "This is not a valid Bet !");
+                GameController.Logger.LogError(this, $"This is not a valid Bet ! {nameof(betAmount)} = {betAmount} - {nameof(player.Money)} = {player.Money}");
                 return;
             }
             
@@ -39,6 +39,11 @@ namespace FishyBusiness.GameSystem.Sample
 
         public void GetBetAmount(string value)
         {
+            if (string.IsNullOrEmpty(value))
+            {
+                betAmount = 0;
+                return;
+            }
             betAmount = int.Parse(value);
         }
     }
