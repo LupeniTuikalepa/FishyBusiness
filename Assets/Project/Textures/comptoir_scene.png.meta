@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      comptoir_scene_0: 1286169701432727673
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
