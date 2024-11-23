@@ -1,22 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using FishyBusiness.Core;
 using FishyBusiness.Data;
 using FishyBusiness.Documents.UI;
+using LTX.Tools;
 using UnityEngine;
 using Object = System.Object;
 
 namespace FishyBusiness.Documents.Visuals
 {
-    public abstract class DeskVisual : MonoBehaviour
+    public abstract class DeskVisual : MonoBehaviour, ILogSource
     {
+        string ILogSource.Name => "DeskVisual";
+
         private DeskAnchor[] anchors;
 
         private List<IDocumentVisual> documentsUI;
 
+        private DynamicBuffer<IDocumentVisual> dynamicBuffer;
+
+
+        [SerializeField]
+        private Player player;
+
         private void Awake()
         {
+            dynamicBuffer = new DynamicBuffer<IDocumentVisual>(32);
             anchors = GetComponentsInChildren<DeskAnchor>();
         }
+
 
         public virtual void Bind(Desk desk)
         {
@@ -38,21 +50,30 @@ namespace FishyBusiness.Documents.Visuals
                 DocumentData data = document.Data;
                 if (anchors[i].DocumentData == data)
                 {
-                    var go = GameObject.Instantiate(data.UIPrefab);
+                    GameObject go = Instantiate(data.UIPrefab);
                     if (go.TryGetComponent(out IDocumentVisual visual))
-                    {
-                        var visual = ;
-                    }
+                        visual.Bind(document);
                     else
-                    {
-                    }
+                        GameController.Logger.LogError(this, $"Couldn't find {nameof(IDocumentVisual)} on prefab {data.UIPrefab.name}");
                 }
             }
         }
 
         protected virtual void RemoveDocumentVisual(IDocument document)
         {
+            dynamicBuffer.CopyFrom(documentsUI);
 
+            for (int i = 0; i < dynamicBuffer.Length; i++)
+            {
+                IDocumentVisual visual = dynamicBuffer[i];
+                if (visual.Document == document)
+                {
+                    visual.UnBind(document);
+                    documentsUI.Remove(visual);
+
+                    Destroy(visual.gameObject);
+                }
+            }
         }
 
     }
