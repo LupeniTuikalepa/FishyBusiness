@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace FishyBusiness.DayManager.Ui
+namespace FishyBusiness.DaySystem.Ui
 {
     public class DayFinishUiController : MonoBehaviour
     {

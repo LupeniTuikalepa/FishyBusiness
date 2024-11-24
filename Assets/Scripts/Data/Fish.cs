@@ -1,4 +1,5 @@
 ﻿using System;
+using FishyBusiness.DaySystem;
 using FishyBusiness.Documents;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace FishyBusiness.Data
     {
         public Sprite image;
 
-        public int id;
+        public string id;
         public string name;
 
         public int birthYear;
@@ -39,5 +40,8 @@ namespace FishyBusiness.Data
                    $" \n - {nameof(nationality)}: {nationality}, " +
                    $" \n - {nameof(mafia)}: {mafia}, {nameof(rank)}: ";
         }
+
+        //TODO
+        public Fish Alter() => this;
     }
 }

@@ -1,10 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using FishyBusiness.Data;
-using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace FishyBusiness.Helpers
 {
-    public class FishGenerator
+    public static class FishGeneration
     {
         private static readonly string[] FishNamesBuffer = new string[]
         {
@@ -60,7 +61,7 @@ namespace FishyBusiness.Helpers
         };
 
 
-        private string GenerateMafiaFishName()
+        private static string GenerateMafiaFishName()
         {
             string fishName = FishNamesBuffer[Random.Range(0, FishNamesBuffer.Length)];
             string mafiaTitle = MafiaTitlesBuffer[Random.Range(0, MafiaTitlesBuffer.Length)];
@@ -70,14 +71,14 @@ namespace FishyBusiness.Helpers
             return $"{adjective} {fishName}, {mafiaTitle} {epithet}";
         }
 
-        public Fish GenerateFish()
+        public static Fish GenerateFish()
         {
             GameMetrics gameMetrics = GameMetrics.Global;
             GameDatabase gameDatabase = GameController.GameDatabase;
 
             Fish fish = new Fish()
             {
-                id = GetHashCode(),
+                id = Guid.NewGuid().ToString(),
                 name = GenerateMafiaFishName(),
                 birthYear = Random.Range(gameMetrics.Year - gameMetrics.MaxFishAge, gameMetrics.Year),
                 expiryDate = Random.Range(gameMetrics.ExpirationDateRange.x, gameMetrics.ExpirationDateRange.y),

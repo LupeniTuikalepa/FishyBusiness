@@ -2,7 +2,7 @@ using System;
 using FishyBusiness.Scenes.Xictoss_Scene.Script;
 using UnityEngine;
 
-namespace FishyBusiness.DayManager.Ui
+namespace FishyBusiness.DaySystem.Ui
 {
 
 

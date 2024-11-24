@@ -1,6 +1,6 @@
-﻿namespace FishyBusiness.DayManager
+﻿namespace FishyBusiness.DaySystem
 {
-    public interface IDayChoice
+    public interface IDayFish
     {
         bool IsTruth { get; }
         int Money { get; }
