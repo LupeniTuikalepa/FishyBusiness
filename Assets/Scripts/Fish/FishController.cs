@@ -1,28 +1,71 @@
 using System;
+using FishyBusiness.DaySystem;
 using UnityEngine;
 
-public class FishController : MonoBehaviour
+namespace FishyBusiness.Fishes
 {
-    [SerializeField]private GameObject fishPrefab;
-    private Animator _animator;
-    private void Start()
+    public class FishController : MonoBehaviour
     {
-        _animator = GetComponent<Animator>();
-        GetComponent<RandomFish>().GetRandomFish();
-        _animator.Play("Enter");
-    }
+        [SerializeField]
+        private FishRenderer fishPrefab;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        [SerializeField]
+        private Transform exit, entrance, idle;
+
+        private FishRenderer currentFish;
+
+        private void OnEnable()
         {
-            Instantiate(fishPrefab, transform.position, Quaternion.identity);
-            _animator.Play("Exit");
+            LevelManager.Instance.OnDayBegun += SyncWithCurrentDay;
+            LevelManager.Instance.OnDayEnded += UnSyncWithCurrentDay;
+            LevelManager.Instance.OnSuccess += PlaySuccessAnim;
+            LevelManager.Instance.OnFailure += PlayFailureAnim;
         }
-    }
 
-    public void DestroyFish()
-    {
-        Destroy(gameObject);
+
+        private void OnDisable()
+        {
+            LevelManager.Instance.OnDayBegun -= SyncWithCurrentDay;
+            LevelManager.Instance.OnDayEnded -= UnSyncWithCurrentDay;
+            LevelManager.Instance.OnSuccess -= PlaySuccessAnim;
+            LevelManager.Instance.OnFailure -= PlayFailureAnim;
+        }
+
+        private void SyncWithCurrentDay(Day day)
+        {
+            day.OnNewFish += SpawnNewFish;
+        }
+
+        private void UnSyncWithCurrentDay(Day day)
+        {
+            day.OnNewFish -= SpawnNewFish;
+        }
+        private void SpawnNewFish(IDayFish idayFish)
+        {
+            if (idayFish is DayFish dayFish)
+            {
+                FishRenderer fish = Instantiate(fishPrefab, entrance.position, Quaternion.identity);
+
+                fish.Bind(dayFish.fish);
+                
+                if(currentFish)
+                    currentFish.MoveTo(exit);
+
+                fish.MoveTo(idle);
+                currentFish = fish;
+            }
+        }
+
+        private void PlaySuccessAnim(IDayFish dayFish, Day day)
+        {
+            if (currentFish)
+                currentFish.ReactPositively();
+        }
+
+        private void PlayFailureAnim(IDayFish dayFish, Day day)
+        {
+            if (currentFish)
+                currentFish.ReactNegatively();
+        }
     }
 }

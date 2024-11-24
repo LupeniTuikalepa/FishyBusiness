@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 43b69848fd44c4a4abc2a54cc04330ed
+guid: e4c8b4e8ace913a48b45dec52adb586e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1643204359927786167
-    second: poisson a dent_0
+      213: -6317730851803349279
+    second: Remi mafieux pieuvre_0
+  - first:
+      213: 4874473635868685959
+    second: Remi mafieux pieuvre_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,9 +52,9 @@ TextureImporter:
   spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  alignment: 7
+  spritePivot: {x: 0.5, y: 0}
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,23 +103,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: poisson a dent_0
+      name: Remi mafieux pieuvre_0
       rect:
         serializedVersion: 2
-        x: 424
-        y: 249
-        width: 881
-        height: 1064
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 345
+        y: 94
+        width: 1322
+        height: 1807
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9459129375a2239e0800000000000000
-      internalID: -1643204359927786167
+      spriteID: 1ee3cb75349e258a0800000000000000
+      internalID: -6317730851803349279
       vertices: []
       indices: 
       edges: []
@@ -125,7 +128,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +138,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      poisson a dent_0: -1643204359927786167
+      Remi mafieux pieuvre_0: -6317730851803349279
+      Remi mafieux pieuvre_1: 4874473635868685959
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -12,17 +12,17 @@ namespace FishyBusiness.DaySystem.Ui
         
         private void OnEnable()
         {
-            levelManager.OnFinishedDay += OnFinishedDay;
+            levelManager.OnDayEnded += OnDayEnded;
         }
 
-        private void OnFinishedDay(Day obj)
+        private void OnDayEnded(Day obj)
         {
             DayFinishCanvas.SetActive(true);
         }
 
         private void OnDisable()
         {
-            levelManager.OnFinishedDay -= OnFinishedDay;
+            levelManager.OnDayEnded -= OnDayEnded;
         }
 
         public void StartNextDay()

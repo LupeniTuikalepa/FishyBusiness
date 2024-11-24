@@ -18,7 +18,7 @@ namespace FishyBusiness.DaySystem.Ui
         {
             DayFinishUiController.OnStartNextDay += DayFinishUiControllerOnStartNextDay;
             levelManager.OnGameOver += LevelManagerDesactiveeHud;
-            levelManager.OnFinishedDay += LevelManagerDesactiveHud;
+            levelManager.OnDayEnded += LevelManagerDesactiveHud;
             debugPlayer.OnPlayerDead += LevelManagerDesactiveeHud;
         }
 
@@ -27,7 +27,7 @@ namespace FishyBusiness.DaySystem.Ui
         {
             DayFinishUiController.OnStartNextDay -= DayFinishUiControllerOnStartNextDay;
             levelManager.OnGameOver -= LevelManagerDesactiveeHud;
-            levelManager.OnFinishedDay -= LevelManagerDesactiveHud;
+            levelManager.OnDayEnded -= LevelManagerDesactiveHud;
             debugPlayer.OnPlayerDead -= LevelManagerDesactiveeHud;
         }
 

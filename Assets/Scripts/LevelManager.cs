@@ -12,8 +12,8 @@ namespace FishyBusiness
     public class LevelManager : MonoSingleton<LevelManager>
     {
         public event Action OnGameOver;
-        public event Action<Day> OnFinishedDay;
-        public event Action<Day> OnBeginDay;
+        public event Action<Day> OnDayEnded;
+        public event Action<Day> OnDayBegun;
 
         public event Action<IDayFish, Day> OnSuccess;
         public event Action<IDayFish, Day> OnFailure;
@@ -45,7 +45,7 @@ namespace FishyBusiness
             currentDayIndex += 1;
             float quota = GameMetrics.Global.StartQuota * Mathf.Pow(GameMetrics.Global.QuotaScaling, currentDayIndex);
 
-            List<Fish> vips = new List<Fish>();
+            List<Data.Fish> vips = new List<Data.Fish>();
 
             for (int i = 0; i < GameMetrics.Global.VIPsCount; i++)
                 vips.Add(FishGeneration.GenerateFish());
@@ -58,7 +58,7 @@ namespace FishyBusiness
             //Reset timer
             currentDayTime = GameMetrics.Global.LevelTime;
 
-            OnBeginDay?.Invoke(currentDay);
+            OnDayBegun?.Invoke(currentDay);
         }
 
         private void CurrentDayOnOnNewFish(IDayFish fish)
@@ -70,7 +70,7 @@ namespace FishyBusiness
         {
             if (currentDay.IsQuotaReached)
             {
-                OnFinishedDay?.Invoke(currentDay);
+                OnDayEnded?.Invoke(currentDay);
             }
             else
             {

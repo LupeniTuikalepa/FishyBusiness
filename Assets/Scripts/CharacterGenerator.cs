@@ -10,7 +10,7 @@ public class CharacterGenerator : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Fish fish = FishGeneration.GenerateFish();
+            FishyBusiness.Data.Fish fish = FishGeneration.GenerateFish();
             GameController.Logger.Log(fish.ToString());
         }
     }

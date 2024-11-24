@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 4716099922303678500}
   - component: {fileID: 7487701014224211766}
   - component: {fileID: 8579820340342495930}
-  - component: {fileID: 7802803690660643101}
-  - component: {fileID: 7146631522869523860}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -79,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: cc6a8668f17b03f40867c5964728b8a8, type: 3}
+  m_Sprite: {fileID: 1138679099149156168, guid: daa0a59b017a8f34e8e79fb81f5cf472, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,52 +95,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3946386982794507907}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 338cb6c260177f44795ae68b705e9401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishes:
-  - {fileID: 21300000, guid: b4451ea2eeac21e4cb9e09f9c262a1c4, type: 3}
-  - {fileID: 21300000, guid: cc6a8668f17b03f40867c5964728b8a8, type: 3}
-  - {fileID: 21300000, guid: e5b53b85cba980646a1801f9d9acb3d1, type: 3}
-  - {fileID: 21300000, guid: a99075326f0558742940948ada6a6d99, type: 3}
-  - {fileID: 21300000, guid: b1b6a470a6ad4d54eb4aceaeadce06f5, type: 3}
-  - {fileID: 21300000, guid: decd8f6fe9883da4aa21ecd89ded69c9, type: 3}
-  - {fileID: -4001448992610368569, guid: 0e93398bc73387347b1a2c46be024901, type: 3}
-  - {fileID: -6317730851803349279, guid: 6af26b0b6da07a14bafa93e24938e205, type: 3}
---- !u!95 &7802803690660643101
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3946386982794507907}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ecf6ce13bd114d2488e9fd80f08c7f1d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7146631522869523860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3946386982794507907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5d0d37bc5728f1469f6f9f518d0bacc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fishPrefab: {fileID: 3946386982794507907}
+  moveDuration: 0.2
+  waveAmplitude: 0.2
+  waveFrequency: 1
+  angryShakeStrength: 0
+  angryShakeVibrato: 0
