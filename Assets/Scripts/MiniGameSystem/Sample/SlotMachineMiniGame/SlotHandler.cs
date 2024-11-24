@@ -1,8 +1,8 @@
-﻿using FishyBusiness.GameSystem.Interfaces;
+﻿using FishyBusiness.MiniGameSystem.Interfaces;
 using TMPro;
 using UnityEngine;
 
-namespace FishyBusiness.GameSystem.Sample
+namespace FishyBusiness.MiniGameSystem.Sample
 {
     public class SlotHandler : MonoBehaviour, IMiniGameHandler<SlotContext>, ILogSource
     {
@@ -18,12 +18,12 @@ namespace FishyBusiness.GameSystem.Sample
 
         private void OnEnable()
         {
-            GameManager.Instance.OnGameStopped += GameStopped;
+            MiniGameManager.Instance.OnGameStopped += GameStopped;
         }
         
         private void OnDisable()
         {
-            GameManager.Instance.OnGameStopped -= GameStopped;
+            MiniGameManager.Instance.OnGameStopped -= GameStopped;
         }
 
         private void GameStopped(IMiniGameRunner obj)
@@ -59,7 +59,7 @@ namespace FishyBusiness.GameSystem.Sample
             RefreshMoney();
             
             slot = new Slot();
-            GameManager.Instance.StartGame(slot, this);
+            MiniGameManager.Instance.StartGame(slot, this);
         }
 
         public SlotContext GetContext()

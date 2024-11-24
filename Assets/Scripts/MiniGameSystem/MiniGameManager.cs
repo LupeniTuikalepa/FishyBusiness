@@ -1,13 +1,12 @@
 using System;
 using System.Collections.Generic;
-using FishyBusiness.GameSystem.Interfaces;
+using FishyBusiness.MiniGameSystem.Interfaces;
 using LTX.Singletons;
 using LTX.Tools;
-using UnityEngine;
 
-namespace FishyBusiness.GameSystem
+namespace FishyBusiness.MiniGameSystem
 {
-    public class GameManager : MonoSingleton<GameManager>
+    public class MiniGameManager : MonoSingleton<MiniGameManager>
     {
         public event Action<IMiniGameRunner> OnGameStarted;
         public event Action<IMiniGameRunner> OnGameStopped;

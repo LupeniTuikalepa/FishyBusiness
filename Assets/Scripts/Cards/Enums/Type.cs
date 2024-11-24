@@ -1,4 +1,4 @@
-﻿namespace FishyBusiness.GameSystem.Sample.BlackJack.Enums
+﻿namespace FishyBusiness.Cards.Enums
 {
     public enum CardFamily
     {

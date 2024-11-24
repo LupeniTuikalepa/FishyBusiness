@@ -1,8 +1,8 @@
-﻿using FishyBusiness.GameSystem.Interfaces;
-using FishyBusiness.GameSystem.Sample.BlackJack.Cards;
+﻿using FishyBusiness.MiniGameSystem.Interfaces;
+using FishyBusiness.MiniGameSystem.Sample.BlackJack.Cards;
 using FishyBusiness.MiniGameSystem.Sample.BlackJackMiniGame;
 
-namespace FishyBusiness.GameSystem.Sample.BlackJack
+namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
 {
     public struct BlackJackContext : IMiniGameContext
     {

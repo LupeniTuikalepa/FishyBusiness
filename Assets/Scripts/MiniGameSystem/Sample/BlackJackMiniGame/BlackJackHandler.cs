@@ -1,12 +1,12 @@
 ﻿using System.Collections;
-using FishyBusiness.GameSystem.Interfaces;
-using FishyBusiness.GameSystem.Sample.BlackJack.Cards;
+using FishyBusiness.MiniGameSystem.Interfaces;
+using FishyBusiness.MiniGameSystem.Sample.BlackJack.Cards;
 using FishyBusiness.MiniGameSystem.Sample.BlackJackMiniGame;
 using Michsky.UI.ModernUIPack;
 using TMPro;
 using UnityEngine;
 
-namespace FishyBusiness.GameSystem.Sample.BlackJack
+namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
 {
     public class BlackJackHandler : MonoBehaviour, IMiniGameHandler<BlackJackContext>, ILogSource
     {
@@ -14,6 +14,7 @@ namespace FishyBusiness.GameSystem.Sample.BlackJack
         
         [SerializeField] private Player player;
         [SerializeField] private ButtonManagerBasic startButton;
+        [SerializeField] private ButtonManagerBasic[] gameButtons;
         [SerializeField] private TMP_InputField moneyBet;
         [SerializeField] private TMP_Text playerMoney;
         [SerializeField] private BlackJackHandUI playerHandUI, dealerHandUI;
@@ -25,17 +26,18 @@ namespace FishyBusiness.GameSystem.Sample.BlackJack
         
         private void OnEnable()
         {
-            GameManager.Instance.OnGameStopped += GameStopped;
+            MiniGameManager.Instance.OnGameStopped += GameStopped;
         }
         
         private void OnDisable()
         {
-            GameManager.Instance.OnGameStopped -= GameStopped;
+            MiniGameManager.Instance.OnGameStopped -= GameStopped;
         }
 
         private void GameStopped(IMiniGameRunner obj)
         {
             playerMoney.text = player.Money.ToString();
+            StartCoroutine(ClearBlackJack());
         }
 
         private void RefreshMoney()
@@ -78,7 +80,19 @@ namespace FishyBusiness.GameSystem.Sample.BlackJack
                 return;
             }
 
+            SetupGame();
+            MiniGameManager.Instance.StartGame(blackJack, this);
+        }
+
+        private void SetupGame()
+        {
             startButton.buttonVar.interactable = false;
+            moneyBet.interactable = false;
+
+            foreach (ButtonManagerBasic button in gameButtons)
+            {
+                button.buttonVar.interactable = true;
+            }
             
             player.RemoveMoney(betAmount);
             RefreshMoney();
@@ -87,7 +101,6 @@ namespace FishyBusiness.GameSystem.Sample.BlackJack
             context.status = GameStatus.Pending;
             gameDeck = new BlackJackDeck();
             blackJack = new BlackJack();
-            GameManager.Instance.StartGame(blackJack, this);
         }
 
         private BlackJackHand playerHand;
@@ -142,8 +155,6 @@ namespace FishyBusiness.GameSystem.Sample.BlackJack
             }
             
             isStaying = true;
-
-            StartCoroutine(ClearBlackJack());
         }
 
         public void PlayerHit()
@@ -180,8 +191,14 @@ namespace FishyBusiness.GameSystem.Sample.BlackJack
 
         public IEnumerator ClearBlackJack()
         {
+            foreach (ButtonManagerBasic button in gameButtons)
+            {
+                button.buttonVar.interactable = false;
+            }
+            
             yield return new WaitForSeconds(2f);
-
+            
+            moneyBet.interactable = true;
             startButton.buttonVar.interactable = true;
             waitingForClear = true;
         }

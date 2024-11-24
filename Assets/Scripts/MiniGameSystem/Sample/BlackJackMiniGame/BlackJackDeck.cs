@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using FishyBusiness.GameSystem.Sample.BlackJack.Enums;
+using FishyBusiness.Cards;
+using FishyBusiness.Cards.Enums;
 using Random = System.Random;
 
-namespace FishyBusiness.GameSystem.Sample.BlackJack.Cards
+namespace FishyBusiness.MiniGameSystem.Sample.BlackJack.Cards
 {
     public class BlackJackDeck : CardCollection<Card>
     {

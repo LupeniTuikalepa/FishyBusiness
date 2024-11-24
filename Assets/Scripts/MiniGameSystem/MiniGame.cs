@@ -1,6 +1,6 @@
-using FishyBusiness.GameSystem.Interfaces;
+using FishyBusiness.MiniGameSystem.Interfaces;
 
-namespace FishyBusiness.GameSystem
+namespace FishyBusiness.MiniGameSystem
 {
     public abstract class MiniGame<T> : IMiniGame 
         where T : IMiniGameContext
