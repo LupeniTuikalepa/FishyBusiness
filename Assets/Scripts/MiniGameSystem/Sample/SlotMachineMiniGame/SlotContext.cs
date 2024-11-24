@@ -2,7 +2,7 @@
 
 namespace FishyBusiness.GameSystem.Sample
 {
-    public struct SlotContext : IGameContext
+    public struct SlotContext : IMiniGameContext
     {
         public Player Player;
         public SlotContent Content;

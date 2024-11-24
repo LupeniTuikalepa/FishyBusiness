@@ -1,8 +1,8 @@
 namespace FishyBusiness.GameSystem.Interfaces
 {
-    public interface IGameRunner
+    public interface IMiniGameRunner
     {
-        IGame Game { get; }
+        IMiniGame MiniGame { get; }
         void Begin();
         bool Refresh();
         void End();

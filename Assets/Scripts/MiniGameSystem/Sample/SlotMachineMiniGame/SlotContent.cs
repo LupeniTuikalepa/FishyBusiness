@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using FishyBusiness.GameSystem.Interfaces;
 using TMPro;
 using UnityEngine;
 
@@ -15,9 +16,11 @@ namespace FishyBusiness.GameSystem.Sample
 
         public void StartSlotMachine(SlotContext context)
         {
-            result = Random.Range(0, 2) == 0;
+            if (context.status != GameStatus.None) return;
+            
+            result = Random.Range(0, 3) == 0;
             resultText.text = "";
-            StartCoroutine(WaitSeconds(2f, context));
+            StartCoroutine(WaitSeconds(1f));
         }
 
         public bool GetResult(out bool slotResult)
@@ -35,17 +38,16 @@ namespace FishyBusiness.GameSystem.Sample
         {
             if (result)
             {
-                context.Player.AddMoney(context.BetAmount);
+                context.Player.AddMoney(context.BetAmount * 3);
                 resultText.text = "Won !!!";
             }
             else
             {
-                context.Player.RemoveMoney(context.BetAmount);
                 resultText.text = "Loser...";
             }
         }
         
-        private IEnumerator WaitSeconds(float time, SlotContext context)
+        private IEnumerator WaitSeconds(float time)
         {
             isTimerActive = true;
             yield return new WaitForSeconds(time);
