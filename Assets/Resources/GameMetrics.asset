@@ -18,7 +18,19 @@ MonoBehaviour:
   <LevelTime>k__BackingField: 45
   <VIPsCount>k__BackingField: 6
   <SellPrice>k__BackingField: 10
-  <LyingFishProbability>k__BackingField: 0.3
+  <FishAssociations>k__BackingField:
+  - <FishType>k__BackingField: 0
+    <FishFood>k__BackingField: 0
+    <QuotaInfluence>k__BackingField: 0
+    <LifeInfluence>k__BackingField: 0
+  <FishPairs>k__BackingField:
+  - <FishType>k__BackingField: 0
+    <FishFood>k__BackingField: 0
+  - <FishType>k__BackingField: 1
+    <FishFood>k__BackingField: 1
+  - <FishType>k__BackingField: 2
+    <FishFood>k__BackingField: 2
+  <PoliceFishProbability>k__BackingField: 0.3
   <VIPFishProbability>k__BackingField: 0.3
   <MainMenuScene>k__BackingField: 0
   <LevelScene>k__BackingField: 1

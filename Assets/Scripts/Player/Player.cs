@@ -18,6 +18,7 @@ namespace FishyBusiness
 
         private List<IDocument> temporaryDocuments;
 
+        private int life;
 
         protected override void Awake()
         {
@@ -81,6 +82,11 @@ namespace FishyBusiness
                 Hand.RemoveDocument(doc);
             }
             temporaryDocuments.Clear();
+        }
+
+        public void Hit(int lifeLoss)
+        {
+            life -= lifeLoss;
         }
 
     }

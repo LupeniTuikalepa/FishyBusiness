@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using FishyBusiness.Data;
 using FishyBusiness.DaySystem;
+using FishyBusiness.Fishes;
 using FishyBusiness.Helpers;
 using LTX.Singletons;
 using UnityEngine;
@@ -79,9 +80,12 @@ namespace FishyBusiness
 
 
 
-        public void Accept()
+        public void MakeChoice(FishFood food)
         {
-            if (currentDay.AcceptChoice(out IDayFish choice))
+            if(currentDay == null)
+                return;
+
+            if (currentDay.MakeChoice(food, out IDayFish choice))
             {
                 OnSuccess?.Invoke(choice, currentDay);
             }
@@ -91,16 +95,5 @@ namespace FishyBusiness
             }
         }
 
-        public void Decline()
-        {
-            if (currentDay.DeclineChoice(out IDayFish choice))
-            {
-                OnSuccess?.Invoke(choice, currentDay);
-            }
-            else
-            {
-                OnFailure?.Invoke(choice, currentDay);
-            }
-        }
     }
 }

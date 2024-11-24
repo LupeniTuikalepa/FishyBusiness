@@ -23,7 +23,7 @@ namespace FishyBusiness
         [SerializeField, BoxGroup("Drag")]
         private float dragSmoothness = 5f;
 
-        private Vector2 targetPos;
+        protected Vector2 TargetPos { get; private set; }
         public bool IsDragged { get; private set; }
 
         private void Awake()
@@ -42,7 +42,7 @@ namespace FishyBusiness
         {
             if (IsDragged)
             {
-                Vector3 targetWorldPos = new Vector3(targetPos.x, targetPos.y, draggedTarget.position.z);
+                Vector3 targetWorldPos = new Vector3(TargetPos.x, TargetPos.y, draggedTarget.position.z);
                 draggedTarget.position = Vector3.Lerp(draggedTarget.position, targetWorldPos, dragSmoothness * Time.deltaTime);
             }
         }
@@ -67,6 +67,7 @@ namespace FishyBusiness
 
         public virtual void BeginDrag()
         {
+            OnMouseExit();
             IsDragged = true;
             if(draggedTarget != null && draggedTarget != transform)
                 draggedTarget.gameObject.SetActive(true);
@@ -74,6 +75,7 @@ namespace FishyBusiness
 
         public virtual void EndDrag()
         {
+            OnMouseExit();
             IsDragged = false;
             if(draggedTarget != null && draggedTarget != transform)
                 draggedTarget.gameObject.SetActive(false);
@@ -81,7 +83,7 @@ namespace FishyBusiness
 
         public virtual void Drag(Vector2 worldPos)
         {
-            targetPos = worldPos;
+            TargetPos = worldPos;
         }
     }
 }

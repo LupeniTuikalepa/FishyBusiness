@@ -1,3 +1,6 @@
+using System;
+using DG.Tweening;
+using FishyBusiness.Fishes;
 using UnityEngine;
 
 namespace FishyBusiness
@@ -5,8 +8,13 @@ namespace FishyBusiness
     public class Box : Draggable
     {
         [SerializeField]
-        private Transform fish;
+        private LayerMask dropMask;
 
+        [SerializeField]
+        private FishFood fishFood;
+
+        [SerializeField]
+        private Transform fish;
         [SerializeField]
         private Transform startPos;
 
@@ -27,9 +35,19 @@ namespace FishyBusiness
         public override void EndDrag()
         {
             base.EndDrag();
+
             draggedTarget.transform.position = startPos.position;
             fish.transform.position = startPos.position;
             fish.gameObject.SetActive(false);
+
+            Collider2D hit = Physics2D.OverlapPoint(TargetPos, dropMask);
+            if (hit != null)
+            {
+                LevelManager.Instance.MakeChoice(fishFood);
+            }
         }
+
+
+
     }
 }

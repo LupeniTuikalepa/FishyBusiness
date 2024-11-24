@@ -9,13 +9,13 @@ namespace FishyBusiness.Scenes.Xictoss_Scene.Script
 
         public void Accept()
         {
-            levelManager.Accept();
+            // levelManager.MakeChoice();
         }
 
         public void Decline()
         {
-            levelManager.Decline();
-        }        
+            // levelManager.Decline();
+        }
 
     }
 }
