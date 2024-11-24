@@ -36,6 +36,7 @@ namespace FishyBusiness.Fishes
         private float jumpHeight;
         [SerializeField]
         private float jumpDuration;
+
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -60,13 +61,13 @@ namespace FishyBusiness.Fishes
             transform.DOShakePosition(.5f, angryShakeStrength, angryShakeVibrato);
         }
 
-        public void MoveTo(Transform destination)
+        public Tween MoveTo(Transform destination)
         {
             // Get the target position
             Vector3 targetPosition = destination.position;
 
             // move towards X linearly
-            transform.DOMoveX(targetPosition.x, moveDuration).SetEase(Ease.Linear);
+            var t= transform.DOMoveX(targetPosition.x, moveDuration).SetEase(Ease.Linear);
 
             // Move along y axis following the sine wave
             DOVirtual.Float(0, moveDuration, moveDuration, (t) =>
@@ -75,6 +76,8 @@ namespace FishyBusiness.Fishes
                 float newY = waveAmplitude * Mathf.Sin(t * waveFrequency * Mathf.PI * 2);
                 transform.position = new Vector3(transform.position.x, destination.position.y + newY, destination.position.z);
             }).SetEase(Ease.Linear);
+
+            return t;
         }
     }
 }

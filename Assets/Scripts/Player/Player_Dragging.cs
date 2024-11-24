@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
 
@@ -14,10 +16,12 @@ namespace FishyBusiness
         [SerializeField]
         private LayerMask draggableMask;
 
+        List<RaycastResult> resultsBuffer = new List<RaycastResult>();
         private void SetupInputs()
         {
-            PlayerInputs.Player.DragItem.performed += OnDragInput;
+            resultsBuffer ??= new List<RaycastResult>();
 
+            PlayerInputs.Player.DragItem.performed += OnDragInput;
         }
 
         private void UpdateDrag()
@@ -40,8 +44,18 @@ namespace FishyBusiness
 
             if(isGrab && CurrentDraggable == null)
             {
-                Collider2D hit = Physics2D.OverlapPoint(worldPos, draggableMask);
+                PointerEventData eventData = new PointerEventData(EventSystem.current)
+                {
+                    position = screenPos
+                };
 
+                EventSystem.current.RaycastAll(eventData, resultsBuffer);
+                foreach (RaycastResult result in resultsBuffer)
+                    Debug.Log(result.gameObject.name);
+                if(resultsBuffer.Count > 0)
+                    return;
+
+                Collider2D hit = Physics2D.OverlapPoint(worldPos, draggableMask);
                 if (hit != null && hit.TryGetComponent(out Draggable draggable))
                 {
                     CurrentDraggable = draggable;

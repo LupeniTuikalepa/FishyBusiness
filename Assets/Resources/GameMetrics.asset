@@ -20,9 +20,50 @@ MonoBehaviour:
   <SellPrice>k__BackingField: 10
   <FishAssociations>k__BackingField:
   - <FishType>k__BackingField: 0
+    <FishFood>k__BackingField: 1
+    <QuotaInfluence>k__BackingField: 0
+    <LifeInfluence>k__BackingField: 1
+    <MoneyInfluence>k__BackingField: 0
+  - <FishType>k__BackingField: 0
     <FishFood>k__BackingField: 0
     <QuotaInfluence>k__BackingField: 0
     <LifeInfluence>k__BackingField: 0
+    <MoneyInfluence>k__BackingField: 50
+  - <FishType>k__BackingField: 0
+    <FishFood>k__BackingField: 2
+    <QuotaInfluence>k__BackingField: 0
+    <LifeInfluence>k__BackingField: 2
+    <MoneyInfluence>k__BackingField: 0
+  - <FishType>k__BackingField: 1
+    <FishFood>k__BackingField: 1
+    <QuotaInfluence>k__BackingField: 0
+    <LifeInfluence>k__BackingField: 0
+    <MoneyInfluence>k__BackingField: 100
+  - <FishType>k__BackingField: 1
+    <FishFood>k__BackingField: 0
+    <QuotaInfluence>k__BackingField: 50
+    <LifeInfluence>k__BackingField: 0
+    <MoneyInfluence>k__BackingField: 0
+  - <FishType>k__BackingField: 1
+    <FishFood>k__BackingField: 2
+    <QuotaInfluence>k__BackingField: 0
+    <LifeInfluence>k__BackingField: 0
+    <MoneyInfluence>k__BackingField: 100
+  - <FishType>k__BackingField: 2
+    <FishFood>k__BackingField: 0
+    <QuotaInfluence>k__BackingField: 100
+    <LifeInfluence>k__BackingField: 0
+    <MoneyInfluence>k__BackingField: 0
+  - <FishType>k__BackingField: 2
+    <FishFood>k__BackingField: 1
+    <QuotaInfluence>k__BackingField: 150
+    <LifeInfluence>k__BackingField: 0
+    <MoneyInfluence>k__BackingField: 0
+  - <FishType>k__BackingField: 2
+    <FishFood>k__BackingField: 2
+    <QuotaInfluence>k__BackingField: 0
+    <LifeInfluence>k__BackingField: 0
+    <MoneyInfluence>k__BackingField: 200
   <FishPairs>k__BackingField:
   - <FishType>k__BackingField: 0
     <FishFood>k__BackingField: 0

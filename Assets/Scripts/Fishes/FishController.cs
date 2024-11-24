@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using FishyBusiness.DaySystem;
 using UnityEngine;
 
@@ -43,15 +44,15 @@ namespace FishyBusiness.Fishes
         }
         private void SpawnNewFish(IDayFish idayFish)
         {
-            GameController.Logger.Log(this, "Spawning new fish");
             if (idayFish is DayFish dayFish)
             {
                 FishRenderer fish = Instantiate(fishPrefab, entrance.position, Quaternion.identity);
 
                 fish.Bind(dayFish.fish);
 
-                if(currentFish)
-                    currentFish.MoveTo(exit);
+                FishRenderer last = currentFish;
+                if(last)
+                    last.MoveTo(exit).OnComplete(() => Destroy(last.gameObject));
 
                 fish.MoveTo(idle);
                 currentFish = fish;

@@ -46,8 +46,5 @@ namespace FishyBusiness
                 LevelManager.Instance.MakeChoice(fishFood);
             }
         }
-
-
-
     }
 }

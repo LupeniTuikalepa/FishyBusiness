@@ -1,6 +1,7 @@
 ﻿using FishyBusiness.Data;
 using FishyBusiness.Fishes;
 using FishyBusiness.Helpers;
+using UnityEngine;
 
 namespace FishyBusiness.DaySystem
 {
@@ -23,19 +24,23 @@ namespace FishyBusiness.DaySystem
 
         public void OnFail(FishFood fishFood, Player player, Day day)
         {
-            if (TryGetLifeInfluence(fishFood, out int lifeLoss))
+            if (TryGetLifeInfluence(fishFood, out int lifeLoss) && lifeLoss > 0)
+            {
                 player.Hit(lifeLoss);
+            }
 
-            if (TryGetQuotaInfluence(fishFood, out int quotaLoss))
+            if (TryGetQuotaInfluence(fishFood, out int quotaLoss) && quotaLoss > 0)
+            {
                 day.IncreaseQuota(quotaLoss);
+            }
         }
 
         public void OnSuccess(FishFood fishFood,Player player, Day day)
         {
-            if (TryGetQuotaInfluence(fishFood, out int quotaLoss))
+            if (TryGetMoneyInfluence(fishFood, out int moneyInfluence) && moneyInfluence > 0)
             {
-                day.EarnMoneyForQuota(quotaLoss);
-                player.AddMoney(quotaLoss);
+                day.EarnMoney(moneyInfluence);
+                player.AddMoney(moneyInfluence);
             }
         }
 
@@ -59,6 +64,17 @@ namespace FishyBusiness.DaySystem
             }
 
             quotaInfluence = 0;
+            return false;
+        }
+        private bool TryGetMoneyInfluence(FishFood fishFood, out int moneyInfluence)
+        {
+            if (TryGetPair(fishFood, out var pair))
+            {
+                moneyInfluence = pair.MoneyInfluence;
+                return true;
+            }
+
+            moneyInfluence = 0;
             return false;
         }
 

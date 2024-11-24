@@ -10,6 +10,7 @@ using UnityEngine;
 namespace FishyBusiness
 {
 
+    [DefaultExecutionOrder(500)]
     public class LevelManager : MonoSingleton<LevelManager>
     {
         public event Action OnGameOver;
@@ -21,30 +22,32 @@ namespace FishyBusiness
         public event Action<IDayFish> OnNewFish;
 
         private Day currentDay;
-        private int currentDayIndex;
 
-        private float currentDayTime;
+        public int CurrentDayIndex { get; private set; }
+
+        public float CurrentDayTime { get; private set; }
         public bool IsLevelRunning { get; private set; }
 
         private void Start()
         {
             StartNextDay();
+            IsLevelRunning = true;
         }
 
         private void Update()
         {
             if (currentDay != null && IsLevelRunning)
             {
-                currentDayTime -= Time.deltaTime;
-                if (currentDayTime <= 0)
+                CurrentDayTime -= Time.deltaTime;
+                if (CurrentDayTime <= 0)
                     FinishDay();
             }
         }
 
         public void StartNextDay()
         {
-            currentDayIndex += 1;
-            float quota = GameMetrics.Global.StartQuota * Mathf.Pow(GameMetrics.Global.QuotaScaling, currentDayIndex);
+            CurrentDayIndex += 1;
+            float quota = GameMetrics.Global.StartQuota * Mathf.Pow(GameMetrics.Global.QuotaScaling, CurrentDayIndex);
 
             List<Data.Fish> vips = new List<Data.Fish>();
 
@@ -58,7 +61,7 @@ namespace FishyBusiness
             currentDay.Begin();
 
             //Reset timer
-            currentDayTime = GameMetrics.Global.LevelTime;
+            CurrentDayTime = GameMetrics.Global.LevelTime;
         }
 
         private void CurrentDayOnOnNewFish(IDayFish fish)
