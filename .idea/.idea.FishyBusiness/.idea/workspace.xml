@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4dd9c9c2-ffbb-4531-9bcf-123a9bce19d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.FishyBusiness/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.FishyBusiness/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MovementBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MovementBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/Prefabs/Shortcut.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Prefabs/Shortcut.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/Textures/comptoir_scene.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Textures/comptoir_scene.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/Textures/dark-dirty-corner-at-night-city-with-exit-door-free-vector.jpg.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Textures/dark-dirty-corner-at-night-city-with-exit-door-free-vector.jpg.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/Textures/imagdade.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Textures/imagdade.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Project/Textures/imsefages-removebg-preview.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Textures/imsefages-removebg-preview.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/all_cards.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/all_cards.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Computer.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Computer.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Project/Prefabs/Movable Window.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Project/Prefabs/Movable Window.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
