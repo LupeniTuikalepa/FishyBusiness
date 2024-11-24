@@ -9,23 +9,26 @@ namespace FishyBusiness.Documents
 
         public readonly string name;
         public readonly int birthYear;
-        public readonly BirthPlace birthPlace;
+        public readonly int expireDate;
 
         public readonly Mafia mafia;
         public readonly MafiaRank mafiaRank;
 
-        public readonly Country country;
+        public readonly Country birthCountry;
+        public readonly Country nationality;
 
         public IdentityDocument(IIdentityDocumentInfos infos)
         {
             name = infos.Name;
             birthYear = infos.BirthYear;
-            birthPlace = infos.BirthPlace;
+            expireDate = infos.ExpireDate;
+
+            birthCountry = infos.BirthCountry;
 
             mafia = infos.Mafia;
             mafiaRank = infos.MafiaRank;
 
-            country = infos.Country;
+            nationality = infos.Nationality;
         }
 
     }

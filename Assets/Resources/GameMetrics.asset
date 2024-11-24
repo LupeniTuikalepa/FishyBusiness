@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f063de328a0e8246b5e3e1a46fae2fd, type: 3}
   m_Name: GameMetrics
   m_EditorClassIdentifier: 
-  <Version>k__BackingField: 0
   <StartQuota>k__BackingField: 10
   <QuotaScaling>k__BackingField: 1.5
   <PlayerLife>k__BackingField: 3
+  <LevelTime>k__BackingField: 45
+  <VIPsCount>k__BackingField: 6
+  <SellPrice>k__BackingField: 10
+  <LyingFishProbability>k__BackingField: 0.3
+  <VIPFishProbability>k__BackingField: 0.3
   <MainMenuScene>k__BackingField: 0
   <LevelScene>k__BackingField: 1
+  <Year>k__BackingField: 2024
+  <MaxFishAge>k__BackingField: 75
+  <ExpirationDateRange>k__BackingField: {x: 2015, y: 2030}

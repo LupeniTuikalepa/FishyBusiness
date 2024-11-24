@@ -1,25 +1,47 @@
 ﻿using System;
+using FishyBusiness.DaySystem;
+using FishyBusiness.Documents;
 using UnityEngine;
 
 namespace FishyBusiness.Data
 {
-    public struct Fish
+    public struct Fish : IIdentityDocumentInfos
     {
-        public int ID;
-        public string Name;
-        public IDCard IDCard;
-    }
+        public Sprite image;
 
-    public struct IDCard
-    {
-        public int ID;
-        public Sprite Pic;
-        public int Age;
-        public string Country;
-        public string Mafia;
-        public string Rank;
-        public string ExpiryDate;
-        public Sprite CountrySignature;
-        public Sprite MafiaSignature;
+        public string id;
+        public string name;
+
+        public int birthYear;
+        public int expiryDate;
+
+        public Country birthCountry;
+        public Country nationality;
+
+        public Mafia mafia;
+        public MafiaRank rank;
+
+        string IIdentityDocumentInfos.Name => name;
+        int IIdentityDocumentInfos.BirthYear => birthYear;
+        Country IIdentityDocumentInfos.BirthCountry => birthCountry;
+        Mafia IIdentityDocumentInfos.Mafia => mafia;
+        MafiaRank IIdentityDocumentInfos.MafiaRank => rank;
+        Country IIdentityDocumentInfos.Nationality => nationality;
+        int IIdentityDocumentInfos.ExpireDate => expiryDate;
+
+        public override string ToString()
+        {
+            return "Fish : " +
+                   $" \n - {nameof(id)}: {id}," +
+                   $" \n - {nameof(name)}: {name}," +
+                   $" \n - {nameof(birthYear)}: {birthYear}, " +
+                   $" \n - {nameof(expiryDate)}: {expiryDate}," +
+                   $" \n - {nameof(birthCountry)}: {birthCountry}, " +
+                   $" \n - {nameof(nationality)}: {nationality}, " +
+                   $" \n - {nameof(mafia)}: {mafia}, {nameof(rank)}: ";
+        }
+
+        //TODO
+        public Fish Alter() => this;
     }
 }
