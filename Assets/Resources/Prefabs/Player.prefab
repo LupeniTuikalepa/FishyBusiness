@@ -44,47 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229c3a6674684327886c09a3c34ed712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Hold>k__BackingField:
-    m_Name: Hold
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 4ce8453c-886e-45d7-a487-505741e2cdd1
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings: []
-    m_Flags: 0
-  <Release>k__BackingField:
-    m_Name: Release
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 746f071a-6d88-4d6c-947e-8c084d61df1c
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 79298107-e7a5-4f9c-92e5-9cd56c0c2457
-      m_Path: <Mouse>/rightButton
-      m_Interactions: SlowTap
-      m_Processors: 
-      m_Groups: 
-      m_Action: Release
-      m_Flags: 0
-    m_Flags: 0
-  <Drag>k__BackingField:
-    m_Name: Drag
-    m_Type: 0
-    m_ExpectedControlType: 
-    m_Id: 45ac7a14-728e-4ae4-ae55-693c895d2e26
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 
-      m_Id: 7d11b1f0-9615-4d2d-9b1a-a2977315e4c7
-      m_Path: <Mouse>/position
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Drag
-      m_Flags: 0
-    m_Flags: 0
   <Money>k__BackingField: 500
+  draggableMask:
+    serializedVersion: 2
+    m_Bits: 64

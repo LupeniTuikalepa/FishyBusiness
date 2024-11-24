@@ -25,6 +25,18 @@ namespace FishyBusiness
             temporaryDocuments = new List<IDocument>();
             DeskDocuments = new DocumentsHolder(-1);
             Hand = new DocumentsHolder(1);
+            PlayerInputs = new PlayerInputs();
+
+        }
+
+        private void Start()
+        {
+            SetupInputs();
+        }
+
+        private void Update()
+        {
+            UpdateDrag();
         }
 
         private void OnEnable()
@@ -32,12 +44,14 @@ namespace FishyBusiness
             LevelManager.Instance.OnNewFish += GetNewFishId;
             LevelManager.Instance.OnSuccess += OnSuccess;
             LevelManager.Instance.OnFailure += OnFailure;
+            PlayerInputs.Enable();
         }
 
 
         private void OnDisable()
         {
             LevelManager.Instance.OnNewFish -= GetNewFishId;
+            PlayerInputs.Disable();
         }
 
         private void GetNewFishId(IDayFish dailyFish)
@@ -67,7 +81,7 @@ namespace FishyBusiness
                 Hand.RemoveDocument(doc);
             }
             temporaryDocuments.Clear();
-
         }
+
     }
 }
