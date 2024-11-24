@@ -73,9 +73,9 @@ namespace FishyBusiness.GameSystem.Sample.Tablet
 
         private void GetFishInfo()
         {
-            nameText.text = vip[index].Name;
-            ageText.text = vip[index].IDCard.Age.ToString();
-            countryText.text = vip[index].IDCard.Country;
+            //nameText.text = vip[index].Name;
+            //ageText.text = vip[index].IDCard.Age.ToString();
+            //countryText.text = vip[index].IDCard.Country;
             descText.text = "Test";
             vipCountText.text = $"{index+1}/{vip.Count}";
         }
