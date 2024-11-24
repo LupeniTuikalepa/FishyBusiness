@@ -9,9 +9,6 @@ namespace FishyBusiness.MiniGameSystem.Sample
     {
         [SerializeField] private TMP_Text resultText;
         private bool isTimerActive;
-
-        internal SlotHandler handler;
-
         private bool result;
 
         public void StartSlotMachine(SlotContext context)
@@ -20,7 +17,7 @@ namespace FishyBusiness.MiniGameSystem.Sample
             
             result = Random.Range(0, 3) == 0;
             resultText.text = "";
-            StartCoroutine(WaitSeconds(1f));
+            StartCoroutine(WaitSeconds(2f));
         }
 
         public bool GetResult(out bool slotResult)

@@ -4,21 +4,20 @@ using Michsky.UI.ModernUIPack;
 using TMPro;
 using UnityEngine;
 
-namespace FishyBusiness.MiniGameSystem.Sample
+namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
 {
-    public class SlotHandler : MonoBehaviour, IMiniGameHandler<SlotContext>, ILogSource
+    public class RouletteHandler : MonoBehaviour, IMiniGameHandler<RouletteContext>, ILogSource
     {
-        public string Name => nameof(SlotHandler);
+        public string Name => nameof(RouletteHandler);
         
-        [SerializeField] private SlotContent content;
         [SerializeField] private Player player;
-        [SerializeField] private ButtonManagerBasic startButton, backButton;
+        [SerializeField] private ButtonManagerBasic[] gameButtons;
         [SerializeField] private TMP_InputField moneyBet;
         [SerializeField] private TMP_Text playerMoney;
-        private int betAmount;
+        private int betAmount, playerChoice;
+        private bool waitingForClear;
+        private Roulette roulette;
         
-        private Slot slot;
-
         private void OnEnable()
         {
             MiniGameManager.Instance.OnGameStopped += GameStopped;
@@ -33,7 +32,7 @@ namespace FishyBusiness.MiniGameSystem.Sample
         private void GameStopped(IMiniGameRunner obj)
         {
             playerMoney.text = player.Money.ToString();
-            StartCoroutine(ClearSlot());
+            StartCoroutine(ClearRoulette());
         }
 
         private void RefreshMoney()
@@ -41,48 +40,71 @@ namespace FishyBusiness.MiniGameSystem.Sample
             playerMoney.text = player.Money.ToString();
         }
 
+        public void SelectBet(bool choice)
+        {
+            playerChoice = choice ? 0 : 1;
+            StartGame();
+        }
+        
         public void StartGame()
         {
+            if (waitingForClear)
+            {
+                context.status = GameStatus.None;
+                GetBetAmount(moneyBet.text);
+
+                waitingForClear = false;
+            }
+            
             if (betAmount > player.Money || betAmount <= 0)
             {
                 GameController.Logger.LogError(this, $"This is not a valid Bet ! {nameof(betAmount)} = {betAmount} - {nameof(player.Money)} = {player.Money}");
                 return;
             }
-
+            
             if (context.status != GameStatus.None)
             {
                 GameController.Logger.LogError(this, $"Can't start a new game ! {nameof(context.status)} = {context.status}");
                 return;
             }
             
+            SetupGame();
+            MiniGameManager.Instance.StartGame(roulette, this);
+        }
+        
+        private void SetupGame()
+        {
+            moneyBet.interactable = false;
+
+            foreach (ButtonManagerBasic button in gameButtons)
+            {
+                button.buttonVar.interactable = false;
+            }
+            
             player.RemoveMoney(betAmount);
             RefreshMoney();
             
-            startButton.buttonVar.interactable = false;
-            backButton.buttonVar.interactable = false;
-            moneyBet.interactable = false;
-            
-            slot = new Slot();
-            MiniGameManager.Instance.StartGame(slot, this);
+            context.status = GameStatus.Pending;
+            roulette = new Roulette();
         }
-
-        public SlotContext GetContext()
+        
+        public RouletteContext GetContext()
         {
-            return new SlotContext
+            return new RouletteContext
             {
                 Player = player,
-                Content = content,
                 BetAmount = betAmount,
-                status = context.status
+                playerChoice = playerChoice,
+                status = context.status,
             };
         }
-
-        private SlotContext context;
-        public void UpdateContext(SlotContext context)
+        
+        private RouletteContext context;
+        public void UpdateContext(RouletteContext rouletteContext)
         {
-            this.context = context;
+            context = rouletteContext;
         }
-
+        
         public void GetBetAmount(string value)
         {
             if (string.IsNullOrEmpty(value))
@@ -93,13 +115,17 @@ namespace FishyBusiness.MiniGameSystem.Sample
             betAmount = int.Parse(value);
         }
         
-        public IEnumerator ClearSlot()
+        public IEnumerator ClearRoulette()
         {
-            yield return new WaitForSeconds(0f);
+            yield return new WaitForSeconds(2f);
             
             moneyBet.interactable = true;
-            startButton.buttonVar.interactable = true;
-            backButton.buttonVar.interactable = true;
+            waitingForClear = true;
+            
+            foreach (ButtonManagerBasic button in gameButtons)
+            {
+                button.buttonVar.interactable = true;
+            }
         }
     }
 }

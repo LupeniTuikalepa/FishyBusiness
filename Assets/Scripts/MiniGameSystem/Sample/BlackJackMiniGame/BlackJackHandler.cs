@@ -13,7 +13,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
         public string Name => nameof(BlackJackHandler);
         
         [SerializeField] private Player player;
-        [SerializeField] private ButtonManagerBasic startButton;
+        [SerializeField] private ButtonManagerBasic startButton, backButton;
         [SerializeField] private ButtonManagerBasic[] gameButtons;
         [SerializeField] private TMP_InputField moneyBet;
         [SerializeField] private TMP_Text playerMoney;
@@ -27,6 +27,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
         private void OnEnable()
         {
             MiniGameManager.Instance.OnGameStopped += GameStopped;
+            RefreshMoney();
         }
         
         private void OnDisable()
@@ -43,14 +44,6 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
         private void RefreshMoney()
         {
             playerMoney.text = player.Money.ToString();
-        }
-
-        private void Start()
-        {
-            RefreshMoney();
-            playerHand = new BlackJackHand();
-            dealerHand = new BlackJackHand();
-            gameDeck = new BlackJackDeck();
         }
         
         public void StartGame()
@@ -87,6 +80,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
         private void SetupGame()
         {
             startButton.buttonVar.interactable = false;
+            backButton.buttonVar.interactable = false;
             moneyBet.interactable = false;
 
             foreach (ButtonManagerBasic button in gameButtons)
@@ -99,6 +93,9 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
             
             isStaying = false;
             context.status = GameStatus.Pending;
+            
+            playerHand = new BlackJackHand();
+            dealerHand = new BlackJackHand();
             gameDeck = new BlackJackDeck();
             blackJack = new BlackJack();
         }
@@ -200,6 +197,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
             
             moneyBet.interactable = true;
             startButton.buttonVar.interactable = true;
+            backButton.buttonVar.interactable = true;
             waitingForClear = true;
         }
     }
