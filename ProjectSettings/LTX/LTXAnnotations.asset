@@ -17,3 +17,7 @@ MonoBehaviour:
       annotation: Metrics globales du jeu
       fontSize: 14
     guid: 351f03384ecb0f0438be2ef28bddd548
+  - annotation:
+      annotation: Le prochain qui pose un truc a la racine je le tue
+      fontSize: 30
+    guid: 00000000000000001000000000000000
