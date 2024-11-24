@@ -1,6 +1,7 @@
 ﻿using System;
 using FishyBusiness.DaySystem;
 using FishyBusiness.Documents;
+using FishyBusiness.Helpers;
 using UnityEngine;
 
 namespace FishyBusiness.Data
@@ -43,5 +44,8 @@ namespace FishyBusiness.Data
 
         //TODO
         public Fish Alter() => this;
+
+        public static Fish GenerateCoherentFish() => FishGeneration.GenerateFish();
+        public static Fish GenerateLyingFish() => FishGeneration.GenerateFish().Alter();
     }
 }

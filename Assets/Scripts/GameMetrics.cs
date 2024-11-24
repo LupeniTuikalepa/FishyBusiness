@@ -1,3 +1,4 @@
+using FishyBusiness.Fishes;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -27,11 +28,17 @@ namespace FishyBusiness
         [field: SerializeField, BoxGroup("Levels"), Range(0, 50)]
         public int SellPrice { get; private set; }
 
-        [field: SerializeField, BoxGroup("Levels/Probabilities"), Range(0, 1)]
-        public float LyingFishProbability { get; private set; } = .3f;
+        [field: SerializeField, BoxGroup("Gains")]
+        public FishAssociationInfos[] FishAssociations { get; private set; }
+        [field: SerializeField, BoxGroup("Gains")]
+        public FishPair[] FishPairs { get; private set; }
 
-        [field: SerializeField, BoxGroup("Levels/Probabilities"), Range(0, 1)]
+        [field: SerializeField, BoxGroup("Levels/Probabilities"), Range(0, .5f)]
+        public float PoliceFishProbability { get; private set; } = .3f;
+
+        [field: SerializeField, BoxGroup("Levels/Probabilities"), Range(0, .5f)]
         public float VIPFishProbability { get; private set; } = .3f;
+
 
 
         [field: SerializeField, Scene, BoxGroup("Scenes")]

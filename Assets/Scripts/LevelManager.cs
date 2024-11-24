@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using FishyBusiness.Data;
 using FishyBusiness.DaySystem;
+using FishyBusiness.Fishes;
 using FishyBusiness.Helpers;
 using LTX.Singletons;
 using UnityEngine;
@@ -17,7 +18,7 @@ namespace FishyBusiness
 
         public event Action<IDayFish, Day> OnSuccess;
         public event Action<IDayFish, Day> OnFailure;
-        public event Action<IDayFish> OnNewChoice;
+        public event Action<IDayFish> OnNewFish;
 
         private Day currentDay;
         private int currentDayIndex;
@@ -51,19 +52,18 @@ namespace FishyBusiness
                 vips.Add(FishGeneration.GenerateFish());
 
             currentDay = new Day(vips.ToArray(), Mathf.CeilToInt(quota));
-
             currentDay.OnNewFish += CurrentDayOnOnNewFish;
+
+            OnDayBegun?.Invoke(currentDay);
             currentDay.Begin();
 
             //Reset timer
             currentDayTime = GameMetrics.Global.LevelTime;
-
-            OnDayBegun?.Invoke(currentDay);
         }
 
         private void CurrentDayOnOnNewFish(IDayFish fish)
         {
-            OnNewChoice?.Invoke(fish);
+            OnNewFish?.Invoke(fish);
         }
 
         private void FinishDay()
@@ -80,9 +80,12 @@ namespace FishyBusiness
 
 
 
-        public void Accept()
+        public void MakeChoice(FishFood food)
         {
-            if (currentDay.AcceptChoice(out IDayFish choice))
+            if(currentDay == null)
+                return;
+
+            if (currentDay.MakeChoice(food, out IDayFish choice))
             {
                 OnSuccess?.Invoke(choice, currentDay);
             }
@@ -92,16 +95,5 @@ namespace FishyBusiness
             }
         }
 
-        public void Decline()
-        {
-            if (currentDay.DeclineChoice(out IDayFish choice))
-            {
-                OnSuccess?.Invoke(choice, currentDay);
-            }
-            else
-            {
-                OnFailure?.Invoke(choice, currentDay);
-            }
-        }
     }
 }

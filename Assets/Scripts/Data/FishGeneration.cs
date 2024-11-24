@@ -71,15 +71,17 @@ namespace FishyBusiness.Helpers
             return $"{adjective} {fishName}, {mafiaTitle} {epithet}";
         }
 
-        public static Data.Fish GenerateFish()
+        public static Fish GenerateFish()
         {
             GameMetrics gameMetrics = GameMetrics.Global;
             GameDatabase gameDatabase = GameController.GameDatabase;
 
-            Data.Fish fish = new Data.Fish()
+            Fish fish = new Fish()
             {
                 id = Guid.NewGuid().ToString(),
                 name = GenerateMafiaFishName(),
+                image = gameDatabase.FishKeyArts[Random.Range(0, gameDatabase.FishKeyArts.Length)],
+
                 birthYear = Random.Range(gameMetrics.Year - gameMetrics.MaxFishAge, gameMetrics.Year),
                 expiryDate = Random.Range(gameMetrics.ExpirationDateRange.x, gameMetrics.ExpirationDateRange.y),
 

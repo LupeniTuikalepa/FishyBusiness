@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using FishyBusiness.Fishes;
+using UnityEngine;
 
 namespace FishyBusiness
 {
@@ -15,7 +16,7 @@ namespace FishyBusiness
         private static Logger Global => GameController.Logger;
 
         [HideInCallstack]
-        public void Log(ILogSource logSource, string message) => Debug.Log($"[{logSource.Name}] {message}");
+        public void Log(ILogSource logSource, string message) => Debug.Log($"[{logSource.Name}] {message}", logSource as UnityEngine.Object);
 
         [HideInCallstack]
 
@@ -26,7 +27,7 @@ namespace FishyBusiness
         public void LogWarning(string message) => LogWarning(null, message);
 
         [HideInCallstack]
-        public void LogWarning(ILogSource logSource,  string message) => Debug.LogWarning($"[{logSource.Name}] {message}");
+        public void LogWarning(ILogSource logSource,  string message) => Debug.LogWarning($"[{logSource.Name}] {message}", logSource as UnityEngine.Object);
 
 
         [HideInCallstack]
@@ -34,6 +35,6 @@ namespace FishyBusiness
         public void LogError(string message) => LogError(null, message);
 
         [HideInCallstack]
-        public void LogError(ILogSource logSource, string message) => Debug.LogError($"[{logSource.Name}] {message}");
+        public void LogError(ILogSource logSource, string message) => Debug.LogError($"[{logSource.Name}] {message}", logSource as UnityEngine.Object);
     }
 }

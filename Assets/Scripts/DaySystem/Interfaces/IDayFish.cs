@@ -1,13 +1,15 @@
 ﻿using FishyBusiness.Data;
+using FishyBusiness.Fishes;
 
 namespace FishyBusiness.DaySystem
 {
     public interface IDayFish
     {
-        bool IsTruth { get; }
-        int Money { get; }
-        int Damage { get; }
+        Fish Fish { get; }
+        FishType FishType { get; }
 
-        public Data.Fish Fish { get; }
+        void OnSuccess(FishFood fishFood, Player player, Day day);
+        void OnFail(FishFood fishFood, Player player, Day day);
+
     }
 }

@@ -14,7 +14,7 @@ namespace FishyBusiness.Scenes.Xictoss_Scene.Script
         [SerializeField] public TextMeshProUGUI fishTypeTxt;
 
         public event Action OnPlayerDead;
-        
+
         private int money;
         private int life;
 
@@ -29,7 +29,7 @@ namespace FishyBusiness.Scenes.Xictoss_Scene.Script
             levelManager.OnDayBegun += LevelManagerOnOnDayBegun;
             levelManager.OnSuccess += LevelManagerOnOnSuccess;
             levelManager.OnFailure += LevelManagerOnOnFailure;
-            levelManager.OnNewChoice += LevelManagerOnOnNewChoice;
+            levelManager.OnNewFish += LevelManagerOnOnNewFish;
         }
 
 
@@ -38,24 +38,24 @@ namespace FishyBusiness.Scenes.Xictoss_Scene.Script
             levelManager.OnDayBegun -= LevelManagerOnOnDayBegun;
             levelManager.OnSuccess -= LevelManagerOnOnSuccess;
             levelManager.OnFailure -= LevelManagerOnOnFailure;
-            levelManager.OnNewChoice -= LevelManagerOnOnNewChoice;
+            levelManager.OnNewFish -= LevelManagerOnOnNewFish;
         }
         private void LevelManagerOnOnDayBegun(Day day)
         {
             UpdateEarnedAndQuotaText(day);
         }
 
-        private void LevelManagerOnOnNewChoice(IDayFish fish)
+        private void LevelManagerOnOnNewFish(IDayFish fish)
         {
-            fishTypeTxt.text = fish.IsTruth.ToString();
+            // fishTypeTxt.text = fish.IsTruth.ToString();
         }
 
         private void LevelManagerOnOnFailure(IDayFish fish, Day day)
         {
-            money += fish.Money;
-            life -= fish.Damage;
+            // money += fish.Money;
+            // life -= fish.Damage;
             lifeTxt.text = life.ToString();
-            
+
             UpdateEarnedAndQuotaText(day);
             if (life == 0)
             {
@@ -65,7 +65,7 @@ namespace FishyBusiness.Scenes.Xictoss_Scene.Script
 
         private void LevelManagerOnOnSuccess(IDayFish fish, Day day)
         {
-            money += fish.Money;
+            // money += fish.Money;
             UpdateEarnedAndQuotaText(day);
         }
 
