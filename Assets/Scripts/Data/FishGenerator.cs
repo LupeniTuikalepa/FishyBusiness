@@ -6,83 +6,86 @@ namespace FishyBusiness.Helpers
 {
     public class FishGenerator
     {
-        private string[] fishNamesBuffer;
-        private string[] mafiaTitlesBuffer;
-        private string[] adjectivesBuffer;
-        private string[] epithetsBuffer;
-        private string[] countryBuffer;
-        private string[] mafiaBuffer;
-        private string[] rankBuffer;
-
-        public FishGenerator()
+        private static readonly string[] FishNamesBuffer = new string[]
         {
-            fishNamesBuffer = new string[]
-            {
-                "Guppy", "Salmon", "Tuna", "Trout", "Shark", "Marlin", "Barracuda", "Mackerel", "Carp", "Cod"
-            };
+            "Guppy",
+            "Salmon",
+            "Tuna",
+            "Trout",
+            "Shark",
+            "Marlin",
+            "Barracuda",
+            "Mackerel",
+            "Carp",
+            "Cod"
+        };
+        private static readonly string[] MafiaTitlesBuffer = new string[]
+        {
+            "The Boss",
+            "Big Fin",
+            "The Don",
+            "Little Scale",
+            "Gold Gill",
+            "Silent Stream",
+            "The Reef",
+            "The Harpoon",
+            "Deep Diver",
+            "The Kraken"
+        };
 
-            mafiaTitlesBuffer = new string[]
-            {
-                "The Boss", "Big Fin", "The Don", "Little Scale", "Gold Gill", "Silent Stream", "The Reef", "The Harpoon", "Deep Diver", "The Kraken"
-            };
+        private static readonly string[] AdjectivesBuffer = new string[]
+        {
+            "Slimy",
+            "Scaly",
+            "Dangerous",
+            "Vicious",
+            "Silver",
+            "Dark",
+            "Deadly",
+            "Fast",
+            "Sharp",
+            "Stealthy"
+        };
 
-            adjectivesBuffer = new string[]
-            {
-                "Slimy", "Scaly", "Dangerous", "Vicious", "Silver", "Dark", "Deadly", "Fast", "Sharp", "Stealthy"
-            };
+        private static readonly string[] EpithetsBuffer = new string[]
+        {
+            "of the Abyss",
+            "of the Coral Mafia",
+            "from the Deep",
+            "of the Ocean Lords",
+            "of the Underwater Syndicate",
+            "of the Reef Gang",
+            "of the Hidden Current",
+            "from the Dark Depths"
+        };
 
-            epithetsBuffer = new string[]
-            {
-                "of the Abyss", "of the Coral Mafia", "from the Deep", "of the Ocean Lords", "of the Underwater Syndicate", 
-                "of the Reef Gang", "of the Hidden Current", "from the Dark Depths"
-            };
 
-            countryBuffer = new string[]
-            {
-                "France", "Canada", "Japan", "Brazil", "Australia", "Germany", "India", "South Korea",
-                "United States", "South Africa", "Argentina", "Sweden", "Mexico", "Italy", "China",
-                "Norway", "Egypt", "New Zealand", "United Kingdom", "Russia"
-            };
-
-            mafiaBuffer = new string[]
-            {
-                "Sharko", "Narvalo", "Delpho", "Orcato"
-            };
-
-            rankBuffer = new string[]
-            {
-                "Boss",
-                "Underboss",
-                "Caporegime",
-                "Associate",
-                "Recruit"
-            };
-        }
-        
         private string GenerateMafiaFishName()
         {
-            string fishName = fishNamesBuffer[Random.Range(0, fishNamesBuffer.Length)];
-            string mafiaTitle = mafiaTitlesBuffer[Random.Range(0, mafiaTitlesBuffer.Length)];
-            string adjective = adjectivesBuffer[Random.Range(0, adjectivesBuffer.Length)];
-            string epithet = epithetsBuffer[Random.Range(0, epithetsBuffer.Length)];
+            string fishName = FishNamesBuffer[Random.Range(0, FishNamesBuffer.Length)];
+            string mafiaTitle = MafiaTitlesBuffer[Random.Range(0, MafiaTitlesBuffer.Length)];
+            string adjective = AdjectivesBuffer[Random.Range(0, AdjectivesBuffer.Length)];
+            string epithet = EpithetsBuffer[Random.Range(0, EpithetsBuffer.Length)];
 
             return $"{adjective} {fishName}, {mafiaTitle} {epithet}";
         }
-        
+
         public Fish GenerateFish()
         {
-            Fish fish = new Fish();
-            fish.ID = GetHashCode();
-            fish.Name = GenerateMafiaFishName();
-            fish.IDCard = new IDCard
+            GameMetrics gameMetrics = GameMetrics.Global;
+            GameDatabase gameDatabase = GameController.GameDatabase;
+
+            Fish fish = new Fish()
             {
-                ID = fish.ID,
-                Age = Random.Range(17, 38),
-                Country = countryBuffer[Random.Range(0, countryBuffer.Length)],
-                Mafia = mafiaBuffer[Random.Range(0, mafiaBuffer.Length)],
-                Rank = rankBuffer[Random.Range(0, rankBuffer.Length)],
-                ExpiryDate = $"{Random.Range(1, 30)}/{Random.Range(1, 12)}/{Random.Range(2020, 2028)}",
-                
+                id = GetHashCode(),
+                name = GenerateMafiaFishName(),
+                birthYear = Random.Range(gameMetrics.Year - gameMetrics.MaxFishAge, gameMetrics.Year),
+                expiryDate = Random.Range(gameMetrics.ExpirationDateRange.x, gameMetrics.ExpirationDateRange.y),
+
+                birthCountry = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
+                nationality = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
+                mafia = gameDatabase.Mafias[Random.Range(0, gameDatabase.Mafias.Length)],
+                rank = gameDatabase.MafiaRanks[Random.Range(0, gameDatabase.MafiaRanks.Length)],
             };
             return fish;
         }
