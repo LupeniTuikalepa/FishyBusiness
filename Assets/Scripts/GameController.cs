@@ -7,6 +7,7 @@ namespace FishyBusiness
         private static GameMetrics gameMetrics;
         public static SceneController SceneController { get; private set; }
         public static Logger Logger { get; private set; }
+        public static GameDatabase GameDatabase { get; private set; }
 
         public static GameMetrics Metrics
         {
@@ -27,6 +28,7 @@ namespace FishyBusiness
 
             SceneController = new SceneController();
             Logger = new Logger();
+            GameDatabase = new GameDatabase();
         }
 
         private static bool UnLoad()

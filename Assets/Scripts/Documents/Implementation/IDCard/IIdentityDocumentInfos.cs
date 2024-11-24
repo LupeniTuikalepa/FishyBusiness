@@ -7,12 +7,13 @@ namespace FishyBusiness.Documents
     {
         string Name { get; }
         int BirthYear { get; }
-        BirthPlace BirthPlace { get; }
+        Country BirthCountry { get; }
 
 
         Mafia Mafia { get; }
         MafiaRank MafiaRank { get; }
 
-        Country Country { get; }
+        Country Nationality { get; }
+        int ExpireDate { get; }
     }
 }
