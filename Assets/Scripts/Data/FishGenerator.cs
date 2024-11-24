@@ -86,5 +86,23 @@ namespace FishyBusiness.Helpers
             };
             return fish;
         }
+        
+        public Fish GenerateFish(string mafiaName)
+        {
+            Fish fish = new Fish();
+            fish.ID = GetHashCode();
+            fish.Name = GenerateMafiaFishName();
+            fish.IDCard = new IDCard
+            {
+                ID = fish.ID,
+                Age = Random.Range(17, 38),
+                Country = countryBuffer[Random.Range(0, countryBuffer.Length)],
+                Mafia = mafiaName,
+                Rank = rankBuffer[Random.Range(0, rankBuffer.Length)],
+                ExpiryDate = $"{Random.Range(1, 30)}/{Random.Range(1, 12)}/{Random.Range(2020, 2028)}",
+                
+            };
+            return fish;
+        }
     }
 }

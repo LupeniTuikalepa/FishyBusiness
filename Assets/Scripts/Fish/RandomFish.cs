@@ -5,7 +5,16 @@ using Random = UnityEngine.Random;
 
 public class RandomFish : MonoBehaviour
 {
+    public static RandomFish instance;
     public List<Sprite> fishes;
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        if(instance != this)
+            Destroy(this);
+    }
 
     private void Update()
     {
