@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Marine_Le_Pen_Signature.svg_0: -4031560179906916228
+      Marine_Le_Pen_Signature.svg_1: -6423591744519152124
+      Marine_Le_Pen_Signature.svg_2: 2755217639409615031
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
