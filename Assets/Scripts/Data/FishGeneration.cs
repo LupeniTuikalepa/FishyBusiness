@@ -90,5 +90,25 @@ namespace FishyBusiness.Helpers
             };
             return fish;
         }
+        
+        public static Data.Fish GenerateFish(string mafiaName)
+        {
+            GameMetrics gameMetrics = GameMetrics.Global;
+            GameDatabase gameDatabase = GameController.GameDatabase;
+
+            Data.Fish fish = new Data.Fish()
+            {
+                id = Guid.NewGuid().ToString(),
+                name = GenerateMafiaFishName(),
+                birthYear = Random.Range(gameMetrics.Year - gameMetrics.MaxFishAge, gameMetrics.Year),
+                expiryDate = Random.Range(gameMetrics.ExpirationDateRange.x, gameMetrics.ExpirationDateRange.y),
+
+                birthCountry = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
+                nationality = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
+                mafia = gameDatabase.Mafias[Random.Range(0, gameDatabase.Mafias.Length)],
+                rank = gameDatabase.MafiaRanks[Random.Range(0, gameDatabase.MafiaRanks.Length)],
+            };
+            return fish;
+        }
     }
 }
