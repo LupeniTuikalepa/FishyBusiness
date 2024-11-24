@@ -25,8 +25,11 @@ namespace FishyBusiness
         }
         
         public event Action OnGameOver;
-        public event Action<IDayChoice> OnSuccess;
-        public event Action<IDayChoice> OnFailure;
+        public event Action<Day> OnFinishedDay;
+        public event Action<Day> OnBeginDay;
+        
+        public event Action<IDayChoice, Day> OnSuccess;
+        public event Action<IDayChoice, Day> OnFailure;
         public event Action<IDayChoice> OnNewChoice;
         
         private Day currentDay;
@@ -35,10 +38,10 @@ namespace FishyBusiness
         
         private void Start()
         {
-            GetNextDay();
+            StartNextDay();
         }
 
-        private void GetNextDay()
+        public void StartNextDay()
         {
             currentDayIndex += 1;
             float quota = GameMetrics.Global.StartQuota * Mathf.Pow(GameMetrics.Global.QuotaScaling, currentDayIndex);
@@ -57,6 +60,7 @@ namespace FishyBusiness
             currentDay.OnDayFinished += OnDayFinished;
             currentDay.OnNewChoice += CurrentDayOnOnNewChoice;
             currentDay.Begin();
+            OnBeginDay?.Invoke(currentDay);
         }
 
         private void CurrentDayOnOnNewChoice(IDayChoice choice)
@@ -68,23 +72,25 @@ namespace FishyBusiness
         {
             if (currentDay.IsQuotaReached)
             {
-                GetNextDay();
+                OnFinishedDay?.Invoke(currentDay);
             }
             else
             {
                 OnGameOver?.Invoke();
             }
         }
+        
+        
 
         public void Accept()
         {
             if (currentDay.AcceptChoice(out IDayChoice choice))
             {
-                OnSuccess?.Invoke(choice);
+                OnSuccess?.Invoke(choice, currentDay);
             }
             else
             {
-                OnFailure?.Invoke(choice);
+                OnFailure?.Invoke(choice, currentDay);
             }
         }
 
@@ -92,11 +98,11 @@ namespace FishyBusiness
         {
             if (currentDay.DeclineChoice(out IDayChoice choice))
             {
-                OnSuccess?.Invoke(choice);
+                OnSuccess?.Invoke(choice, currentDay);
             }
             else
             {
-                OnFailure?.Invoke(choice);
+                OnFailure?.Invoke(choice, currentDay);
             }
         }
     }

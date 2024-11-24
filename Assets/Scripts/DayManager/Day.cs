@@ -12,17 +12,17 @@ namespace FishyBusiness.DayManager
         
         private List<IDayChoice> _fishList;
         private IDayChoice currentFish;
-        private int quota;
-        private int earnedMoney;
+        public int Quota { get; private set; }
+        public int EarnedMoney { get; private set; }
 
         public bool IsFinished => _fishList.Count == 0;
-        public bool IsQuotaReached => earnedMoney >= quota;
+        public bool IsQuotaReached => EarnedMoney >= Quota;
 
         //constructor
         public Day(List<IDayChoice> choices, int quota)
         {
-            earnedMoney = 0;
-            this.quota = quota;
+            EarnedMoney = 0;
+            this.Quota = quota;
             _fishList = choices;
         }
         //--//
@@ -51,11 +51,11 @@ namespace FishyBusiness.DayManager
 
             choice = currentFish;
             
-            bool isRight = currentFish.IsTruth == true;
+            bool isRight = currentFish.IsTruth;
 
             if (isRight)
             {
-                earnedMoney += currentFish.Money;
+                EarnedMoney += currentFish.Money;
             }    
             CompleteChoice();
             
@@ -69,6 +69,11 @@ namespace FishyBusiness.DayManager
             choice = currentFish;
             
             bool isRight = currentFish.IsTruth == false;
+            
+            if (isRight)
+            {
+                EarnedMoney += currentFish.Money;
+            } 
 
             CompleteChoice();
             

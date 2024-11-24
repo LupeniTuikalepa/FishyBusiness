@@ -1,3 +1,4 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace FishyBusiness
@@ -18,6 +19,14 @@ namespace FishyBusiness
         
         [field: SerializeField]
         public int PlayerLife { get; private set; }
+
+        [field: SerializeField, Scene]
+        
+        public int MainMenuScene { get; private set; }
+        
+        [field: SerializeField, Scene]
+        
+        public int LevelScene { get; private set; }
 
 
         [field: SerializeField]
