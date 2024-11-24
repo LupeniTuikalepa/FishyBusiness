@@ -6,8 +6,9 @@ namespace FishyBusiness.GameSystem.Interfaces
         Pending,
         Success,
         Failure,
+        Tie,
     }
-    public interface IGameContext
+    public interface IMiniGameContext
     {
         GameStatus Status { get; }
     }

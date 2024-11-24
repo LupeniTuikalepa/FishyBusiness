@@ -1,6 +1,6 @@
 namespace FishyBusiness.GameSystem.Interfaces
 {
-    public interface IGameHandler<T> where T : IGameContext
+    public interface IMiniGameHandler<T> where T : IMiniGameContext
     {
         T GetContext();
         void UpdateContext(T context);

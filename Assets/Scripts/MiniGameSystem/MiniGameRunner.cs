@@ -2,24 +2,24 @@ using FishyBusiness.GameSystem.Interfaces;
 
 namespace FishyBusiness.GameSystem
 {
-    public sealed class GameRunner<T> : IGameRunner 
-        where T : IGameContext
+    public sealed class MiniGameRunner<T> : IMiniGameRunner 
+        where T : IMiniGameContext
     {
-        public IGame Game => game;
+        public IMiniGame MiniGame => miniGame;
 
-        private readonly Game<T> game;
-        private readonly IGameHandler<T> handler;
+        private readonly MiniGame<T> miniGame;
+        private readonly IMiniGameHandler<T> handler;
         
-        public GameRunner(Game<T> game, IGameHandler<T> handler)
+        public MiniGameRunner(MiniGame<T> miniGame, IMiniGameHandler<T> handler)
         {
-            this.game = game;
+            this.miniGame = miniGame;
             this.handler = handler;
         }
 
         public void Begin()
         {
             T context = handler.GetContext();
-            game.Begin(ref context);
+            miniGame.Begin(ref context);
             
             handler.UpdateContext(context);
         }
@@ -27,7 +27,7 @@ namespace FishyBusiness.GameSystem
         public bool Refresh()
         {
             T context = handler.GetContext();
-            var result = game.Refresh(ref context);
+            var result = miniGame.Refresh(ref context);
             
             handler.UpdateContext(context);
             return result;
@@ -36,7 +36,7 @@ namespace FishyBusiness.GameSystem
         public void End()
         {
             T context = handler.GetContext();
-            game.End(ref context);
+            miniGame.End(ref context);
             
             handler.UpdateContext(context);
         }

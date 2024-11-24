@@ -1,6 +1,6 @@
 namespace FishyBusiness.GameSystem.Interfaces
 {
-    public interface IGame
+    public interface IMiniGame
     {
         
     }

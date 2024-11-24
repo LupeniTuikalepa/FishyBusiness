@@ -2,7 +2,7 @@ using FishyBusiness.GameSystem.Interfaces;
 
 namespace FishyBusiness.GameSystem.Sample
 {
-    public class Slot : Game<SlotContext>
+    public class Slot : MiniGame<SlotContext>
     {
         public override void Begin(ref SlotContext context)
         {

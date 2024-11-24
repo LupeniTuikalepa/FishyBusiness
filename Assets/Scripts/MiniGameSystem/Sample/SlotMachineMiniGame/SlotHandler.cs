@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FishyBusiness.GameSystem.Sample
 {
-    public class SlotHandler : MonoBehaviour, IGameHandler<SlotContext>, ILogSource
+    public class SlotHandler : MonoBehaviour, IMiniGameHandler<SlotContext>, ILogSource
     {
         public string Name => nameof(SlotHandler);
         
@@ -26,7 +26,7 @@ namespace FishyBusiness.GameSystem.Sample
             GameManager.Instance.OnGameStopped -= GameStopped;
         }
 
-        private void GameStopped(IGameRunner obj)
+        private void GameStopped(IMiniGameRunner obj)
         {
             playerMoney.text = player.Money.ToString();
         }
