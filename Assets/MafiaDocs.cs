@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using FishyBusiness.Data;
-using FishyBusiness.Helpers;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,7 +34,7 @@ namespace FishyBusiness.GameSystem.Sample.Tablet
         [SerializeField] private List<Sprite> signature;
         
         private List<Fish> vip;
-        private FishGenerator fishGenerator = new FishGenerator();
+        //private FishGenerator fishGenerator = new FishGenerator();
         private int index = 0;
 
         private List<string> mafias = new List<string>()
@@ -52,10 +51,7 @@ namespace FishyBusiness.GameSystem.Sample.Tablet
         {
             vip = new List<Fish>()
             {
-                fishGenerator.GenerateFish(mafiaName),
-                fishGenerator.GenerateFish(mafiaName),
-                fishGenerator.GenerateFish(mafiaName),
-                fishGenerator.GenerateFish(mafiaName)
+                
             };
 
             GetFishInfo();
