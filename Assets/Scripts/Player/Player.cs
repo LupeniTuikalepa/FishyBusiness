@@ -4,12 +4,15 @@ using FishyBusiness.Data;
 using FishyBusiness.DaySystem;
 using FishyBusiness.Documents;
 using LTX.Singletons;
+using NaughtyAttributes;
 using UnityEngine.InputSystem;
 
 namespace FishyBusiness
 {
     public partial class Player : MonoSingleton<Player, PlayerFactory>
     {
+
+        public event Action<int, int> OnHealthChanged;
 
         public DocumentsHolder DeskDocuments { get; private set; }
         public DocumentsHolder Hand { get; private set; }
@@ -18,7 +21,7 @@ namespace FishyBusiness
 
         private List<IDocument> temporaryDocuments;
 
-        private int life;
+        public int Health { get; private set; }
 
         protected override void Awake()
         {
@@ -33,6 +36,8 @@ namespace FishyBusiness
         private void Start()
         {
             SetupInputs();
+            Health = GameMetrics.Global.PlayerLife;
+            OnHealthChanged?.Invoke(Health, 0);
         }
 
         private void Update()
@@ -84,9 +89,12 @@ namespace FishyBusiness
             temporaryDocuments.Clear();
         }
 
+        [Button]
+        private void HitOnce() => Hit(1);
         public void Hit(int lifeLoss)
         {
-            life -= lifeLoss;
+            Health -= lifeLoss;
+            OnHealthChanged?.Invoke(Health, -lifeLoss);
         }
 
     }

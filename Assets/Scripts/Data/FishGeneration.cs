@@ -92,7 +92,7 @@ namespace FishyBusiness.Helpers
             };
             return fish;
         }
-        
+
         public static Data.Fish GenerateFish(string mafiaName)
         {
             GameMetrics gameMetrics = GameMetrics.Global;

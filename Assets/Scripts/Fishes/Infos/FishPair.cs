@@ -9,5 +9,8 @@ namespace FishyBusiness.Fishes
         public FishType FishType { get; private set; }
         [field: SerializeField]
         public FishFood FishFood { get; private set; }
+
+
+
     }
 }

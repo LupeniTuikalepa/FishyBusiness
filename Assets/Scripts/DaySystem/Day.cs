@@ -8,8 +8,12 @@ using Random = UnityEngine.Random;
 
 namespace FishyBusiness.DaySystem
 {
-    public class Day
+    public class Day : ILogSource
     {
+        public string Name => nameof(Day);
+
+
+        public event Action<int, int> OnQuotaChanged;
         public event Action<IDayFish> OnNewFish;
 
         public int Quota { get; private set; }
@@ -32,7 +36,9 @@ namespace FishyBusiness.DaySystem
 
         public void Begin()
         {
+            EarnedMoney = 0;
             GetNextFish();
+            OnQuotaChanged?.Invoke(Quota, EarnedMoney);
         }
         private void GetNextFish()
         {
@@ -43,29 +49,34 @@ namespace FishyBusiness.DaySystem
             {
                 Fish viP = ViPs[Random.Range(0, ViPs.Length)];
                 CurrentFish = new DayFish(viP, FishType.VIP);
+                GameController.Logger.Log(this, "Spawning VIP fish");
             }
             else if(rand <= metrics.VIPFishProbability + metrics.PoliceFishProbability)
             {
                 Fish police = Fish.GenerateLyingFish();
                 CurrentFish = new DayFish(police, FishType.Policeman);
+                GameController.Logger.Log(this, "Spawning Police fish");
             }
             else
             {
                 Fish mafiaFish = Fish.GenerateCoherentFish();
                 CurrentFish = new DayFish(mafiaFish, FishType.MafiaMan);
+                GameController.Logger.Log(this, "Spawning Mafia fish");
             }
 
             OnNewFish?.Invoke(CurrentFish);
         }
 
-        public void EarnMoneyForQuota(int money)
+        public void EarnMoney(int money)
         {
             EarnedMoney += money;
+            OnQuotaChanged?.Invoke(EarnedMoney, Quota);
         }
 
         public void IncreaseQuota(int quotaInfluence)
         {
             Quota += quotaInfluence;
+            OnQuotaChanged?.Invoke(EarnedMoney, Quota);
         }
         public bool MakeChoice(FishFood fishFood, out IDayFish dayFish)
         {
@@ -76,11 +87,13 @@ namespace FishyBusiness.DaySystem
             {
                 if (validPairs[i].FishFood == fishFood && validPairs[i].FishType == CurrentFish.FishType)
                 {
+                    GameController.Logger.Log(this, $"SUCCESS {fishFood} + {CurrentFish.FishType}");
                     CurrentFish.OnSuccess(fishFood, Player.Instance, this);
                     GetNextFish();
                     return true;
                 }
             }
+            GameController.Logger.Log(this, $"FAILURE {fishFood} + {CurrentFish.FishType}");
             CurrentFish.OnFail(fishFood, Player.Instance, this);
             GetNextFish();
 

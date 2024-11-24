@@ -28,13 +28,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3520186411518379430}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.04, y: -4.0571656, z: 0}
   m_LocalScale: {x: 0.51651907, y: 0.51651907, z: 0.51651907}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3074879211540374555}
   - {fileID: 5341334244483114020}
+  - {fileID: 1636632591983275587}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1590547695722675490
@@ -120,10 +121,14 @@ MonoBehaviour:
   hoverColor: {r: 1, g: 1, b: 1, a: 1}
   idleColor: {r: 0, g: 0, b: 0, a: 0}
   fade: 0.5
-  draggedTarget: {fileID: 5341334244483114020}
+  draggedTarget: {fileID: 1636632591983275587}
   dragSmoothness: 5
-  fish: {fileID: 0}
-  startPos: {fileID: 0}
+  dropMask:
+    serializedVersion: 2
+    m_Bits: 128
+  fishFood: 0
+  fish: {fileID: 5341334244483114020}
+  startPos: {fileID: 5453590335183560605}
 --- !u!60 &4992993894952101561
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -245,6 +250,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5341334244483114020}
   - component: {fileID: 2994207957616913550}
+  - component: {fileID: 8321751556872573132}
+  - component: {fileID: 6793799741892232611}
   m_Layer: 0
   m_Name: Powder
   m_TagString: Untagged
@@ -322,6 +329,113 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &8321751556872573132
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168864715882117970}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 10
+  m_LinearDamping: 0
+  m_AngularDamping: 3
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!231 &6793799741892232611
+SpringJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6168864715882117970}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 8169699453980961388}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_BreakAction: 3
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: -0.27, y: 0.09}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 0
+  m_Distance: 0.25
+  m_DampingRatio: 1
+  m_Frequency: 0
+--- !u!1 &6282189773600055177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1636632591983275587}
+  - component: {fileID: 8169699453980961388}
+  m_Layer: 0
+  m_Name: FishAnchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1636632591983275587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282189773600055177}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.69519645, y: 7.8163695, z: 0}
+  m_LocalScale: {x: 1.7968669, y: 1.7968669, z: 1.7968669}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5453590335183560605}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &8169699453980961388
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282189773600055177}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &9216974222333395257
 GameObject:
   m_ObjectHideFlags: 0

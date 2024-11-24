@@ -319,6 +319,10 @@ MonoBehaviour:
   fade: 0.5
   draggedTarget: {fileID: 3989988648585949689}
   dragSmoothness: 100
+  dropMask:
+    serializedVersion: 2
+    m_Bits: 128
+  fishFood: 0
   fish: {fileID: 4009208400628271969}
   startPos: {fileID: 1624653194007941113}
 --- !u!60 &8730424741088080409

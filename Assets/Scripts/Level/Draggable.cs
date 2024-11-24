@@ -26,7 +26,7 @@ namespace FishyBusiness
         protected Vector2 TargetPos { get; private set; }
         public bool IsDragged { get; private set; }
 
-        private void Awake()
+        protected virtual void Awake()
         {
             outline = GetComponent<OutlineFx.OutlineFx>();
             OnMouseExit();
@@ -42,8 +42,10 @@ namespace FishyBusiness
         {
             if (IsDragged)
             {
-                Vector3 targetWorldPos = new Vector3(TargetPos.x, TargetPos.y, draggedTarget.position.z);
-                draggedTarget.position = Vector3.Lerp(draggedTarget.position, targetWorldPos, dragSmoothness * Time.deltaTime);
+                Transform target = draggedTarget == null ? transform : draggedTarget;
+
+                Vector3 targetWorldPos = new Vector3(TargetPos.x, TargetPos.y, target.position.z);
+                target.position = Vector3.Lerp(target.position, targetWorldPos, dragSmoothness * Time.deltaTime);
             }
         }
 
