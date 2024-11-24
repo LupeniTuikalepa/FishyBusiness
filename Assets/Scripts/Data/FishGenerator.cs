@@ -66,7 +66,7 @@ namespace FishyBusiness.Helpers
             string adjective = adjectivesBuffer[Random.Range(0, adjectivesBuffer.Length)];
             string epithet = epithetsBuffer[Random.Range(0, epithetsBuffer.Length)];
 
-            return $"{adjective} {fishName}, {mafiaTitle} {epithet}";
+            return $"{adjective} {fishName}";
         }
         
         public Fish GenerateFish()
@@ -80,6 +80,24 @@ namespace FishyBusiness.Helpers
                 Age = Random.Range(17, 38),
                 Country = countryBuffer[Random.Range(0, countryBuffer.Length)],
                 Mafia = mafiaBuffer[Random.Range(0, mafiaBuffer.Length)],
+                Rank = rankBuffer[Random.Range(0, rankBuffer.Length)],
+                ExpiryDate = $"{Random.Range(1, 30)}/{Random.Range(1, 12)}/{Random.Range(2020, 2028)}",
+                
+            };
+            return fish;
+        }
+        
+        public Fish GenerateFish(string mafia)
+        {
+            Fish fish = new Fish();
+            fish.ID = GetHashCode();
+            fish.Name = GenerateMafiaFishName();
+            fish.IDCard = new IDCard
+            {
+                ID = fish.ID,
+                Age = Random.Range(17, 38),
+                Country = countryBuffer[Random.Range(0, countryBuffer.Length)],
+                Mafia = mafia,
                 Rank = rankBuffer[Random.Range(0, rankBuffer.Length)],
                 ExpiryDate = $"{Random.Range(1, 30)}/{Random.Range(1, 12)}/{Random.Range(2020, 2028)}",
                 
