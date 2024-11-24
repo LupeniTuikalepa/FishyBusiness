@@ -29,7 +29,7 @@ namespace FishyBusiness.Scenes.Xictoss_Scene.Script
             levelManager.OnDayBegun += LevelManagerOnOnDayBegun;
             levelManager.OnSuccess += LevelManagerOnOnSuccess;
             levelManager.OnFailure += LevelManagerOnOnFailure;
-            levelManager.OnNewChoice += LevelManagerOnOnNewChoice;
+            levelManager.OnNewFish += LevelManagerOnOnNewFish;
         }
 
 
@@ -38,14 +38,14 @@ namespace FishyBusiness.Scenes.Xictoss_Scene.Script
             levelManager.OnDayBegun -= LevelManagerOnOnDayBegun;
             levelManager.OnSuccess -= LevelManagerOnOnSuccess;
             levelManager.OnFailure -= LevelManagerOnOnFailure;
-            levelManager.OnNewChoice -= LevelManagerOnOnNewChoice;
+            levelManager.OnNewFish -= LevelManagerOnOnNewFish;
         }
         private void LevelManagerOnOnDayBegun(Day day)
         {
             UpdateEarnedAndQuotaText(day);
         }
 
-        private void LevelManagerOnOnNewChoice(IDayFish fish)
+        private void LevelManagerOnOnNewFish(IDayFish fish)
         {
             fishTypeTxt.text = fish.IsTruth.ToString();
         }

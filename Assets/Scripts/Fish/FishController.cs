@@ -4,8 +4,9 @@ using UnityEngine;
 
 namespace FishyBusiness.Fishes
 {
-    public class FishController : MonoBehaviour
+    public class FishController : MonoBehaviour, ILogSource
     {
+        public string Name => nameof(FishController);
         [SerializeField]
         private FishRenderer fishPrefab;
 
@@ -42,12 +43,13 @@ namespace FishyBusiness.Fishes
         }
         private void SpawnNewFish(IDayFish idayFish)
         {
+            GameController.Logger.Log(this, "Spawning new fish");
             if (idayFish is DayFish dayFish)
             {
                 FishRenderer fish = Instantiate(fishPrefab, entrance.position, Quaternion.identity);
 
                 fish.Bind(dayFish.fish);
-                
+
                 if(currentFish)
                     currentFish.MoveTo(exit);
 
@@ -67,5 +69,6 @@ namespace FishyBusiness.Fishes
             if (currentFish)
                 currentFish.ReactNegatively();
         }
+
     }
 }

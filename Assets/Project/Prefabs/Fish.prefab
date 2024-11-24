@@ -100,8 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338cb6c260177f44795ae68b705e9401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDuration: 0.2
+  moveDuration: 2
   waveAmplitude: 0.2
   waveFrequency: 1
-  angryShakeStrength: 0
-  angryShakeVibrato: 0
+  angryShakeStrength: 0.5
+  angryShakeVibrato: 85
+  jumpHeight: 1
+  jumpDuration: 1

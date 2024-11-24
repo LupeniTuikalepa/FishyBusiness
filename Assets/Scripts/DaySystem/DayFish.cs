@@ -3,9 +3,9 @@ using FishyBusiness.Helpers;
 
 namespace FishyBusiness.DaySystem
 {
-    public struct DayFish : IDayFish
+    public readonly struct DayFish : IDayFish
     {
-        Data.Fish IDayFish.Fish => fish;
+        Fish IDayFish.Fish => fish;
 
         public bool IsTruth { get; }
 
@@ -14,9 +14,9 @@ namespace FishyBusiness.DaySystem
         public int Damage => 1;
 
 
-        public readonly Data.Fish fish;
+        public readonly Fish fish;
 
-        public DayFish(Data.Fish fish, bool isTruth, int money)
+        public DayFish(Fish fish, bool isTruth, int money)
         {
             this.fish = fish;
             IsTruth = isTruth;

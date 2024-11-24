@@ -32,6 +32,10 @@ namespace FishyBusiness.Fishes
         [SerializeField]
         private int angryShakeVibrato;
 
+        [SerializeField]
+        private float jumpHeight;
+        [SerializeField]
+        private float jumpDuration;
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
@@ -43,17 +47,18 @@ namespace FishyBusiness.Fishes
             gameObject.name = fish.name;
         }
 
+        [Button]
         public void ReactPositively()
         {
-            transform.DOLocalJump(transform.position + Vector3.up * .5f, 2, 2, .5f);
+            transform.DOLocalJump(transform.position, jumpDuration, 3, jumpDuration);
         }
 
+        [Button]
         public void ReactNegatively()
         {
             Camera.main.DOShakePosition(.25f, angryShakeStrength * .5f, (int)(angryShakeVibrato * .5f));
             transform.DOShakePosition(.5f, angryShakeStrength, angryShakeVibrato);
         }
-
 
         public void MoveTo(Transform destination)
         {
