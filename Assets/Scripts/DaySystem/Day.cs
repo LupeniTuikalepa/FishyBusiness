@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using FishyBusiness.Data;
+using FishyBusiness.Documents;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -7,49 +9,51 @@ namespace FishyBusiness.DaySystem
 {
     public class Day
     {
-        public event Action OnDayFinished;
-        public event Action<IDayChoice> OnNewChoice;
+        public event Action<IDayFish> OnNewFish;
 
-        private List<IDayChoice> _fishList;
-        private IDayChoice currentFish;
+        private IDayFish currentFish;
         public int Quota { get; private set; }
         public int EarnedMoney { get; private set; }
 
-        public bool IsFinished => _fishList.Count == 0;
         public bool IsQuotaReached => EarnedMoney >= Quota;
 
+        public Fish[] VIPs { get; private set; }
+
         //constructor
-        public Day(List<IDayChoice> choices, int quota)
+        public Day(Fish[] vips, int quota)
         {
-            EarnedMoney = 0;
+            this.VIPs = vips;
             this.Quota = quota;
-            _fishList = choices;
+
+            EarnedMoney = 0;
         }
         //--//
 
         public void Begin()
         {
-            ChooseRandomFish();
+            GetNextFish();
         }
-        private void ChooseRandomFish()
+        private void GetNextFish()
         {
-            if (_fishList.Count <= 0)
+            bool generateLying = Random.value <= GameMetrics.Global.LyingFishProbability;
+
+            if (generateLying)
             {
-                //Debug.Log("jeu finito");
-                return;
+                bool generateVIP = Random.value <= GameMetrics.Global.VIPFishProbability;
+                if (generateVIP)
+                    currentFish = new DayFish(VIPs[Random.Range(0, VIPs.Length)], true, GameMetrics.Global.SellPrice);
+                else
+                    currentFish = DayFish.GenerateCoherentFish();
             }
 
-            //Debug.Log("On choisit un poisson :");
-            int indexAleatoire = Random.Range(0, _fishList.Count);
-            currentFish = _fishList[indexAleatoire];
-            Debug.Log(currentFish);
-            OnNewChoice?.Invoke(currentFish);
+            currentFish = DayFish.GenerateLyingFish();
+            OnNewFish?.Invoke(currentFish);
         }
 
-        public bool AcceptChoice(out IDayChoice choice)
+        public bool AcceptChoice(out IDayFish fish)
         {
 
-            choice = currentFish;
+            fish = currentFish;
 
             bool isRight = currentFish.IsTruth;
 
@@ -64,9 +68,9 @@ namespace FishyBusiness.DaySystem
             return isRight;
         }
 
-        public bool DeclineChoice(out IDayChoice choice)
+        public bool DeclineChoice(out IDayFish fish)
         {
-            choice = currentFish;
+            fish = currentFish;
 
             bool isRight = currentFish.IsTruth == false;
 
@@ -83,15 +87,7 @@ namespace FishyBusiness.DaySystem
 
         private void CompleteChoice()
         {
-            _fishList.Remove(currentFish);
-            if (IsFinished)
-            {
-                OnDayFinished?.Invoke();
-            }
-            else
-            {
-                ChooseRandomFish();
-            }
+            GetNextFish();
         }
 
     }

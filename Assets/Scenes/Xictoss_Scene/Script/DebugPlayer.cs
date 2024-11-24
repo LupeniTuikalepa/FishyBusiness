@@ -45,15 +45,15 @@ namespace FishyBusiness.Scenes.Xictoss_Scene.Script
             UpdateEarnedAndQuotaText(day);
         }
 
-        private void LevelManagerOnOnNewChoice(IDayChoice choice)
+        private void LevelManagerOnOnNewChoice(IDayFish fish)
         {
-            fishTypeTxt.text = choice.IsTruth.ToString();
+            fishTypeTxt.text = fish.IsTruth.ToString();
         }
 
-        private void LevelManagerOnOnFailure(IDayChoice choice, Day day)
+        private void LevelManagerOnOnFailure(IDayFish fish, Day day)
         {
-            money += choice.Money;
-            life -= choice.Damage;
+            money += fish.Money;
+            life -= fish.Damage;
             lifeTxt.text = life.ToString();
             
             UpdateEarnedAndQuotaText(day);
@@ -63,9 +63,9 @@ namespace FishyBusiness.Scenes.Xictoss_Scene.Script
             }
         }
 
-        private void LevelManagerOnOnSuccess(IDayChoice choice, Day day)
+        private void LevelManagerOnOnSuccess(IDayFish fish, Day day)
         {
-            money += choice.Money;
+            money += fish.Money;
             UpdateEarnedAndQuotaText(day);
         }
 
