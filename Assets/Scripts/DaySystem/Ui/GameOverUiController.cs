@@ -3,7 +3,7 @@ using FishyBusiness.Scenes.Xictoss_Scene.Script;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace FishyBusiness.DayManager.Ui
+namespace FishyBusiness.DaySystem.Ui
 {
     public class GameOverUiController : MonoBehaviour
 

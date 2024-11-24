@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using FishyBusiness.DayManager;
+using FishyBusiness.DaySystem;
 using UnityEngine;
 
 namespace FishyBusiness

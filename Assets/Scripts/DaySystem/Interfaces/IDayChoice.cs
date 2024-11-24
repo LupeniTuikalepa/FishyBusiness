@@ -1,4 +1,4 @@
-﻿namespace FishyBusiness.DayManager
+﻿namespace FishyBusiness.DaySystem
 {
     public interface IDayChoice
     {

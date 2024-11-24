@@ -1,5 +1,5 @@
 using System;
-using FishyBusiness.DayManager;
+using FishyBusiness.DaySystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
