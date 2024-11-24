@@ -1,7 +1,8 @@
 ﻿using System.Collections.Generic;
+using FishyBusiness.Cards;
 using LTX.Tools;
 
-namespace FishyBusiness.GameSystem.Sample.BlackJack.Cards
+namespace FishyBusiness.MiniGameSystem.Sample.BlackJack.Cards
 {
     public class BlackJackHand : CardCollection<Card>
     {

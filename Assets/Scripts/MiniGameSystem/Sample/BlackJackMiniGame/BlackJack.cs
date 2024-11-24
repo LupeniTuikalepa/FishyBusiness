@@ -1,8 +1,8 @@
-﻿using FishyBusiness.GameSystem.Interfaces;
-using FishyBusiness.GameSystem.Sample.BlackJack.Cards;
+﻿using FishyBusiness.MiniGameSystem.Interfaces;
+using FishyBusiness.MiniGameSystem.Sample.BlackJack.Cards;
 using UnityEngine;
 
-namespace FishyBusiness.GameSystem.Sample.BlackJack
+namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
 {
     public class BlackJack : MiniGame<BlackJackContext>
     {
@@ -10,10 +10,11 @@ namespace FishyBusiness.GameSystem.Sample.BlackJack
         
         public override void Begin(ref BlackJackContext context)
         {
+            context.status = GameStatus.Pending;
+            
             context.DealerHandUI.Bind(context.DealerHand);
             context.PlayerHandUI.Bind(context.PlayerHand);
             
-            context.status = GameStatus.Pending;
             SetupHands(context);
         }
 

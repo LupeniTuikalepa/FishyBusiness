@@ -1,9 +1,9 @@
-﻿using FishyBusiness.GameSystem.Sample.BlackJack.Cards;
-using FishyBusiness.GameSystem.Sample.BlackJack.Cards.UI;
+﻿using FishyBusiness.MiniGameSystem.Sample.BlackJack.Cards;
+using FishyBusiness.MiniGameSystem.Sample.BlackJack.Cards.UI;
 using TMPro;
 using UnityEngine;
 
-namespace FishyBusiness.GameSystem.Sample.BlackJack
+namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
 {
     public class CardUI : CardUI<Card>
     {

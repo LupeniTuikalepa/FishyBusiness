@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using FishyBusiness.GameSystem.Sample.BlackJack.Enums;
-using FishyBusiness.GameSystem.Sample.BlackJack.Interfaces;
+using FishyBusiness.Cards.Enums;
+using FishyBusiness.Cards.Interfaces;
 
-namespace FishyBusiness.GameSystem.Sample.BlackJack.Cards
+namespace FishyBusiness.MiniGameSystem.Sample.BlackJack.Cards
 {
     public readonly struct Card : ICard, IEquatable<Card>
     {

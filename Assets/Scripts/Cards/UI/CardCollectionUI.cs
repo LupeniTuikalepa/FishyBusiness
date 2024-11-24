@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
-using FishyBusiness.GameSystem.Sample.BlackJack.Interfaces;
+using FishyBusiness.Cards.Interfaces;
+using FishyBusiness.MiniGameSystem.Sample.BlackJack.Cards.UI;
 using UnityEngine;
 
-namespace FishyBusiness.GameSystem.Sample.BlackJack.Cards.UI
+namespace FishyBusiness.Cards.UI
 {
     public abstract class CardCollectionUI<T> : MonoBehaviour where T : ICard
     {

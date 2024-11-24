@@ -1,6 +1,6 @@
-using FishyBusiness.GameSystem.Interfaces;
+using FishyBusiness.MiniGameSystem.Interfaces;
 
-namespace FishyBusiness.GameSystem.Sample
+namespace FishyBusiness.MiniGameSystem.Sample
 {
     public class Slot : MiniGame<SlotContext>
     {

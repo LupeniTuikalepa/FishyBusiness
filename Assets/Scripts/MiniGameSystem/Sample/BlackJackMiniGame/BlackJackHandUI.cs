@@ -1,5 +1,6 @@
-﻿using FishyBusiness.GameSystem.Sample.BlackJack.Cards;
-using FishyBusiness.GameSystem.Sample.BlackJack.Cards.UI;
+﻿using FishyBusiness.Cards;
+using FishyBusiness.Cards.UI;
+using FishyBusiness.MiniGameSystem.Sample.BlackJack.Cards;
 using TMPro;
 using UnityEngine;
 

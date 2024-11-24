@@ -1,4 +1,4 @@
-﻿namespace FishyBusiness.GameSystem.Sample.BlackJack.Interfaces
+﻿namespace FishyBusiness.Cards.Interfaces
 {
     public interface ICard
     {

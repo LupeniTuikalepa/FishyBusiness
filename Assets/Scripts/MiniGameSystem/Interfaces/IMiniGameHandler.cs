@@ -1,4 +1,4 @@
-namespace FishyBusiness.GameSystem.Interfaces
+namespace FishyBusiness.MiniGameSystem.Interfaces
 {
     public interface IMiniGameHandler<T> where T : IMiniGameContext
     {

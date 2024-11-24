@@ -1,9 +1,9 @@
 ﻿using System.Collections;
-using FishyBusiness.GameSystem.Interfaces;
+using FishyBusiness.MiniGameSystem.Interfaces;
 using TMPro;
 using UnityEngine;
 
-namespace FishyBusiness.GameSystem.Sample
+namespace FishyBusiness.MiniGameSystem.Sample
 {
     public class SlotContent : MonoBehaviour
     {

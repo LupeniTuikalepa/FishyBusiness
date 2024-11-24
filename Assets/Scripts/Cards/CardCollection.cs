@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using FishyBusiness.GameSystem.Sample.BlackJack.Interfaces;
+using FishyBusiness.Cards.Interfaces;
 
-namespace FishyBusiness.GameSystem.Sample.BlackJack.Cards
+namespace FishyBusiness.Cards
 {
     public abstract class CardCollection<T> where T : ICard
     {
