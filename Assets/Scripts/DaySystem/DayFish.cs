@@ -5,12 +5,14 @@ namespace FishyBusiness.DaySystem
 {
     public struct DayFish : IDayFish
     {
+        Fish IDayFish.Fish => fish;
 
         public bool IsTruth { get; }
 
         public int Money { get; }
 
         public int Damage => 1;
+
 
         public readonly Fish fish;
 

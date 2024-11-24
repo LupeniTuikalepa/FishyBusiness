@@ -3,29 +3,14 @@ using System.Collections.Generic;
 using FishyBusiness.Data;
 using FishyBusiness.DaySystem;
 using FishyBusiness.Helpers;
+using LTX.Singletons;
 using UnityEngine;
 
 namespace FishyBusiness
 {
 
-    public class LevelManager : MonoBehaviour
+    public class LevelManager : MonoSingleton<LevelManager>
     {
-        private class Trust : IDayFish
-        {
-            public bool IsTruth => true;
-            public int Money => 10;
-
-            public int Damage => 1;
-        }
-
-        private class Lie : IDayFish
-        {
-            public bool IsTruth => false;
-            public int Money => 10;
-
-            public int Damage => 1;
-        }
-
         public event Action OnGameOver;
         public event Action<Day> OnFinishedDay;
         public event Action<Day> OnBeginDay;
