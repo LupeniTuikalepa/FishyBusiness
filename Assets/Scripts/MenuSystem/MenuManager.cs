@@ -61,7 +61,7 @@ namespace FishyBusiness.MenuSystem
         
         public void ChangeScene(int sceneIndex)
         {
-            SceneController.LoadScene(sceneIndex);
+            GameController.SceneController.LoadScene(sceneIndex);
         }
     }
 }
