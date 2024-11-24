@@ -17,10 +17,10 @@ namespace FishyBusiness.DaySystem
 
         public bool IsQuotaReached => EarnedMoney >= Quota;
 
-        public Fish[] VIPs { get; private set; }
+        public Data.Fish[] VIPs { get; private set; }
 
         //constructor
-        public Day(Fish[] vips, int quota)
+        public Day(Data.Fish[] vips, int quota)
         {
             this.VIPs = vips;
             this.Quota = quota;

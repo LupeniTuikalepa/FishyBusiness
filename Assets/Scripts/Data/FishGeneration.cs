@@ -71,12 +71,12 @@ namespace FishyBusiness.Helpers
             return $"{adjective} {fishName}, {mafiaTitle} {epithet}";
         }
 
-        public static Fish GenerateFish()
+        public static Data.Fish GenerateFish()
         {
             GameMetrics gameMetrics = GameMetrics.Global;
             GameDatabase gameDatabase = GameController.GameDatabase;
 
-            Fish fish = new Fish()
+            Data.Fish fish = new Data.Fish()
             {
                 id = Guid.NewGuid().ToString(),
                 name = GenerateMafiaFishName(),

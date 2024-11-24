@@ -8,6 +8,6 @@ namespace FishyBusiness.DaySystem
         int Money { get; }
         int Damage { get; }
 
-        public Fish Fish { get; }
+        public Data.Fish Fish { get; }
     }
 }

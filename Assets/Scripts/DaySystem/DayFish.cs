@@ -5,7 +5,7 @@ namespace FishyBusiness.DaySystem
 {
     public struct DayFish : IDayFish
     {
-        Fish IDayFish.Fish => fish;
+        Data.Fish IDayFish.Fish => fish;
 
         public bool IsTruth { get; }
 
@@ -14,9 +14,9 @@ namespace FishyBusiness.DaySystem
         public int Damage => 1;
 
 
-        public readonly Fish fish;
+        public readonly Data.Fish fish;
 
-        public DayFish(Fish fish, bool isTruth, int money)
+        public DayFish(Data.Fish fish, bool isTruth, int money)
         {
             this.fish = fish;
             IsTruth = isTruth;
