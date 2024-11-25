@@ -49,8 +49,11 @@ namespace FishyBusiness.Fishes
         {
             spriteRenderer.sprite = fish.image;
 
-            shadowCaster2D.trimEdge = 0;
-            shadowCaster2D.trimEdge = .1f;
+            if (shadowCaster2D != null)
+            {
+                shadowCaster2D.trimEdge = 0;
+                shadowCaster2D.trimEdge = .1f;
+            }
 
             gameObject.name = fish.name;
         }

@@ -55,7 +55,7 @@ namespace FishyBusiness
 
             for (int i = 0; i < GameMetrics.Global.VIPsCount; i++)
                 vips.Add(FishGeneration.GenerateFish());
-            
+
             SetRank();
 
             currentDay = new Day(vips.ToArray(), Mathf.CeilToInt(quota));
@@ -73,7 +73,7 @@ namespace FishyBusiness
             foreach (var mafia in GameDatabase.Global.Mafias)
             {
                 List<Sprite> sprites = new List<Sprite>(GameDatabase.Global.FishKeyArts);
-            
+
                 foreach (var rank in GameDatabase.Global.MafiaRanks)
                 {
                     rank.sprites.Add(mafia.name, new List<Sprite>());
@@ -94,6 +94,7 @@ namespace FishyBusiness
 
         private void FinishDay()
         {
+            IsLevelRunning = false;
             if (currentDay.IsQuotaReached)
             {
                 OnDayEnded?.Invoke(currentDay);
@@ -102,6 +103,7 @@ namespace FishyBusiness
             {
                 OnGameOver?.Invoke();
             }
+
         }
 
 
