@@ -50,29 +50,34 @@ namespace FishyBusiness
                 {
                     position = screenPos
                 };
-
-                EventSystem.current.RaycastAll(eventData, resultsBuffer);
-
-                if(resultsBuffer.Count > 0)
-                    return;
-
-                Collider2D[] results = new Collider2D[32];
-                int count = Physics2D.OverlapPoint(worldPos, new ContactFilter2D()
+                try
                 {
-                    layerMask = draggableMask,
-                },
-                    results);
+                    EventSystem.current.RaycastAll(eventData, resultsBuffer);
 
-                for (int i = 0; i < count; i++)
-                {
-                    var hit = results[i];
-                    if (hit != null && hit.TryGetComponent(out Draggable draggable))
+                    if (resultsBuffer.Count > 0)
+                        return;
+
+                    Collider2D[] results = new Collider2D[32];
+                    int count = Physics2D.OverlapPoint(worldPos, new ContactFilter2D()
+                        {
+                            layerMask = draggableMask,
+                        },
+                        results);
+
+                    for (int i = 0; i < count; i++)
                     {
-                        CurrentDraggable = draggable;
-                        draggable.BeginDrag();
+                        var hit = results[i];
+                        if (hit != null && hit.TryGetComponent(out Draggable draggable))
+                        {
+                            CurrentDraggable = draggable;
+                            draggable.BeginDrag();
+                        }
                     }
                 }
-                eventData.Use();
+                finally
+                {
+                    eventData.Use();
+                }
             }
             if(!isGrab && CurrentDraggable != null)
             {
@@ -98,24 +103,29 @@ namespace FishyBusiness
                 {
                     position = screenPos
                 };
-
-                EventSystem.current.RaycastAll(eventData, resultsBuffer);
-                if(resultsBuffer.Count > 0)
-                    return;
-
-                Collider2D[] results = new Collider2D[32];
-                int count = Physics2D.OverlapPoint(worldPos, new ContactFilter2D(), results);
-
-                for (int i = 0; i < count; i++)
+                try
                 {
-                    var hit = results[i];
-                    if (hit != null && hit.TryGetComponent(out IDeskDocument deskDocument))
+                    EventSystem.current.RaycastAll(eventData, resultsBuffer);
+                    if(resultsBuffer.Count > 0)
+                        return;
+
+                    Collider2D[] results = new Collider2D[32];
+                    int count = Physics2D.OverlapPoint(worldPos, new ContactFilter2D(), results);
+
+                    for (int i = 0; i < count; i++)
                     {
-                        Hand.AddDocument(deskDocument.Document);
-                        DeskDocuments.RemoveDocument(deskDocument.Document);
+                        var hit = results[i];
+                        if (hit != null && hit.TryGetComponent(out IDeskDocument deskDocument))
+                        {
+                            Hand.AddDocument(deskDocument.Document);
+                            DeskDocuments.RemoveDocument(deskDocument.Document);
+                        }
                     }
                 }
-                eventData.Use();
+                finally
+                {
+                    eventData.Use();
+                }
             }
         }
     }
