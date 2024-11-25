@@ -56,11 +56,11 @@ namespace FishyBusiness
                 if(resultsBuffer.Count > 0)
                     return;
 
-                Collider2D hit = Physics2D.OverlapPoint(worldPos);
-                if (hit != null && hit.TryGetComponent(out IDeskDocument deskDocument))
+                Collider2D hit = Physics2D.OverlapPoint(worldPos, draggableMask);
+                if (hit != null && hit.TryGetComponent(out Draggable draggable))
                 {
-                    Hand.AddDocument(deskDocument.Document);
-                    DeskDocuments.RemoveDocument(deskDocument.Document);
+                    CurrentDraggable = draggable;
+                    draggable.BeginDrag();
                 }
             }
             if(!isGrab && CurrentDraggable != null)
@@ -92,11 +92,12 @@ namespace FishyBusiness
                 if(resultsBuffer.Count > 0)
                     return;
 
-                Collider2D hit = Physics2D.OverlapPoint(worldPos, draggableMask);
-                if (hit != null && hit.TryGetComponent(out Draggable draggable))
+
+                Collider2D hit = Physics2D.OverlapPoint(worldPos);
+                if (hit != null && hit.TryGetComponent(out IDeskDocument deskDocument))
                 {
-                    CurrentDraggable = draggable;
-                    draggable.BeginDrag();
+                    Hand.AddDocument(deskDocument.Document);
+                    DeskDocuments.RemoveDocument(deskDocument.Document);
                 }
             }
         }

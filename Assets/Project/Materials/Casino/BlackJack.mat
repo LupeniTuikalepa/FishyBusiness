@@ -55,9 +55,9 @@ Material:
     m_Floats:
     - _ColorMask: 15
     - _DistortionAmount: 10
-    - _DistortionSpeed: 0.05
+    - _DistortionSpeed: 0
     - _EnableExternalAlpha: 0
-    - _Posterisation: 10
+    - _Posterisation: 7.33
     - _ScrollSpeed: 0.05
     - _SecondaryStep: -0.01
     - _Stencil: 0
@@ -72,8 +72,8 @@ Material:
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _MainColor: {r: 0.05448028, g: 0.2195262, b: 0.1328684, a: 1}
+    - _MainColor: {r: 0, g: 0, b: 0, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SecondaryColor: {r: 0.18039218, g: 0.39999998, b: 0.30588236, a: 1}
+    - _SecondaryColor: {r: 0.43996632, g: 0.3742435, b: 0.5471698, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
