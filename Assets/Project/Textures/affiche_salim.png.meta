@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      affiche_salim_0: -3304980319691559944
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

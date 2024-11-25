@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      3d-realistic-glass-spherical-bal_0: 2073997110910789648
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

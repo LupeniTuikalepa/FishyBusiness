@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Icon_roulette_0: -9050268262964275509
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

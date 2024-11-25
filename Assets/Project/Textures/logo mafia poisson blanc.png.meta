@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      logo mafia poisson blanc_0: -4192860962847323366
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
