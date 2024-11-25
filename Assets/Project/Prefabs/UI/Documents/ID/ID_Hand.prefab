@@ -280,6 +280,7 @@ MonoBehaviour:
   mafiaRankTmp: {fileID: 2841980204352321240}
   mafiaSignature: {fileID: 6103778371122956318}
   countrySignature: {fileID: 5309829431109009958}
+  photo: {fileID: 6213966319801818313}
 --- !u!1 &972275640991695942
 GameObject:
   m_ObjectHideFlags: 0

@@ -47,7 +47,7 @@ namespace FishyBusiness.Fishes
 
         public void Bind(Fish fish)
         {
-            spriteRenderer.sprite = fish.image;
+            spriteRenderer.sprite = fish.photo;
 
             if (shadowCaster2D != null)
             {

@@ -8,7 +8,7 @@ namespace FishyBusiness.Data
 {
     public struct Fish : IIdentityDocumentInfos
     {
-        public Sprite image;
+        public Sprite photo;
 
         public string id;
         public string name;
@@ -24,6 +24,9 @@ namespace FishyBusiness.Data
         string IIdentityDocumentInfos.Name => name;
         int IIdentityDocumentInfos.BirthYear => birthYear;
         Country IIdentityDocumentInfos.BirthCountry => birthCountry;
+
+        public Sprite Photo => photo;
+
         Mafia IIdentityDocumentInfos.Mafia => mafia;
         MafiaRank IIdentityDocumentInfos.MafiaRank => rank;
         int IIdentityDocumentInfos.ExpireDate => expiryDate;
