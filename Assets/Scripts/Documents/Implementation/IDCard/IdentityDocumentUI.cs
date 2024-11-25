@@ -32,12 +32,14 @@ namespace FishyBusiness.Documents
         private RawImage mafiaSignature;
         [SerializeField]
         private RawImage countrySignature;
+        [SerializeField]
+        private Image photo;
 
         protected override void Bind(IdentityDocument document)
         {
             base.Bind(document);
 
-            nameTmp.text = document.name;
+            photo.sprite = document.photo;
             birthYearTmp.text = document.birthYear.ToString();
             birthPlaceTmp.text = document.birthCountry.name;
 

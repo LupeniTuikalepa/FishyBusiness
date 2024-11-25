@@ -9,6 +9,7 @@ namespace FishyBusiness.Documents
         int BirthYear { get; }
         Country BirthCountry { get; }
 
+        Sprite Photo { get; }
 
         Mafia Mafia { get; }
         MafiaRank MafiaRank { get; }
