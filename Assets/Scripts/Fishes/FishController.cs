@@ -41,6 +41,8 @@ namespace FishyBusiness.Fishes
         private void UnSyncWithCurrentDay(Day day)
         {
             day.OnNewFish -= SpawnNewFish;
+            if (currentFish != null)
+                currentFish.MoveTo(exit, 1f).OnComplete(() => Destroy(currentFish.gameObject));
         }
         private void SpawnNewFish(IDayFish idayFish)
         {

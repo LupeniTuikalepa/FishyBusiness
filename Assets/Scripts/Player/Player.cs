@@ -49,6 +49,7 @@ namespace FishyBusiness
             LevelManager.Instance.OnNewFish += GetNewFishId;
             LevelManager.Instance.OnSuccess += OnSuccess;
             LevelManager.Instance.OnFailure += OnFailure;
+            LevelManager.Instance.OnNightBegun += ClearTemporaryDocuments;
             PlayerInputs.Enable();
         }
 
@@ -58,6 +59,7 @@ namespace FishyBusiness
             LevelManager.Instance.OnNewFish -= GetNewFishId;
             LevelManager.Instance.OnSuccess -= OnSuccess;
             LevelManager.Instance.OnFailure -= OnFailure;
+            LevelManager.Instance.OnNightBegun -= ClearTemporaryDocuments;
 
             PlayerInputs.Disable();
         }
@@ -96,7 +98,7 @@ namespace FishyBusiness
 
         [Button]
         private void Die() => Hit(Health);
-        
+
         public void Hit(int lifeLoss)
         {
             Health -= lifeLoss;

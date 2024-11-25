@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 70663388535575337}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.38, y: -0.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -246,7 +246,6 @@ MonoBehaviour:
   prefabs:
   - <Prefab>k__BackingField: {fileID: 8324914656204846090, guid: 8a62ed08a57783b419ca54baea8cd043, type: 3}
     <DocumentType>k__BackingField: 0
-  player: {fileID: 0}
 --- !u!1 &6618319387486331906
 GameObject:
   m_ObjectHideFlags: 0

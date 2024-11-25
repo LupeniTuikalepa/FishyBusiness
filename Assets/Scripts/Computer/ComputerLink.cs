@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ComputerLink : MonoBehaviour, IPointerClickHandler
+public class ComputerLink : MonoBehaviour
 {
     [SerializeField] private string screenName;
     [SerializeField] private int ID;
@@ -13,14 +13,15 @@ public class ComputerLink : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private GameObject pfbScreenToLoad;
     [SerializeField]
-        private Image icon;
+    private Image icon;
+
     [SerializeField]
-        private ComputerManager computerManager;
+    private ComputerManager computerManager;
 
     [SerializeField]
     private Transform windowParent;
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick()
     {
         if (loadedScreen != null)
         {

@@ -41,15 +41,23 @@ namespace FishyBusiness
             for (int i = 0; i < day.MafiaFishes.Length; i++)
             {
                 Fish fish = day.MafiaFishes[i];
-                if (fish.mafia == mafia && fish.rank == rank)
-                {
-                    Debug.Log(fish);
+                ProcessFish(mafia, fish);
+            }
+            for (int i = 0; i < day.ViPs.Length; i++)
+            {
+                Fish fish = day.ViPs[i];
+                ProcessFish(mafia, fish);
+            }
+        }
 
-                    Image image = Instantiate(rankImagePrefab, transform);
-                    image.sprite = fish.photo;
+        private void ProcessFish(Mafia mafia, Fish fish)
+        {
+            if (fish.mafia == mafia && fish.rank == rank)
+            {
+                Image image = Instantiate(rankImagePrefab, transform);
+                image.sprite = fish.photo;
 
-                    images.Add(image);
-                }
+                images.Add(image);
             }
         }
     }

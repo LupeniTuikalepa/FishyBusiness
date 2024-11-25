@@ -11,8 +11,10 @@ namespace FishyBusiness
     /// <summary>
     /// Log like [OBJECT] blablabla
     /// </summary>
-    public class Logger
+    public class Logger : ILogSource
     {
+        public string Name => "Global";
+
         private static Logger Global => GameController.Logger;
 
         [HideInCallstack]
@@ -36,5 +38,6 @@ namespace FishyBusiness
 
         [HideInCallstack]
         public void LogError(ILogSource logSource, string message) => Debug.LogError($"[{logSource.Name}] {message}", logSource as UnityEngine.Object);
+
     }
 }
