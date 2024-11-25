@@ -190,7 +190,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
             PlayerStay();
         }
 
-        public IEnumerator ClearBlackJack()
+        private IEnumerator ClearBlackJack()
         {
             foreach (Button button in gameButtons)
             {
