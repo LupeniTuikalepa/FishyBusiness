@@ -18,14 +18,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
         {
             if (context.IsComplete)
             {
-                if (rouletteResult == context.playerChoice)
-                {
-                    context.status = GameStatus.Success;
-                }
-                else
-                {
-                    context.status = GameStatus.Failure;
-                }
+                context.status = rouletteResult == context.playerChoice ? GameStatus.Success : GameStatus.Failure;
             }
 
             return context.status != GameStatus.Pending;

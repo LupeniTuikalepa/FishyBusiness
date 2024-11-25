@@ -123,7 +123,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
             betAmount = int.Parse(value);
         }
 
-        public IEnumerator ClearRoulette()
+        private IEnumerator ClearRoulette()
         {
             yield return new WaitForSeconds(0);
 
