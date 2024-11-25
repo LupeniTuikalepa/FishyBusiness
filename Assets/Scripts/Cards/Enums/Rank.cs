@@ -11,9 +11,9 @@
         Eight = 8,
         Nine = 9,
         Ten = 10,
-        Ace = 11,
         Jack = 20,
         Queen = 21,
         King = 22,
+        Ace = 11,
     }
 }

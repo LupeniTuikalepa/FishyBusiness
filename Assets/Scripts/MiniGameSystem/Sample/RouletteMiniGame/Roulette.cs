@@ -16,7 +16,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
 
         public override bool Refresh(ref RouletteContext context)
         {
-            if (rouletteResult != -1)
+            if (context.IsComplete)
             {
                 if (rouletteResult == context.playerChoice)
                 {
@@ -38,6 +38,8 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
             {
                 context.Player.AddMoney(context.BetAmount * 2);
             }
+
+            context.RouletteResult.text = context.status == GameStatus.Success ? "Win !!!" : "Lose...";
             context.status = GameStatus.None;
         }
     }

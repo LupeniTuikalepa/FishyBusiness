@@ -1,0 +1,264 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &827693687418710904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3704602438366092371}
+  - component: {fileID: 6607054890254331471}
+  - component: {fileID: 4120381420968960928}
+  - component: {fileID: 819298463687594798}
+  - component: {fileID: 678064077096331317}
+  m_Layer: 5
+  m_Name: Card
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3704602438366092371
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827693687418710904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1240, y: 1760}
+  m_Pivot: {x: 0, y: 0.5}
+--- !u!222 &6607054890254331471
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827693687418710904}
+  m_CullTransparentMesh: 1
+--- !u!114 &4120381420968960928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827693687418710904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 7756031310507626845, guid: 7d5dd5ded02ab5a4a93945d4a77023fd, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!114 &819298463687594798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827693687418710904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7155831cfc44bfd9fcc710b85e1c9c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardImage: {fileID: 4120381420968960928}
+  cardDatas:
+  - cardSprite: {fileID: -6615349283201771325, guid: 1d2e1e31f0f8b72419ca47383839638b, type: 3}
+    cardRank: 2
+    cardType: 0
+  - cardSprite: {fileID: -470981947981648422, guid: 1f3f8e523a6e0654a9a6d2e09737efcf, type: 3}
+    cardRank: 2
+    cardType: 1
+  - cardSprite: {fileID: 4921714240785935175, guid: f69a0ea2f5d814c469be50edd754771e, type: 3}
+    cardRank: 2
+    cardType: 2
+  - cardSprite: {fileID: -6282994330945887700, guid: 621178a77a3ec614caeefa58b6e72abf, type: 3}
+    cardRank: 2
+    cardType: 3
+  - cardSprite: {fileID: -1266081167248752031, guid: 9c045acbe87cd3b40873950459b08f66, type: 3}
+    cardRank: 3
+    cardType: 0
+  - cardSprite: {fileID: 7368306481650333828, guid: e2d9038b7f1cf554cafe52803cf2dcf2, type: 3}
+    cardRank: 3
+    cardType: 1
+  - cardSprite: {fileID: -8471416778497465012, guid: 584da6cd4c29f1a4ebf252eae785af80, type: 3}
+    cardRank: 3
+    cardType: 2
+  - cardSprite: {fileID: -7198085615846395109, guid: 746f893a877eb014db987646cdc2dc5c, type: 3}
+    cardRank: 3
+    cardType: 3
+  - cardSprite: {fileID: 1221984175532728500, guid: c6d1450838bd46246b82f52c88150ab8, type: 3}
+    cardRank: 4
+    cardType: 0
+  - cardSprite: {fileID: 967770905718036140, guid: 6825d5b6082e99a4382085191fba294d, type: 3}
+    cardRank: 4
+    cardType: 1
+  - cardSprite: {fileID: -1762583795282670564, guid: fb01119bf01f5bb4ca5527a25eedca88, type: 3}
+    cardRank: 4
+    cardType: 2
+  - cardSprite: {fileID: 8575886628647956186, guid: 1415cbb8b9b8ef54fb55eb2d1305d400, type: 3}
+    cardRank: 4
+    cardType: 3
+  - cardSprite: {fileID: 402584008487825076, guid: 43f9ae6e8e6ad1340ac94c78722bb5b5, type: 3}
+    cardRank: 5
+    cardType: 0
+  - cardSprite: {fileID: -3111148022947947861, guid: 9f6e5cbc623f2ab4fb82c01cc50a6df8, type: 3}
+    cardRank: 5
+    cardType: 1
+  - cardSprite: {fileID: -4544898553050473968, guid: fbb6f49747464184f92373f6b8b3bdbf, type: 3}
+    cardRank: 5
+    cardType: 2
+  - cardSprite: {fileID: -9042549216180362566, guid: b3ad88e8289312b43b3bbd0da7134c70, type: 3}
+    cardRank: 5
+    cardType: 3
+  - cardSprite: {fileID: 6639409432088744469, guid: ac670403d15c57b49a92970d1f67d006, type: 3}
+    cardRank: 6
+    cardType: 0
+  - cardSprite: {fileID: -8727752830369204710, guid: cfdf72196ad634b4692918e5b13138f7, type: 3}
+    cardRank: 6
+    cardType: 1
+  - cardSprite: {fileID: 66065027362102459, guid: 63210da19d654cf40af01973166e82cd, type: 3}
+    cardRank: 6
+    cardType: 2
+  - cardSprite: {fileID: 3449805959732638778, guid: 247cc0ca494692141af755e462217cdd, type: 3}
+    cardRank: 6
+    cardType: 3
+  - cardSprite: {fileID: -4382043178801495449, guid: 1eeb0ef18495c644b956dde833849daa, type: 3}
+    cardRank: 7
+    cardType: 0
+  - cardSprite: {fileID: 4325637012511148764, guid: 7ede84831cb8a4e4b9b64543016396ec, type: 3}
+    cardRank: 7
+    cardType: 1
+  - cardSprite: {fileID: -1788587385853767046, guid: b429daa5264a23d488e09b62c5437f0d, type: 3}
+    cardRank: 7
+    cardType: 2
+  - cardSprite: {fileID: 649576211232336383, guid: 2c063c712aa42aa4e97d1a8633550468, type: 3}
+    cardRank: 7
+    cardType: 3
+  - cardSprite: {fileID: -6694446495659728119, guid: e21e05e7375c10a4e877bf0c32f1b0fe, type: 3}
+    cardRank: 8
+    cardType: 0
+  - cardSprite: {fileID: -2049010003162754520, guid: 2dcbadd940a8b2a439f72d0e1f4cf1d0, type: 3}
+    cardRank: 8
+    cardType: 1
+  - cardSprite: {fileID: 5810988451734410731, guid: 00da8ed93d1878d4188d9c7d476016cc, type: 3}
+    cardRank: 8
+    cardType: 2
+  - cardSprite: {fileID: -7669145209622853501, guid: c95518ed418c5034399137f8507a888a, type: 3}
+    cardRank: 8
+    cardType: 3
+  - cardSprite: {fileID: -5497797523435143866, guid: 0b464df3fde577b4fa5266faa5ad9c31, type: 3}
+    cardRank: 9
+    cardType: 0
+  - cardSprite: {fileID: -6002516113112206156, guid: 38bba4b7462512d43bbeac09bc7087be, type: 3}
+    cardRank: 9
+    cardType: 1
+  - cardSprite: {fileID: 6094847559297974444, guid: ac2fc28e3d12a514db378714d25780e2, type: 3}
+    cardRank: 9
+    cardType: 2
+  - cardSprite: {fileID: -5717476694404820304, guid: ec9f8aa3671ecb447a7390ddb4de328a, type: 3}
+    cardRank: 9
+    cardType: 3
+  - cardSprite: {fileID: 6726222881442484169, guid: 26c250848b867ea4494fb2ef182495b7, type: 3}
+    cardRank: 10
+    cardType: 0
+  - cardSprite: {fileID: 5977768297253099471, guid: 3e334a22bb9d838448c9d635e3a153a8, type: 3}
+    cardRank: 10
+    cardType: 1
+  - cardSprite: {fileID: 5587702616437706666, guid: f784010ae267e43419719754d7da873f, type: 3}
+    cardRank: 10
+    cardType: 2
+  - cardSprite: {fileID: 3935004680628513513, guid: 6f5955e4efc80dc4dbc4567e8feb816a, type: 3}
+    cardRank: 10
+    cardType: 3
+  - cardSprite: {fileID: 4247450788878824405, guid: 71470d37787450d4f8bffe5e68f07e2e, type: 3}
+    cardRank: 20
+    cardType: 0
+  - cardSprite: {fileID: 6053878681809829615, guid: e5cb1dcaaf16c6b4c9b14a5d4c1d5c9f, type: 3}
+    cardRank: 20
+    cardType: 1
+  - cardSprite: {fileID: 2397264244081085583, guid: 542dc29be33482b47bd439b1d1cfe8f7, type: 3}
+    cardRank: 20
+    cardType: 2
+  - cardSprite: {fileID: 2405745710231366613, guid: 31acdc20df66d3c419f5cc5ee6821f6d, type: 3}
+    cardRank: 20
+    cardType: 3
+  - cardSprite: {fileID: 5672906965232164006, guid: 08d60619a0e0b0d46b9d4fc02cba2824, type: 3}
+    cardRank: 21
+    cardType: 0
+  - cardSprite: {fileID: 5736943873796216453, guid: fd8411dd9ba823840ac0b1abfeefdb09, type: 3}
+    cardRank: 21
+    cardType: 1
+  - cardSprite: {fileID: 2821164092954821551, guid: a2cfe452ea02e7c4da6e4a2d40cc8d79, type: 3}
+    cardRank: 21
+    cardType: 2
+  - cardSprite: {fileID: 5251250527126940792, guid: 8d6e326fe249d754aa7de2d8bc4c9506, type: 3}
+    cardRank: 21
+    cardType: 3
+  - cardSprite: {fileID: 8099114020236584140, guid: 2230a78a2227eec44914b5cabdc73988, type: 3}
+    cardRank: 22
+    cardType: 0
+  - cardSprite: {fileID: -421966969462485011, guid: 7d81a6e9b94020541b11e9f3c4187842, type: 3}
+    cardRank: 22
+    cardType: 1
+  - cardSprite: {fileID: 4923843574628250847, guid: 7b22ae1617d0bfc4c993383ffc61df86, type: 3}
+    cardRank: 22
+    cardType: 2
+  - cardSprite: {fileID: 1792998587925373493, guid: 633ff2702c0aa76479dbb0cfb07376d2, type: 3}
+    cardRank: 22
+    cardType: 3
+  - cardSprite: {fileID: 88616058606155059, guid: 099d5ec686fd777458aca768e44bbdac, type: 3}
+    cardRank: 11
+    cardType: 0
+  - cardSprite: {fileID: 7735536463562042029, guid: 703c5a86ce1b43f44a991b3bd1840885, type: 3}
+    cardRank: 11
+    cardType: 1
+  - cardSprite: {fileID: 9106118235373195631, guid: 29dd12df317f77b43aa7c934fa34b684, type: 3}
+    cardRank: 11
+    cardType: 2
+  - cardSprite: {fileID: 4087427705637470172, guid: c6be23260731d6f449e90e9652974568, type: 3}
+    cardRank: 11
+    cardType: 3
+--- !u!114 &678064077096331317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827693687418710904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
+  m_EffectDistance: {x: 25, y: 25}
+  m_UseGraphicAlpha: 1

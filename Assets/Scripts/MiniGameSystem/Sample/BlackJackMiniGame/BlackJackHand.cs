@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using FishyBusiness.Cards;
+using FishyBusiness.Cards.Enums;
 using LTX.Tools;
 
 namespace FishyBusiness.MiniGameSystem.Sample.BlackJack.Cards
@@ -19,9 +21,18 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack.Cards
         {
             int handValue = default;
             
-            foreach (Card card in Cards)
+            handValue = Cards.Aggregate(0, (sum, card) => sum + card.CardValue);
+
+            if (handValue > 21 && Cards.Any(ctx => ctx.CardRank == CardRank.Ace))
             {
-                handValue += card.CardValue;
+                handValue = Cards.Aggregate(handValue, (sum, card) =>
+                {
+                    if (card.CardRank == CardRank.Ace && sum > 21)
+                    {
+                        return sum - 10;
+                    }
+                    return sum;
+                });
             }
 
             return handValue;

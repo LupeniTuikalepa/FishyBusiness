@@ -11,9 +11,11 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
         public string Name => nameof(RouletteHandler);
         
         [SerializeField] private Player player;
+        [SerializeField] private RotateSprite rotateSprite;
+        
         [SerializeField] private ButtonManagerBasic[] gameButtons;
         [SerializeField] private TMP_InputField moneyBet;
-        [SerializeField] private TMP_Text playerMoney;
+        [SerializeField] private TMP_Text playerMoney, rouletteResult;
         private int betAmount, playerChoice;
         private bool waitingForClear;
         private Roulette roulette;
@@ -70,6 +72,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
             
             SetupGame();
             MiniGameManager.Instance.StartGame(roulette, this);
+            rotateSprite.LaunchBall();
         }
         
         private void SetupGame()
@@ -83,7 +86,10 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
             
             player.RemoveMoney(betAmount);
             RefreshMoney();
-            
+
+            rouletteResult.text = "";
+
+            context.IsComplete = false;
             context.status = GameStatus.Pending;
             roulette = new Roulette();
         }
@@ -96,6 +102,8 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
                 BetAmount = betAmount,
                 playerChoice = playerChoice,
                 status = context.status,
+                IsComplete = context.IsComplete,
+                RouletteResult = rouletteResult,
             };
         }
         
@@ -117,7 +125,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
         
         public IEnumerator ClearRoulette()
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(0);
             
             moneyBet.interactable = true;
             waitingForClear = true;
@@ -126,6 +134,11 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
             {
                 button.buttonVar.interactable = true;
             }
+        }
+
+        public void OnSpinEnd()
+        {
+            context.IsComplete = true;
         }
     }
 }

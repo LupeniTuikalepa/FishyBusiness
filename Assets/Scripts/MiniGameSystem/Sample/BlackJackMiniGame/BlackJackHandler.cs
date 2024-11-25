@@ -172,6 +172,8 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
         public void PlayerDoubleDown()
         {
             if (waitingForClear) return;
+
+            if (player.Money > betAmount) return;
             
             player.RemoveMoney(betAmount);
             RefreshMoney();
