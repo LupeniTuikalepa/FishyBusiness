@@ -95,7 +95,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
                 context.Player.AddMoney(context.BetAmount);
             }
             
-            Debug.Log(context.status);
+            //Debug.Log(context.status);
         }
 
         private void SetupHands(BlackJackContext context)

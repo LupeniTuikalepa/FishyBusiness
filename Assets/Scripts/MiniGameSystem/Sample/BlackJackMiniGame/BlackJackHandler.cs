@@ -5,6 +5,7 @@ using FishyBusiness.MiniGameSystem.Sample.BlackJackMiniGame;
 using Michsky.UI.ModernUIPack;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
 {
@@ -13,8 +14,8 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
         public string Name => nameof(BlackJackHandler);
         
         [SerializeField] private Player player;
-        [SerializeField] private ButtonManagerBasic startButton, backButton;
-        [SerializeField] private ButtonManagerBasic[] gameButtons;
+        [SerializeField] private Button startButton, backButton;
+        [SerializeField] private Button[] gameButtons;
         [SerializeField] private TMP_InputField moneyBet;
         [SerializeField] private TMP_Text playerMoney;
         [SerializeField] private BlackJackHandUI playerHandUI, dealerHandUI;
@@ -37,13 +38,13 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
 
         private void GameStopped(IMiniGameRunner obj)
         {
-            playerMoney.text = player.Money.ToString();
+            RefreshMoney();
             StartCoroutine(ClearBlackJack());
         }
 
         private void RefreshMoney()
         {
-            playerMoney.text = player.Money.ToString();
+            playerMoney.text = "Money : " + player.Money;
         }
         
         public void StartGame()
@@ -79,13 +80,13 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
 
         private void SetupGame()
         {
-            startButton.buttonVar.interactable = false;
-            backButton.buttonVar.interactable = false;
+            startButton.interactable = false;
+            backButton.interactable = false;
             moneyBet.interactable = false;
 
-            foreach (ButtonManagerBasic button in gameButtons)
+            foreach (Button button in gameButtons)
             {
-                button.buttonVar.interactable = true;
+                button.interactable = true;
             }
             
             player.RemoveMoney(betAmount);
@@ -190,16 +191,16 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
 
         public IEnumerator ClearBlackJack()
         {
-            foreach (ButtonManagerBasic button in gameButtons)
+            foreach (Button button in gameButtons)
             {
-                button.buttonVar.interactable = false;
+                button.interactable = false;
             }
             
             yield return new WaitForSeconds(2f);
             
             moneyBet.interactable = true;
-            startButton.buttonVar.interactable = true;
-            backButton.buttonVar.interactable = true;
+            startButton.interactable = true;
+            backButton.interactable = true;
             waitingForClear = true;
         }
     }

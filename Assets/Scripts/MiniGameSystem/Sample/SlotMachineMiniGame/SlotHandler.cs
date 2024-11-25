@@ -32,13 +32,13 @@ namespace FishyBusiness.MiniGameSystem.Sample
 
         private void GameStopped(IMiniGameRunner obj)
         {
-            playerMoney.text = player.Money.ToString();
+            RefreshMoney();
             StartCoroutine(ClearSlot());
         }
 
         private void RefreshMoney()
         {
-            playerMoney.text = player.Money.ToString();
+            playerMoney.text = "Money : " + player.Money;
         }
 
         public void StartGame()
