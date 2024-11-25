@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using FishyBusiness.MiniGameSystem.Interfaces;
-using Michsky.UI.ModernUIPack;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace FishyBusiness.MiniGameSystem.Sample
 {
@@ -12,7 +12,7 @@ namespace FishyBusiness.MiniGameSystem.Sample
         
         [SerializeField] private SlotContent content;
         [SerializeField] private Player player;
-        [SerializeField] private ButtonManagerBasic startButton, backButton;
+        [SerializeField] private Button startButton, backButton;
         [SerializeField] private TMP_InputField moneyBet;
         [SerializeField] private TMP_Text playerMoney;
         private int betAmount;
@@ -58,8 +58,8 @@ namespace FishyBusiness.MiniGameSystem.Sample
             player.RemoveMoney(betAmount);
             RefreshMoney();
             
-            startButton.buttonVar.interactable = false;
-            backButton.buttonVar.interactable = false;
+            startButton.interactable = false;
+            backButton.interactable = false;
             moneyBet.interactable = false;
             
             slot = new Slot();
@@ -98,8 +98,8 @@ namespace FishyBusiness.MiniGameSystem.Sample
             yield return new WaitForSeconds(0f);
             
             moneyBet.interactable = true;
-            startButton.buttonVar.interactable = true;
-            backButton.buttonVar.interactable = true;
+            startButton.interactable = true;
+            backButton.interactable = true;
         }
     }
 }
