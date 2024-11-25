@@ -104,7 +104,8 @@ namespace FishyBusiness.Helpers
 
         public static Fish AlterFish(Fish fish)
         {
-            int index = Random.Range(1, 4);
+            int index = Random.Range(1, 7);
+
             switch (index)
             {
                 case 1:
@@ -116,9 +117,20 @@ namespace FishyBusiness.Helpers
                 case 3:
                     fish.rank = GameDatabase.GetDiffMafiaRank(fish.rank.ToString());
                     break;
+                case 4:
+                    fish.photo = GameDatabase.Global.FishKeyArts.GetRandom();
+                    break;
+                case 5:
+                    fish.birthCountry = GameDatabase.Global.Countries.GetRandom();
+                    break;
+                case 6:
+                    fish.name = GenerateMafiaFishName();
+                    break;
             }
 
             return fish;
         }
+
+        public static T GetRandom<T>(this T[] array) => array[Random.Range(0, array.Length)];
     }
 }

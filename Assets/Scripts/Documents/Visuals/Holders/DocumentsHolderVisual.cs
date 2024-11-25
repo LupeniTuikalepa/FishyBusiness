@@ -12,13 +12,13 @@ namespace FishyBusiness.Documents.Visuals.Holders
         [SerializeField]
         private DocumentPrefabPair[] prefabs;
 
-        private Dictionary<IDocument, T> documents;
-        private Dictionary<DocumentType, DocumentVisualAnchor> anchors;
+        private Dictionary<IDocument, T> documents = new();
+        private Dictionary<DocumentType, DocumentVisualAnchor> anchors = new();
 
         private void Start()
         {
-            documents = new Dictionary<IDocument, T>();
-            anchors = new Dictionary<DocumentType, DocumentVisualAnchor>();
+            documents ??= new Dictionary<IDocument, T>();
+            anchors ??= new Dictionary<DocumentType, DocumentVisualAnchor>();
 
             DocumentVisualAnchor[] documentVisualAnchors = GetComponentsInChildren<DocumentVisualAnchor>();
             for (int i = 0; i < documentVisualAnchors.Length; i++)
@@ -65,6 +65,8 @@ namespace FishyBusiness.Documents.Visuals.Holders
                         documentVisual.Bind(document);
                         BindDocument(documentVisual, document);
                         Transform visualTransform = documentVisual.gameObject.transform;
+                        visualTransform.position = root.position;
+
                         visualTransform.DOPunchScale(
                             -visualTransform.localScale * GameMetrics.Global.DocumentBounceStrength,
                             GameMetrics.Global.DocumentBounceDuration,

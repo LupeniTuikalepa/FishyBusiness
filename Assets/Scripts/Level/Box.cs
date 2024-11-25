@@ -18,14 +18,20 @@ namespace FishyBusiness
         [SerializeField]
         private Transform startPos;
 
+        private AudioSource audioSource;
+
         protected override void Start()
         {
+            audioSource = GetComponent<AudioSource>();
+            
             base.Start();
             fish.gameObject.SetActive(false);
         }
 
         public override void BeginDrag()
         {
+            audioSource.Play();
+            
             base.BeginDrag();
             draggedTarget.transform.position = startPos.position;
             fish.transform.position = startPos.position;

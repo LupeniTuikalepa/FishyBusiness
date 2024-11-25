@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using FishyBusiness.Data;
 using FishyBusiness.DaySystem;
 using FishyBusiness.Documents;
+using FishyBusiness.Documents.Tuto;
 using LTX.Singletons;
 using NaughtyAttributes;
 using UnityEngine;
@@ -35,6 +36,7 @@ namespace FishyBusiness
         private void Start()
         {
             SetupInputs();
+            DeskDocuments.AddDocument(new TutoDocument());
             Health = GameMetrics.Global.PlayerLife;
             OnHealthChanged?.Invoke(Health, 0);
         }
