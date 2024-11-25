@@ -23,7 +23,7 @@ namespace FishyBusiness
         protected override void Start()
         {
             audioSource = GetComponent<AudioSource>();
-            
+
             base.Start();
             fish.gameObject.SetActive(false);
         }
@@ -31,7 +31,7 @@ namespace FishyBusiness
         public override void BeginDrag()
         {
             audioSource.Play();
-            
+
             base.BeginDrag();
             draggedTarget.transform.position = startPos.position;
             fish.transform.position = startPos.position;
@@ -50,6 +50,7 @@ namespace FishyBusiness
             int count = Physics2D.OverlapPoint(TargetPos, new ContactFilter2D()
             {
                 layerMask = dropMask,
+                useLayerMask = true,
             }, results);
 
             if(count > 0)

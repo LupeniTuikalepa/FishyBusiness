@@ -56,6 +56,7 @@ namespace FishyBusiness
             int count = Physics2D.OverlapPoint(TargetPos, new ContactFilter2D()
             {
                 layerMask = dropMask,
+                useLayerMask = true,
             }, results);
 
             if(count > 0)
