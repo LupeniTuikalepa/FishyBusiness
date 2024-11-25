@@ -25,7 +25,7 @@ namespace FishyBusiness.Documents
 
         public void AddDocument(IDocument document)
         {
-            if (maxSize > 0 && documents.Count < maxSize)
+            if (maxSize < 0 || documents.Count < maxSize)
             {
                 documents.Add(document);
                 OnDocumentAdded?.Invoke(document);

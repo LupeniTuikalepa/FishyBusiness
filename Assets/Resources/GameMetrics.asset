@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f063de328a0e8246b5e3e1a46fae2fd, type: 3}
   m_Name: GameMetrics
   m_EditorClassIdentifier: 
+  <DocumentBounceStrength>k__BackingField: 0.15
+  <DocumentBounceDuration>k__BackingField: 0.5
   <StartQuota>k__BackingField: 10
   <QuotaScaling>k__BackingField: 1.5
   <PlayerLife>k__BackingField: 3
