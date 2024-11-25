@@ -39,8 +39,21 @@ namespace FishyBusiness.DaySystem
         {
             if (TryGetMoneyInfluence(fishFood, out int moneyInfluence) && moneyInfluence > 0)
             {
-                day.EarnMoney(moneyInfluence);
-                player.AddMoney(moneyInfluence);
+                int bonus = 0;
+                switch (fishFood)
+                {
+                    case FishFood.Basic:
+                        bonus = GameMetrics.Global.bonusCoralPrice;
+                        break;
+                    case FishFood.Deluxe:
+                        bonus = GameMetrics.Global.bonusPufferPrice;
+                        break;
+                    case FishFood.Fish:
+                        bonus = GameMetrics.Global.bonusFishPrice;
+                        break;
+                }
+                day.EarnMoney(moneyInfluence + bonus);
+                player.AddMoney(moneyInfluence + bonus);
             }
         }
 

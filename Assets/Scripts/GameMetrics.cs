@@ -61,6 +61,24 @@ namespace FishyBusiness
         public int MaxFishAge { get; private set; } = 75;
         [field: SerializeField, BoxGroup("Fish Generation")]
         public Vector2Int ExpirationDateRange { get; private set; } = new Vector2Int(2015, 2030);
+        
+        [field: SerializeField, BoxGroup("Upgrade")]
+        public int bonusFishPrice { get; set; } = 0;//
+        [field: SerializeField, BoxGroup("Upgrade")]
+        public int upgradeFishPrice { get; set; } = 1; //1000
+        [field: SerializeField, BoxGroup("Upgrade")]
+        public int bonusCoralPrice { get; set; } = 0;//
+        [field: SerializeField, BoxGroup("Upgrade")]
+        public int upgradeCoralPrice { get; set; } = 1;//1700
+        [field: SerializeField, BoxGroup("Upgrade")]
+        public int bonusPufferPrice { get; set; } = 0;
+        [field: SerializeField, BoxGroup("Upgrade")]
+        public int upgradePufferPrice { get; set; } = 1;//2000
+        [field: SerializeField, BoxGroup("Upgrade")]
+        public int bonusDayTime { get; set; } = 0;
+        [field: SerializeField, BoxGroup("Upgrade")]
+        public int upgradeDayTime { get; set; } = 1;//1500
+        
 
     }
 }
