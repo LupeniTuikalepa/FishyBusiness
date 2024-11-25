@@ -45,12 +45,14 @@ namespace FishyBusiness.Fishes
 
         public void OnFishFailure(IDayFish iDayFish, Day day)
         {
+            Debug.Log("FAILLLLLLLLLLLLL");
             string dialogue = failureDialogues[Random.Range(0, failureDialogues.Count)];
             SpawnDialogue(iDayFish, dialogue);
         }
         
         public void OnFishSuccess(IDayFish iDayFish, Day day)
         {
+            Debug.Log("SUCCESSSSSSSSSS");
             string dialogue = successDialogues[Random.Range(0, successDialogues.Count)];
             SpawnDialogue(iDayFish, dialogue);
         }
@@ -58,12 +60,12 @@ namespace FishyBusiness.Fishes
         private void SpawnDialogue(IDayFish iDayFish, string dialogue)
         {
             currentDialogue = Instantiate(dialoguePrefab, dialogueSpawn);
-            TMP_Text dialogueText = dialoguePrefab.GetComponent<GetTextInDialogueWindow>().WindowTitle;
-            TMP_Text WindowTitle = dialoguePrefab.GetComponent<GetTextInDialogueWindow>().Dialogue;
+            TMP_Text dialogueText = dialoguePrefab.GetComponent<GetTextInDialogueWindow>().Dialogue;
+            TMP_Text WindowTitle = dialoguePrefab.GetComponent<GetTextInDialogueWindow>().WindowTitle;
             
             WindowTitle.text = $"<b>{iDayFish.Fish.name}</b>";
             dialogueText.text = $"{dialogue}";
-            Destroy(dialoguePrefab, 2f);
+            Destroy(currentDialogue, 2f);
         }
     }
 }

@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.009897857, y: -0.000000014901159, z: -0.0000000074505797, w: 0.999951}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.4900422, y: 1.4900422, z: 1.4900422}
+  m_LocalScale: {x: 2.0169213, y: 2.0169213, z: 2.0169213}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6714653087454612141}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -364041357
   m_SortingLayer: 2
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: ba19c3c8a5cc12841a5296ee7c2a1c0b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2bd23db3dacc44f4eac341588cd1891d, type: 3}
   m_Color: {r: 0.77647066, g: 0.5568628, b: 0.21960786, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,11 +97,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6714653087454612141}
   - component: {fileID: 2166201427547112676}
-  - component: {fileID: 901679721774950642}
   - component: {fileID: 2079178533244537415}
   - component: {fileID: 4430218218344129178}
+  - component: {fileID: 4322161113254882172}
   m_Layer: 0
-  m_Name: Tuto_Desk
+  m_Name: Flag_Desk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,14 +115,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8625882167371979236}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.52526313, y: 0.14913256, z: -0.113120705, w: 0.83009756}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.16800383, y: 0.16800383, z: 0.16800383}
+  m_LocalScale: {x: 0.21335, y: 0.21335, z: 0.21335}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 997323906916195997}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 64.928, y: 17.688, z: -4.214}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2166201427547112676
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -178,18 +178,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &901679721774950642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8625882167371979236}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64e1166bc3f84205a703433fb0108ce3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2079178533244537415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,3 +237,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 7.9, y: 9.16}
   m_EdgeRadius: 0
+--- !u!114 &4322161113254882172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8625882167371979236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaff3fff11da4794a44c57b45dad3e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

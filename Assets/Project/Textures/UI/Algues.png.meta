@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: 4448ca6f4f407274d8f46b3a5b935796
+guid: 955428c4c92bc4d43874d1a6dcc19f5b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3323561889937663589
-    second: Money_machine_polish_0
+      213: -2329544970253093101
+    second: Algues_0
   - first:
-      213: 8053919555254237020
-    second: Money_machine_polish_1
-  - first:
-      213: -739748507255159768
-    second: Money_machine_polish_2
-  - first:
-      213: 9086258599917368913
-    second: Money_machine_polish_3
+      213: 9217043759655557138
+    second: Algues_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -55,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -135,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Money_machine_polish_0
+      name: Algues_0
       rect:
         serializedVersion: 2
-        x: 383
-        y: 136
-        width: 685
-        height: 1262
+        x: 0
+        y: 3
+        width: 25
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b995d31f11650e1d0800000000000000
-      internalID: -3323561889937663589
+      spriteID: 31734c7213bcbafd0800000000000000
+      internalID: -2329544970253093101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Money_machine_polish_1
+      name: Algues_1
       rect:
         serializedVersion: 2
-        x: 1067
-        y: 985
-        width: 11
-        height: 58
+        x: 20
+        y: 0
+        width: 241
+        height: 338
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,52 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c57308cf92545cf60800000000000000
-      internalID: 8053919555254237020
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Money_machine_polish_2
-      rect:
-        serializedVersion: 2
-        x: 1072
-        y: 947
-        width: 9
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8244ee9e6a2ebb5f0800000000000000
-      internalID: -739748507255159768
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Money_machine_polish_3
-      rect:
-        serializedVersion: 2
-        x: 391
-        y: 94
-        width: 8
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 156b9693e00e81e70800000000000000
-      internalID: 9086258599917368913
+      spriteID: 2181085277489ef70800000000000000
+      internalID: 9217043759655557138
       vertices: []
       indices: 
       edges: []
@@ -226,7 +176,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -236,10 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Money_machine_polish_0: -3323561889937663589
-      Money_machine_polish_1: 8053919555254237020
-      Money_machine_polish_2: -739748507255159768
-      Money_machine_polish_3: 9086258599917368913
+      Algues_0: -2329544970253093101
+      Algues_1: 9217043759655557138
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
