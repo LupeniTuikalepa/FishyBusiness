@@ -16,6 +16,9 @@ namespace FishyBusiness
 
         [SerializeField]
         private LayerMask draggableMask;
+        
+        private AudioSource audioSource;
+
 
         List<RaycastResult> resultsBuffer = new List<RaycastResult>();
         private void SetupInputs()
@@ -121,6 +124,12 @@ namespace FishyBusiness
                             DeskDocuments.RemoveDocument(deskDocument.Document);
                         }
                     }
+
+                    if (count > 0)
+                    {
+                        audioSource.Play();
+                    }
+                    
                 }
                 finally
                 {
