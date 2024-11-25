@@ -5,6 +5,7 @@ using DG.Tweening.Plugins.Core.PathCore;
 using FishyBusiness.Data;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
@@ -17,6 +18,7 @@ namespace FishyBusiness.Fishes
         private static readonly int Happy = Animator.StringToHash("Happy");
 
         private SpriteRenderer spriteRenderer;
+        private ShadowCaster2D shadowCaster2D;
 
         [SerializeField]
         private float moveDuration = .2f;
@@ -40,11 +42,16 @@ namespace FishyBusiness.Fishes
         private void Awake()
         {
             spriteRenderer = GetComponent<SpriteRenderer>();
+            shadowCaster2D = GetComponent<ShadowCaster2D>();
         }
 
         public void Bind(Fish fish)
         {
             spriteRenderer.sprite = fish.image;
+
+            shadowCaster2D.trimEdge = 0;
+            shadowCaster2D.trimEdge = .1f;
+
             gameObject.name = fish.name;
         }
 

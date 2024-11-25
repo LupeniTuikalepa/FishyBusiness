@@ -11,9 +11,7 @@ namespace FishyBusiness
 {
     public partial class Player : MonoSingleton<Player, PlayerFactory>
     {
-
         public event Action<int, int> OnHealthChanged;
-
         public DocumentsHolder DeskDocuments { get; private set; }
         public DocumentsHolder Hand { get; private set; }
 

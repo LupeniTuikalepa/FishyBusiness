@@ -5,6 +5,5 @@ namespace FishyBusiness.Documents.Visuals.Holders
 {
     public interface IDeskDocument : IDocumentVisual
     {
-        event Action<IDeskDocument> OnSelected;
     }
 }
