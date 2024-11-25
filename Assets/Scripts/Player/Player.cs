@@ -5,6 +5,7 @@ using FishyBusiness.DaySystem;
 using FishyBusiness.Documents;
 using LTX.Singletons;
 using NaughtyAttributes;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace FishyBusiness
