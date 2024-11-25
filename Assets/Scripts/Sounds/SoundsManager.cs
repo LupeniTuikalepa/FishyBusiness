@@ -1,29 +1,40 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 namespace FishyBusiness.Sounds
 {
     public class SoundsManager : MonoBehaviour
     {
-        [SerializeField] private AudioSource AudioSourceClicked;
-        
-        
-        [SerializeField] private AudioSource AudioSource;
+        [SerializeField] private AudioMixerGroup master;
+        [SerializeField] private AudioMixerGroup sfx;
+        public Slider musicVolumeSlider;
+        public Slider sfxVolumeSlider;
 
+        private float currentVolume = 0f;
 
-        
-        
-        private void OnEnable()
+        public void Start()
         {
-            throw new NotImplementedException();
+            SetMusicVolume(musicVolumeSlider.value);
+            SetSfxVolume(sfxVolumeSlider.value);
+            float currentVolume = 0f;
         }
 
-        private void OnDisable()
+        public void SetMusicVolume(float sliderValue)
         {
-            throw new NotImplementedException();
+            if (sliderValue <= 0.0001f)
+            {
+                master.audioMixer.SetFloat("Music", -80);
+                return;
+            }
+            master.audioMixer.SetFloat("Music", Mathf.Log10(sliderValue) * 20);
+            
         }
         
-        
-        
+        public void SetSfxVolume(float sliderValue)
+        {
+            master.audioMixer.SetFloat("Sfx", Mathf.Log10(sliderValue) * 20);
+        }
     }
 }
