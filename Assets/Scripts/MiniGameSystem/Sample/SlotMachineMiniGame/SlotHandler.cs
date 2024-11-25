@@ -9,14 +9,13 @@ namespace FishyBusiness.MiniGameSystem.Sample
     public class SlotHandler : MonoBehaviour, IMiniGameHandler<SlotContext>, ILogSource
     {
         public string Name => nameof(SlotHandler);
-        
+
         [SerializeField] private SlotContent content;
-        [SerializeField] private Player player;
         [SerializeField] private Button startButton, backButton;
         [SerializeField] private TMP_InputField moneyBet;
         [SerializeField] private TMP_Text playerMoney;
         private int betAmount;
-        
+
         private Slot slot;
 
         private void OnEnable()
@@ -24,7 +23,7 @@ namespace FishyBusiness.MiniGameSystem.Sample
             MiniGameManager.Instance.OnGameStopped += GameStopped;
             RefreshMoney();
         }
-        
+
         private void OnDisable()
         {
             MiniGameManager.Instance.OnGameStopped -= GameStopped;
@@ -38,11 +37,12 @@ namespace FishyBusiness.MiniGameSystem.Sample
 
         private void RefreshMoney()
         {
-            playerMoney.text = "Money : " + player.Money;
+            playerMoney.text = "Money : " + Player.Instance.Money;
         }
 
         public void StartGame()
         {
+            Player player = Player.Instance;
             if (betAmount > player.Money || betAmount <= 0)
             {
                 GameController.Logger.LogError(this, $"This is not a valid Bet ! {nameof(betAmount)} = {betAmount} - {nameof(player.Money)} = {player.Money}");
@@ -54,14 +54,14 @@ namespace FishyBusiness.MiniGameSystem.Sample
                 GameController.Logger.LogError(this, $"Can't start a new game ! {nameof(context.status)} = {context.status}");
                 return;
             }
-            
+
             player.RemoveMoney(betAmount);
             RefreshMoney();
-            
+
             startButton.interactable = false;
             backButton.interactable = false;
             moneyBet.interactable = false;
-            
+
             slot = new Slot();
             MiniGameManager.Instance.StartGame(slot, this);
         }
@@ -70,7 +70,7 @@ namespace FishyBusiness.MiniGameSystem.Sample
         {
             return new SlotContext
             {
-                Player = player,
+                Player = Player.Instance,
                 Content = content,
                 BetAmount = betAmount,
                 status = context.status
@@ -92,11 +92,11 @@ namespace FishyBusiness.MiniGameSystem.Sample
             }
             betAmount = int.Parse(value);
         }
-        
+
         public IEnumerator ClearSlot()
         {
             yield return new WaitForSeconds(0f);
-            
+
             moneyBet.interactable = true;
             startButton.interactable = true;
             backButton.interactable = true;

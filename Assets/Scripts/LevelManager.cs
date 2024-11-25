@@ -148,7 +148,7 @@ namespace FishyBusiness
 
         public void MakeChoice(FishFood food)
         {
-            if(currentDay == null || CurrentDayPhase == DayPhase.Day)
+            if(currentDay == null || CurrentDayPhase != DayPhase.Day)
                 return;
 
             if (currentDay.MakeChoice(food, out IDayFish choice))

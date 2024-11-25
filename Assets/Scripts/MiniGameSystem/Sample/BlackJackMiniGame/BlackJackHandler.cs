@@ -11,9 +11,10 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
 {
     public class BlackJackHandler : MonoBehaviour, IMiniGameHandler<BlackJackContext>, ILogSource
     {
+        private static Player Player => Player.Instance;
+
         public string Name => nameof(BlackJackHandler);
-        
-        [SerializeField] private Player player;
+
         [SerializeField] private Button startButton, backButton;
         [SerializeField] private Button[] gameButtons;
         [SerializeField] private TMP_InputField moneyBet;
@@ -22,15 +23,15 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
         private int betAmount;
 
         private bool isStaying, waitingForClear;
-        
+
         private BlackJack blackJack;
-        
+
         private void OnEnable()
         {
             MiniGameManager.Instance.OnGameStopped += GameStopped;
             RefreshMoney();
         }
-        
+
         private void OnDisable()
         {
             MiniGameManager.Instance.OnGameStopped -= GameStopped;
@@ -44,9 +45,9 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
 
         private void RefreshMoney()
         {
-            playerMoney.text = "Money : " + player.Money;
+            playerMoney.text = "Money : " + Player.Money;
         }
-        
+
         public void StartGame()
         {
             if (waitingForClear)
@@ -55,19 +56,19 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
                 playerHand.ClearHand();
                 dealerHandUI.UnBind(context.DealerHand);
                 playerHandUI.UnBind(context.PlayerHand);
-                
+
                 context.status = GameStatus.None;
                 GetBetAmount(moneyBet.text);
 
                 waitingForClear = false;
             }
-            
-            if (betAmount > player.Money || betAmount <= 0)
+
+            if (betAmount > Player.Money || betAmount <= 0)
             {
-                GameController.Logger.LogError(this, $"This is not a valid Bet ! {nameof(betAmount)} = {betAmount} - {nameof(player.Money)} = {player.Money}");
+                GameController.Logger.LogError(this, $"This is not a valid Bet ! {nameof(betAmount)} = {betAmount} - {nameof(Player.Money)} = {Player.Money}");
                 return;
             }
-            
+
             if (context.status != GameStatus.None)
             {
                 GameController.Logger.LogError(this, $"Can't start a new game ! {nameof(context.status)} = {context.status}");
@@ -88,13 +89,13 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
             {
                 button.interactable = true;
             }
-            
-            player.RemoveMoney(betAmount);
+
+            Player.RemoveMoney(betAmount);
             RefreshMoney();
-            
+
             isStaying = false;
             context.status = GameStatus.Pending;
-            
+
             playerHand = new BlackJackHand();
             dealerHand = new BlackJackHand();
             gameDeck = new BlackJackDeck();
@@ -108,7 +109,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
         {
             return new BlackJackContext
             {
-                Player = player,
+                Player = Player,
                 BetAmount = betAmount,
                 status = context.status,
                 PlayerHand = playerHand,
@@ -139,7 +140,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
         public void PlayerStay()
         {
             if (waitingForClear) return;
-            
+
             while (dealerHand.GetHandValue() <= 16)
             {
                 if (gameDeck.DrawNext(out Card newCard))
@@ -151,14 +152,14 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
                     break;
                 }
             }
-            
+
             isStaying = true;
         }
 
         public void PlayerHit()
         {
             if (waitingForClear) return;
-            
+
             if (gameDeck.DrawNext(out Card newCard))
             {
                 playerHand.TryAdd(newCard);
@@ -174,18 +175,18 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
         {
             if (waitingForClear) return;
 
-            if (player.Money < betAmount) return;
-            
-            player.RemoveMoney(betAmount);
+            if (Player.Money < betAmount) return;
+
+            Player.RemoveMoney(betAmount);
             RefreshMoney();
-            
+
             betAmount *= 2;
-            
+
             if (gameDeck.DrawNext(out Card newCard))
             {
                 playerHand.TryAdd(newCard);
             }
-            
+
             PlayerStay();
         }
 
@@ -195,9 +196,9 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
             {
                 button.interactable = false;
             }
-            
+
             yield return new WaitForSeconds(2f);
-            
+
             moneyBet.interactable = true;
             startButton.interactable = true;
             backButton.interactable = true;

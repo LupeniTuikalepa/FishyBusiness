@@ -16,15 +16,15 @@ namespace FishyBusiness
 
         private void OnEnable()
         {
-            MiniGameManager.Instance.OnGameStarted += Activate;
-            MiniGameManager.Instance.OnGameStopped += Deactivate;
+            MiniGameManager.Instance.OnGameStarted += Deactivate;
+            MiniGameManager.Instance.OnGameStopped += Activate;
         }
 
 
         private void OnDisable()
         {
-            MiniGameManager.Instance.OnGameStarted -= Activate;
-            MiniGameManager.Instance.OnGameStopped -= Deactivate;
+            MiniGameManager.Instance.OnGameStarted -= Deactivate;
+            MiniGameManager.Instance.OnGameStopped -= Activate;
         }
 
         private void Activate(IMiniGameRunner obj)
