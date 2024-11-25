@@ -15,7 +15,6 @@ namespace FishyBusiness.Documents
         public readonly MafiaRank mafiaRank;
 
         public readonly Country birthCountry;
-        public readonly Country nationality;
 
         public IdentityDocument(IIdentityDocumentInfos infos)
         {
@@ -27,8 +26,6 @@ namespace FishyBusiness.Documents
 
             mafia = infos.Mafia;
             mafiaRank = infos.MafiaRank;
-
-            nationality = infos.Nationality;
         }
 
     }

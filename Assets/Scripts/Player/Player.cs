@@ -56,6 +56,9 @@ namespace FishyBusiness
         private void OnDisable()
         {
             LevelManager.Instance.OnNewFish -= GetNewFishId;
+            LevelManager.Instance.OnSuccess -= OnSuccess;
+            LevelManager.Instance.OnFailure -= OnFailure;
+
             PlayerInputs.Disable();
         }
 
@@ -90,10 +93,19 @@ namespace FishyBusiness
 
         [Button]
         private void HitOnce() => Hit(1);
+
+        [Button]
+        private void Die() => Hit(Health);
+        
         public void Hit(int lifeLoss)
         {
             Health -= lifeLoss;
             OnHealthChanged?.Invoke(Health, -lifeLoss);
+            if (Health <= 0)
+            {
+                LevelManager.Instance.TriggerGameOver();
+                PlayerInputs.Disable();
+            }
         }
 
     }

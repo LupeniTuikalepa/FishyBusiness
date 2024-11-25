@@ -40,11 +40,14 @@ namespace FishyBusiness
             fish.transform.position = startPos.position;
             fish.gameObject.SetActive(false);
 
-            Collider2D hit = Physics2D.OverlapPoint(TargetPos, dropMask);
-            if (hit != null)
+            Collider2D[] results = new Collider2D[32];
+            int count = Physics2D.OverlapPoint(TargetPos, new ContactFilter2D()
             {
+                layerMask = dropMask,
+            }, results);
+
+            if(count > 0)
                 LevelManager.Instance.MakeChoice(fishFood);
-            }
         }
     }
 }

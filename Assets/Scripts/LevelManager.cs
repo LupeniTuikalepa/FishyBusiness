@@ -36,6 +36,7 @@ namespace FishyBusiness
             IsLevelRunning = true;
         }
 
+
         private void Update()
         {
             if (currentDay != null && IsLevelRunning)
@@ -51,7 +52,7 @@ namespace FishyBusiness
             CurrentDayIndex += 1;
             float quota = GameMetrics.Global.StartQuota * Mathf.Pow(GameMetrics.Global.QuotaScaling, CurrentDayIndex);
 
-            List<Data.Fish> vips = new List<Data.Fish>();
+            List<Fish> vips = new List<Fish>();
 
             for (int i = 0; i < GameMetrics.Global.VIPsCount; i++)
                 vips.Add(FishGeneration.GenerateFish());
@@ -70,6 +71,11 @@ namespace FishyBusiness
 
         private void SetRank()
         {
+            foreach (var rank in GameDatabase.Global.MafiaRanks)
+            {
+                rank.sprites.Clear();
+            }
+
             foreach (var mafia in GameDatabase.Global.Mafias)
             {
                 List<Sprite> sprites = new List<Sprite>(GameDatabase.Global.FishKeyArts);
@@ -106,8 +112,6 @@ namespace FishyBusiness
 
         }
 
-
-
         public void MakeChoice(FishFood food)
         {
             if(currentDay == null)
@@ -125,6 +129,11 @@ namespace FishyBusiness
             currentDay.GetNextFish();
         }
 
+        public void TriggerGameOver()
+        {
+            IsLevelRunning = false;
+            OnGameOver?.Invoke();
+        }
         public Day GetDay()
         {
             return currentDay;

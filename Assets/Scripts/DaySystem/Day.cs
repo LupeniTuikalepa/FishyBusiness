@@ -60,7 +60,7 @@ namespace FishyBusiness.DaySystem
             }
             else
             {
-                Fish mafiaFish = Fish.GenerateCoherentFish();
+                Fish mafiaFish = Fish.GenerateRealFish();
                 CurrentFish = new DayFish(mafiaFish, FishType.MafiaMan);
                 GameController.Logger.Log(this, "Spawning Mafia fish");
             }

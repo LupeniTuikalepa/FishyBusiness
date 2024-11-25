@@ -17,7 +17,7 @@ MonoBehaviour:
   <StartQuota>k__BackingField: 10
   <QuotaScaling>k__BackingField: 1.5
   <PlayerLife>k__BackingField: 3
-  <LevelTime>k__BackingField: 45
+  <LevelTime>k__BackingField: 90
   <VIPsCount>k__BackingField: 6
   <SellPrice>k__BackingField: 10
   <FishAssociations>k__BackingField:

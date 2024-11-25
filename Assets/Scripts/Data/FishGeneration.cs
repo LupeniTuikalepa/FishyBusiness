@@ -77,6 +77,8 @@ namespace FishyBusiness.Helpers
             GameMetrics gameMetrics = GameMetrics.Global;
             GameDatabase gameDatabase = GameController.GameDatabase;
 
+            Mafia mafia = gameDatabase.Mafias[Random.Range(0, gameDatabase.Mafias.Length)];
+            MafiaRank rank = gameDatabase.MafiaRanks[Random.Range(0, gameDatabase.MafiaRanks.Length)];
             Fish fish = new Fish()
             {
                 id = Guid.NewGuid().ToString(),
@@ -87,9 +89,8 @@ namespace FishyBusiness.Helpers
                 expiryDate = 2024 + Random.Range(1, 7),
 
                 birthCountry = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
-                nationality = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
-                mafia = gameDatabase.Mafias[Random.Range(0, gameDatabase.Mafias.Length)],
-                rank = gameDatabase.MafiaRanks[Random.Range(0, gameDatabase.MafiaRanks.Length)],
+                mafia = mafia,
+                rank = rank,
             };
             return fish;
         }
@@ -107,7 +108,6 @@ namespace FishyBusiness.Helpers
                 expiryDate = 2024 + Random.Range(1, 7),
 
                 birthCountry = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
-                nationality = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
                 mafia = gameDatabase.Mafias[Random.Range(0, gameDatabase.Mafias.Length)],
                 rank = gameDatabase.MafiaRanks[Random.Range(0, gameDatabase.MafiaRanks.Length)],
             };

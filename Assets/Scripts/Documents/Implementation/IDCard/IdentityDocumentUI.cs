@@ -39,10 +39,10 @@ namespace FishyBusiness.Documents
 
             nameTmp.text = document.name;
             birthYearTmp.text = document.birthYear.ToString();
-            birthPlaceTmp.text = document.birthCountry.ToString();
+            birthPlaceTmp.text = document.birthCountry.name;
 
-            nationalityTmp.text = document.nationality.Nationality;
-            mafiaSignature.texture = document.nationality.Signature;
+            nationalityTmp.text = document.birthCountry.Nationality;
+            mafiaSignature.texture = document.mafia.Signature;
 
             mafiaRankTmp.text = document.mafiaRank.name;
             mafiaNameTmp.text = document.mafia.name;

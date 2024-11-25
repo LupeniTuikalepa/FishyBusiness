@@ -13,7 +13,6 @@ namespace FishyBusiness.Documents
         Mafia Mafia { get; }
         MafiaRank MafiaRank { get; }
 
-        Country Nationality { get; }
         int ExpireDate { get; }
     }
 }

@@ -12,7 +12,7 @@ namespace FishyBusiness.DaySystem.Ui
         [SerializeField] private DebugPlayer debugPlayer;
         [SerializeField] private GameObject gameOverCanvas;
         [SerializeField] private HudManager hud;
-        
+
         private void OnEnable()
         {
             levelManager.OnGameOver += LevelManagerOnOnGameOver;
@@ -25,6 +25,7 @@ namespace FishyBusiness.DaySystem.Ui
             levelManager.OnGameOver -= LevelManagerOnOnGameOver;
             debugPlayer.OnPlayerDead -= LevelManagerOnOnGameOver;
         }
+
         private void LevelManagerOnOnGameOver()
         {
             gameOverCanvas.SetActive(true);
@@ -34,7 +35,7 @@ namespace FishyBusiness.DaySystem.Ui
         {
             GameController.SceneController.LoadScene(GameMetrics.Global.MainMenuScene);
         }
-        
+
         public void RestartRunButton()
         {
             GameController.SceneController.LoadScene(GameMetrics.Global.LevelScene);
