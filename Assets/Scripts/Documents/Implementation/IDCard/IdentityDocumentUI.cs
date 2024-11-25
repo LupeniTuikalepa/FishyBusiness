@@ -1,4 +1,6 @@
+using System;
 using FishyBusiness.Documents.UI;
+using FishyBusiness.Documents.Visuals.Holders;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -6,9 +8,8 @@ using UnityEngine.UI;
 
 namespace FishyBusiness.Documents
 {
-    public class IdentityDocumentUI : DocumentVisual<IdentityDocument>
+    public class IdentityDocumentUI : DocumentVisual<IdentityDocument>, IHandDocument
     {
-
         [SerializeField]
         private TextMeshProUGUI nameTmp;
         [SerializeField]
@@ -53,5 +54,11 @@ namespace FishyBusiness.Documents
         {
             base.Unbind(document);
         }
+
+        public void Unselect()
+        {
+            Player.Instance.Deselect(this);
+        }
+
     }
 }

@@ -8,46 +8,16 @@ namespace FishyBusiness.Documents.Visuals.Holders
 {
     public class Desk : DocumentsHolderVisual<IDeskDocument>
     {
-        [SerializeField]
-        private Player player;
-
-        private Camera mainCamera;
-
-        private void Awake()
-        {
-            mainCamera = Camera.main;
-        }
 
         private void OnEnable()
         {
-            GetInputModule().leftClick.action.performed += TrySelect;
+            Bind(Player.Instance.DeskDocuments);
         }
 
         private void OnDisable()
         {
-            GetInputModule().leftClick.action.performed -= TrySelect;
+            Bind(Player.Instance.DeskDocuments);
         }
 
-        private static InputSystemUIInputModule GetInputModule()
-        {
-            return (EventSystem.current.currentInputModule as InputSystemUIInputModule);
-        }
-
-
-        private void TrySelect(InputAction.CallbackContext ctx)
-        {
-            if(player.Hand.IsFull)
-                return;
-
-            Vector2 screenPos = GetInputModule().point.action.ReadValue<Vector2>();
-
-            Ray ray = mainCamera.ScreenPointToRay(screenPos);
-
-            if (Physics.Raycast(ray, out RaycastHit hit))
-            {
-                if (hit.collider.TryGetComponent(out IDeskDocument document))
-                    player.Hand.AddDocument(document.Document);
-            }
-        }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8478466846017956496}
   - component: {fileID: 6869511394272743039}
   - component: {fileID: 4446674231028836523}
+  - component: {fileID: 6381801943736293035}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 671742573
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7182482546816810786, guid: 971252ec1fff87d40bfe3fe058cbb235, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -137,6 +138,59 @@ SpringJoint2D:
   m_Distance: 0.25
   m_DampingRatio: 1
   m_Frequency: 0
+--- !u!114 &6381801943736293035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1878944400592465878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_Priority: 0
+  m_ComponentVersion: 5
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_AlphaCutoff: 0.1
+  m_ApplyToSortingLayers: 000000002b4fcf9d732b4dea6dfa09280b667a54
+  m_ShapePath:
+  - {x: -0.25672388, y: -0.55708885, z: 0}
+  - {x: -0.25672388, y: 0.55708885, z: 0}
+  - {x: 0.25672388, y: 0.55708885, z: 0}
+  - {x: 0.25672388, y: -0.55708885, z: 0}
+  m_ShapePathHash: 0
+  m_InstanceId: 0
+  m_ShadowShape2DComponent: {fileID: 8478466846017956496}
+  m_ShadowShape2DProvider:
+    rid: 7347097782925394241
+  m_ShadowCastingSource: 2
+  m_ShadowMesh:
+    m_Mesh: {fileID: 0}
+    m_LocalBounds:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.5299835, y: 0.21998596, z: 0}
+    m_EdgeProcessing: 1
+    m_TrimEdge: 0.02
+    m_FlipX: 0
+    m_FlipY: 0
+    m_InitialTrim: 0.02
+  m_CastingOption: 1
+  m_PreviousTrimEdge: 0
+  m_PreviousEdgeProcessing: -1
+  m_PreviousShadowCastingSource: -1
+  m_PreviousShadowShape2DSource: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 7347097782925394241
+      type: {class: ShadowShape2DProvider_SpriteRenderer, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.2D.Runtime}
+      data: 
 --- !u!1 &2358662204098352985
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,7 +343,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -364041357
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: faa8252d1bbc8b943b8d5df81c23b075, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -479,7 +533,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -364041357
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: faa8252d1bbc8b943b8d5df81c23b075, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.6313726}

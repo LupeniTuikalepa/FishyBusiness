@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using FishyBusiness.Documents.Visuals.Holders;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -22,6 +23,7 @@ namespace FishyBusiness
             resultsBuffer ??= new List<RaycastResult>();
 
             PlayerInputs.Player.DragItem.performed += OnDragInput;
+            PlayerInputs.Player.Click.performed += OnClickInput;
         }
 
         private void UpdateDrag()
@@ -50,8 +52,43 @@ namespace FishyBusiness
                 };
 
                 EventSystem.current.RaycastAll(eventData, resultsBuffer);
-                foreach (RaycastResult result in resultsBuffer)
-                    Debug.Log(result.gameObject.name);
+
+                if(resultsBuffer.Count > 0)
+                    return;
+
+                Collider2D hit = Physics2D.OverlapPoint(worldPos);
+                if (hit != null && hit.TryGetComponent(out IDeskDocument deskDocument))
+                {
+                    Hand.AddDocument(deskDocument.Document);
+                    DeskDocuments.RemoveDocument(deskDocument.Document);
+                }
+            }
+            if(!isGrab && CurrentDraggable != null)
+            {
+                CurrentDraggable.EndDrag();
+                CurrentDraggable = null;
+            }
+        }
+
+        public void Deselect(IHandDocument handDocument)
+        {
+            DeskDocuments.RemoveDocument(handDocument.Document);
+            Hand.AddDocument(handDocument.Document);
+        }
+
+        private void OnClickInput(InputAction.CallbackContext obj)
+        {
+            if(CanSelect)
+            {
+                Vector2 screenPos = Pointer.current.position.ReadValue();
+                Vector2 worldPos = GameCamera.Instance.MainCamera.ScreenToWorldPoint(screenPos);
+
+                PointerEventData eventData = new PointerEventData(EventSystem.current)
+                {
+                    position = screenPos
+                };
+
+                EventSystem.current.RaycastAll(eventData, resultsBuffer);
                 if(resultsBuffer.Count > 0)
                     return;
 
@@ -61,11 +98,6 @@ namespace FishyBusiness
                     CurrentDraggable = draggable;
                     draggable.BeginDrag();
                 }
-            }
-            if(!isGrab && CurrentDraggable != null)
-            {
-                CurrentDraggable.EndDrag();
-                CurrentDraggable = null;
             }
         }
     }
