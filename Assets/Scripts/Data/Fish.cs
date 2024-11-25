@@ -43,7 +43,7 @@ namespace FishyBusiness.Data
         }
 
         //TODO
-        public Fish Alter() => this;
+        public Fish Alter() => FishGeneration.AlterFish(this);
 
         public static Fish GenerateCoherentFish() => FishGeneration.GenerateFish();
         public static Fish GenerateLyingFish() => FishGeneration.GenerateFish().Alter();

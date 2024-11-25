@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using FishyBusiness.Data;
 using FishyBusiness.DaySystem;
 using FishyBusiness.Fishes;
 using FishyBusiness.Helpers;
 using LTX.Singletons;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace FishyBusiness
 {
@@ -53,6 +55,8 @@ namespace FishyBusiness
 
             for (int i = 0; i < GameMetrics.Global.VIPsCount; i++)
                 vips.Add(FishGeneration.GenerateFish());
+            
+            SetRank();
 
             currentDay = new Day(vips.ToArray(), Mathf.CeilToInt(quota));
             currentDay.OnNewFish += CurrentDayOnOnNewFish;
@@ -62,6 +66,25 @@ namespace FishyBusiness
 
             //Reset timer
             CurrentDayTime = GameMetrics.Global.LevelTime;
+        }
+
+        private void SetRank()
+        {
+            foreach (var mafia in GameDatabase.Global.Mafias)
+            {
+                List<Sprite> sprites = new List<Sprite>(GameDatabase.Global.FishKeyArts);
+            
+                foreach (var rank in GameDatabase.Global.MafiaRanks)
+                {
+                    rank.sprites.Add(mafia.name, new List<Sprite>());
+                    for (int i = 0; i < rank.maxSlot; i++)
+                    {
+                        int index = Random.Range(0, sprites.Count);
+                        rank.sprites[mafia.name].Add(sprites[index]);
+                        sprites.RemoveAt(index);
+                    }
+                }
+            }
         }
 
         private void CurrentDayOnOnNewFish(IDayFish fish)
@@ -98,5 +121,9 @@ namespace FishyBusiness
             }
         }
 
+        public Day GetDay()
+        {
+            return currentDay;
+        }
     }
 }

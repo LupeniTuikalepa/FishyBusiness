@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using FishyBusiness.Data;
 using TMPro;
 using UnityEngine;
@@ -21,7 +22,6 @@ namespace FishyBusiness.GameSystem.Sample.Tablet
         [SerializeField] private TextMeshProUGUI nameText;
         [SerializeField] private TextMeshProUGUI ageText;
         [SerializeField] private TextMeshProUGUI countryText;
-        [SerializeField] private TextMeshProUGUI descText;
         [SerializeField] private TextMeshProUGUI vipCountText;
         
         [Header("Ranking")]
@@ -37,46 +37,32 @@ namespace FishyBusiness.GameSystem.Sample.Tablet
         //private FishGenerator fishGenerator = new FishGenerator();
         private int index = 0;
 
-        private List<string> mafias = new List<string>()
-        {
-            "Orcato",
-            "Sharko",
-            "Narvalo",
-            "Delpho",
-        };
-        
-
-
         public void InitMafia(string mafiaName)
         {
-            vip = new List<Fish>()
-            {
-                
-            };
+            vip = LevelManager.Instance.GetDay().ViPs.ToList();
 
             GetFishInfo();
-
-            List<Sprite> fishSprites = new List<Sprite>(RandomFish.instance.fishes);
             
-            foreach (var rank in ranks)
+            foreach (var rank in GameDatabase.Global.MafiaRanks)
             {
-                Sprite f = fishSprites[Random.Range(0, fishSprites.Count)];
-                rank.image.sprite = f;
-                fishSprites.Remove(f);
+                List<Rank> rankList = ranks.Where(x => x.name == rank.name).ToList();
+                int index = 0;
+                foreach (var r in rankList)
+                {
+                    r.image.sprite = rank.sprites[mafiaName][index];
+                    index++;
+                }
             }
-
             
-            mafiaLogo.sprite = logo[mafias.IndexOf(mafiaName)];
-            mafiaSignature.sprite = signature[mafias.IndexOf(mafiaName)];
-               
+            mafiaLogo.sprite = logo[0];
+            mafiaSignature.sprite = signature[0];
         }
 
         private void GetFishInfo()
         {
-            //nameText.text = vip[index].Name;
-            //ageText.text = vip[index].IDCard.Age.ToString();
-            //countryText.text = vip[index].IDCard.Country;
-            descText.text = "Test";
+            nameText.text = vip[index].name;
+            ageText.text = vip[index].birthYear.ToString();
+            countryText.text = vip[index].birthCountry.Nationality;
             vipCountText.text = $"{index+1}/{vip.Count}";
         }
 
