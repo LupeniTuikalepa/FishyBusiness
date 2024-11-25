@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 3986b48350585054783be91a79a6779a
+guid: 04c755db47b25f247beb82fab7df59f6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2394178254316702377
-    second: ui_sketch_0
-  - first:
-      213: 3847629575318789760
-    second: ui_sketch_1
-  - first:
-      213: -2110601481753390958
-    second: ui_sketch_2
-  - first:
-      213: 5502878015854409583
-    second: ui_sketch_3
-  - first:
-      213: 5694124868596255863
-    second: ui_sketch_4
+      213: 1086995743621821854
+    second: Fond_sirene_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -151,111 +139,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui_sketch_0
+      name: Fond_sirene_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 974
-        width: 142
-        height: 72
-      alignment: 9
-      pivot: {x: 0.15822658, y: 0.49629635}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 755fc76009b26ced0800000000000000
-      internalID: -2394178254316702377
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_sketch_1
-      rect:
-        serializedVersion: 2
-        x: 196
-        y: 974
-        width: 142
-        height: 72
+        x: 0
+        y: 0
+        width: 1112
+        height: 623
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08ed92096b6856530800000000000000
-      internalID: 3847629575318789760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_sketch_2
-      rect:
-        serializedVersion: 2
-        x: 366
-        y: 981
-        width: 143
-        height: 59
-      alignment: 9
-      pivot: {x: 0.16248135, y: 0.49095955}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2901da18223a5b2e0800000000000000
-      internalID: -2110601481753390958
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_sketch_3
-      rect:
-        serializedVersion: 2
-        x: 1406
-        y: 956
-        width: 514
-        height: 109
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f67fe4166662e5c40800000000000000
-      internalID: 5502878015854409583
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_sketch_4
-      rect:
-        serializedVersion: 2
-        x: 1508
-        y: 885
-        width: 412
-        height: 74
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 77cc5633668950f40800000000000000
-      internalID: 5694124868596255863
+      spriteID: e95b0f2aed8c51f00800000000000000
+      internalID: 1086995743621821854
       vertices: []
       indices: 
       edges: []
@@ -264,7 +164,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -273,12 +173,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      ui_sketch_0: -2394178254316702377
-      ui_sketch_1: 3847629575318789760
-      ui_sketch_2: -2110601481753390958
-      ui_sketch_3: 5502878015854409583
-      ui_sketch_4: 5694124868596255863
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

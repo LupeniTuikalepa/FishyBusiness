@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be42e80fbad649b9a9cfa17fa6c07721, type: 3}
   m_Name: Boss
   m_EditorClassIdentifier: 
+  maxSlot: 1
+  actualSlot: 1

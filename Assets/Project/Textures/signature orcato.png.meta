@@ -1,22 +1,19 @@
 fileFormatVersion: 2
-guid: 3986b48350585054783be91a79a6779a
+guid: 9e18b7d341e59704dafda153f9961b78
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2394178254316702377
-    second: ui_sketch_0
+      213: -5150155607632237178
+    second: signature orcato_0
   - first:
-      213: 3847629575318789760
-    second: ui_sketch_1
+      213: 3780314248182672936
+    second: signature orcato_1
   - first:
-      213: -2110601481753390958
-    second: ui_sketch_2
+      213: 8453886952849155992
+    second: signature orcato_2
   - first:
-      213: 5502878015854409583
-    second: ui_sketch_3
-  - first:
-      213: 5694124868596255863
-    second: ui_sketch_4
+      213: -6103099245748782629
+    second: signature orcato_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -58,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -151,111 +148,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ui_sketch_0
+      name: signature orcato_0
       rect:
         serializedVersion: 2
-        x: 27
-        y: 974
-        width: 142
-        height: 72
-      alignment: 9
-      pivot: {x: 0.15822658, y: 0.49629635}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 755fc76009b26ced0800000000000000
-      internalID: -2394178254316702377
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_sketch_1
-      rect:
-        serializedVersion: 2
-        x: 196
-        y: 974
-        width: 142
-        height: 72
+        x: 61
+        y: 267
+        width: 270
+        height: 337
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 08ed92096b6856530800000000000000
-      internalID: 3847629575318789760
+      spriteID: 68d2815f2c8f688b0800000000000000
+      internalID: -5150155607632237178
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_sketch_2
+      name: signature orcato_1
       rect:
         serializedVersion: 2
-        x: 366
-        y: 981
-        width: 143
-        height: 59
-      alignment: 9
-      pivot: {x: 0.16248135, y: 0.49095955}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2901da18223a5b2e0800000000000000
-      internalID: -2110601481753390958
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ui_sketch_3
-      rect:
-        serializedVersion: 2
-        x: 1406
-        y: 956
-        width: 514
-        height: 109
+        x: 270
+        y: 418
+        width: 712
+        height: 320
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f67fe4166662e5c40800000000000000
-      internalID: 5502878015854409583
+      spriteID: 82ea64e97cf567430800000000000000
+      internalID: 3780314248182672936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ui_sketch_4
+      name: signature orcato_2
       rect:
         serializedVersion: 2
-        x: 1508
-        y: 885
-        width: 412
-        height: 74
+        x: 583
+        y: 99
+        width: 305
+        height: 358
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77cc5633668950f40800000000000000
-      internalID: 5694124868596255863
+      spriteID: 89722eb946d325570800000000000000
+      internalID: 8453886952849155992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: signature orcato_3
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 263
+        width: 300
+        height: 133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd97034529f6d4ba0800000000000000
+      internalID: -6103099245748782629
       vertices: []
       indices: 
       edges: []
@@ -274,11 +249,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ui_sketch_0: -2394178254316702377
-      ui_sketch_1: 3847629575318789760
-      ui_sketch_2: -2110601481753390958
-      ui_sketch_3: 5502878015854409583
-      ui_sketch_4: 5694124868596255863
+      signature orcato_0: -5150155607632237178
+      signature orcato_1: 3780314248182672936
+      signature orcato_2: 8453886952849155992
+      signature orcato_3: -6103099245748782629
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

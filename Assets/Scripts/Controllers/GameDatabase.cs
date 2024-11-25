@@ -1,3 +1,4 @@
+using System.Linq;
 using FishyBusiness.Data;
 using UnityEngine;
 
@@ -17,6 +18,25 @@ namespace FishyBusiness
             Mafias = Resources.LoadAll<Mafia>("Mafias");
             MafiaRanks = Resources.LoadAll<MafiaRank>("Mafias/Ranks");
             FishKeyArts = Resources.LoadAll<Sprite>("Fishes");
+        }
+
+        public static MafiaRank GetDiffMafiaRank(string mafiaRank)
+        {
+            var availableRanks = GameDatabase.Global.MafiaRanks
+                .Where(rank => rank.name != mafiaRank)
+                .ToArray();
+            
+            return availableRanks[Random.Range(0, availableRanks.Length)];
+        }
+        
+        public static Mafia GetMafia(string mafiaName)
+        {
+            return Global.Mafias.First(mafia => mafia.name == mafiaName);
+        }
+
+        public static MafiaRank GetRank(string rankName)
+        {
+            return Global.MafiaRanks.First(rank => rank.name == rankName);
         }
     }
 }

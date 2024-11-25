@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using FishyBusiness.Data;
+using FishyBusiness.GameSystem.Sample.Tablet;
 using Random = UnityEngine.Random;
 
 namespace FishyBusiness.Helpers
@@ -68,7 +69,7 @@ namespace FishyBusiness.Helpers
             string adjective = AdjectivesBuffer[Random.Range(0, AdjectivesBuffer.Length)];
             string epithet = EpithetsBuffer[Random.Range(0, EpithetsBuffer.Length)];
 
-            return $"{adjective} {fishName}, {mafiaTitle} {epithet}";
+            return $"{adjective} {fishName}";
         }
 
         public static Fish GenerateFish()
@@ -83,7 +84,7 @@ namespace FishyBusiness.Helpers
                 image = gameDatabase.FishKeyArts[Random.Range(0, gameDatabase.FishKeyArts.Length)],
 
                 birthYear = Random.Range(gameMetrics.Year - gameMetrics.MaxFishAge, gameMetrics.Year),
-                expiryDate = Random.Range(gameMetrics.ExpirationDateRange.x, gameMetrics.ExpirationDateRange.y),
+                expiryDate = 2024 + Random.Range(1, 7),
 
                 birthCountry = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
                 nationality = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
@@ -103,13 +104,32 @@ namespace FishyBusiness.Helpers
                 id = Guid.NewGuid().ToString(),
                 name = GenerateMafiaFishName(),
                 birthYear = Random.Range(gameMetrics.Year - gameMetrics.MaxFishAge, gameMetrics.Year),
-                expiryDate = Random.Range(gameMetrics.ExpirationDateRange.x, gameMetrics.ExpirationDateRange.y),
+                expiryDate = 2024 + Random.Range(1, 7),
 
                 birthCountry = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
                 nationality = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
                 mafia = gameDatabase.Mafias[Random.Range(0, gameDatabase.Mafias.Length)],
                 rank = gameDatabase.MafiaRanks[Random.Range(0, gameDatabase.MafiaRanks.Length)],
             };
+            return fish;
+        }
+
+        public static Fish AlterFish(Fish fish)
+        {
+            int index = Random.Range(1, 4);
+            switch (index)
+            {
+                case 1:
+                    fish.expiryDate = 2024 - Random.Range(1, 4);
+                    break;
+                case 2:
+                    fish.birthYear += Random.Range(1, 4);
+                    break;
+                case 3:
+                    fish.rank = GameDatabase.GetDiffMafiaRank(fish.rank.ToString());
+                    break;
+            }
+
             return fish;
         }
     }
