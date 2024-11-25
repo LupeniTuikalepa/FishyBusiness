@@ -16,8 +16,11 @@ namespace FishyBusiness.Documents
 
         private void Start()
         {
-            dragger.dragArea = transform.parent as RectTransform;
-            dragger.dragObject = transform as RectTransform;
+            if (dragger != null)
+            {
+                dragger.dragArea = transform.parent as RectTransform;
+                dragger.dragObject = transform as RectTransform;
+            }
         }
         public void Deselect()
         {

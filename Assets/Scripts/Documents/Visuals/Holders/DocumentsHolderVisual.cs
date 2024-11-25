@@ -15,7 +15,7 @@ namespace FishyBusiness.Documents.Visuals.Holders
         private Dictionary<IDocument, T> documents = new();
         private Dictionary<DocumentType, DocumentVisualAnchor> anchors = new();
 
-        private void Start()
+        private void Awake()
         {
             documents ??= new Dictionary<IDocument, T>();
             anchors ??= new Dictionary<DocumentType, DocumentVisualAnchor>();
@@ -56,7 +56,8 @@ namespace FishyBusiness.Documents.Visuals.Holders
                 if (anchors.TryGetValue(document.DocumentType, out DocumentVisualAnchor anchor))
                     root = anchor.transform;
 
-                GameObject instance = Instantiate(prefab, root);
+                GameObject instance = Instantiate(prefab, root, true);
+
 
                 if (instance.TryGetComponent(out T documentVisual))
                 {
@@ -65,12 +66,14 @@ namespace FishyBusiness.Documents.Visuals.Holders
                         documentVisual.Bind(document);
                         BindDocument(documentVisual, document);
                         Transform visualTransform = documentVisual.gameObject.transform;
+
                         visualTransform.position = root.position;
 
                         visualTransform.DOPunchScale(
                             -visualTransform.localScale * GameMetrics.Global.DocumentBounceStrength,
                             GameMetrics.Global.DocumentBounceDuration,
                             5);
+
                         return;
                     }
                 }

@@ -25,8 +25,11 @@ namespace FishyBusiness.Fishes
             LevelManager.Instance.OnSuccess += PlaySuccessAnim;
             LevelManager.Instance.OnFailure += PlayFailureAnim;
 
-            LevelManager.Instance.OnFailure += fishDialogue.OnFishFailure;
-            LevelManager.Instance.OnSuccess += fishDialogue.OnFishSuccess;
+            if (fishDialogue)
+            {
+                LevelManager.Instance.OnFailure += fishDialogue.OnFishFailure;
+                LevelManager.Instance.OnSuccess += fishDialogue.OnFishSuccess;
+            }
         }
 
 
@@ -36,9 +39,11 @@ namespace FishyBusiness.Fishes
             LevelManager.Instance.OnDayEnded -= UnSyncWithCurrentDay;
             LevelManager.Instance.OnSuccess -= PlaySuccessAnim;
             LevelManager.Instance.OnFailure -= PlayFailureAnim;
-            
-            LevelManager.Instance.OnFailure -= fishDialogue.OnFishFailure;
-            LevelManager.Instance.OnSuccess -= fishDialogue.OnFishSuccess;
+            if (fishDialogue)
+            {
+                LevelManager.Instance.OnFailure -= fishDialogue.OnFishFailure;
+                LevelManager.Instance.OnSuccess -= fishDialogue.OnFishSuccess;
+            }
         }
 
         private void SyncWithCurrentDay(Day day)
