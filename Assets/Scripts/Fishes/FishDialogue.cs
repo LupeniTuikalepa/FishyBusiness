@@ -60,8 +60,8 @@ namespace FishyBusiness.Fishes
         private void SpawnDialogue(IDayFish iDayFish, string dialogue)
         {
             currentDialogue = Instantiate(dialoguePrefab, dialogueSpawn);
-            TMP_Text dialogueText = dialoguePrefab.GetComponent<GetTextInDialogueWindow>().Dialogue;
-            TMP_Text WindowTitle = dialoguePrefab.GetComponent<GetTextInDialogueWindow>().WindowTitle;
+            TMP_Text dialogueText = currentDialogue.GetComponent<GetTextInDialogueWindow>().Dialogue;
+            TMP_Text WindowTitle = currentDialogue.GetComponent<GetTextInDialogueWindow>().WindowTitle;
             
             WindowTitle.text = $"<b>{iDayFish.Fish.name}</b>";
             dialogueText.text = $"{dialogue}";
