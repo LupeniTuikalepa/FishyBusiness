@@ -68,6 +68,7 @@ namespace FishyBusiness.Documents.Visuals.Holders
                         Transform visualTransform = documentVisual.gameObject.transform;
 
                         visualTransform.position = root.position;
+                        visualTransform.localScale = prefab.transform.localScale;
 
                         visualTransform.DOPunchScale(
                             -visualTransform.localScale * GameMetrics.Global.DocumentBounceStrength,
