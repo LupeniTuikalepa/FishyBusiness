@@ -23,10 +23,12 @@ namespace FishyBusiness.DaySystem
         public bool IsQuotaReached => EarnedMoney >= Quota;
 
         public Fish[] ViPs { get; private set; }
+        public Fish[] MafiaFishes { get; private set; }
 
         //constructor
-        public Day(Fish[] vips, int quota)
+        public Day(Fish[] vips,Fish[] mafiaFishes,  int quota)
         {
+            MafiaFishes = mafiaFishes;
             ViPs = vips;
             Quota = quota;
 
@@ -60,8 +62,9 @@ namespace FishyBusiness.DaySystem
             }
             else
             {
-                Fish mafiaFish = Fish.GenerateRealFish();
+                Fish mafiaFish = MafiaFishes[Random.Range(0, MafiaFishes.Length)];
                 CurrentFish = new DayFish(mafiaFish, FishType.MafiaMan);
+
                 GameController.Logger.Log(this, "Spawning Mafia fish");
             }
 

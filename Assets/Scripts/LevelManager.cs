@@ -26,7 +26,6 @@ namespace FishyBusiness
         private Day currentDay;
 
         public int CurrentDayIndex { get; private set; }
-
         public float CurrentDayTime { get; private set; }
         public bool IsLevelRunning { get; private set; }
 
@@ -53,13 +52,37 @@ namespace FishyBusiness
             float quota = GameMetrics.Global.StartQuota * Mathf.Pow(GameMetrics.Global.QuotaScaling, CurrentDayIndex);
 
             List<Fish> vips = new List<Fish>();
+            List<Fish> mafias = new List<Fish>();
 
             for (int i = 0; i < GameMetrics.Global.VIPsCount; i++)
                 vips.Add(FishGeneration.GenerateFish());
 
-            SetRank();
 
-            currentDay = new Day(vips.ToArray(), Mathf.CeilToInt(quota));
+            Mafia[] mafiasData = GameController.GameDatabase.Mafias;
+            MafiaRank[] ranksData = GameController.GameDatabase.MafiaRanks;
+
+            for (int i = 0; i < mafiasData.Length; i++)
+            {
+                Mafia mafia = mafiasData[i];
+                for (int j = 0; j < ranksData.Length; j++)
+                {
+                    MafiaRank rank = ranksData[j];
+                    int qtt = Random.Range(1, rank.maxSlot);
+                        Debug.Log($"creating {qtt} fishes for {rank.name} rank for  {mafia.name} mafia");
+                    for (int k = 0; k < qtt; k++)
+                    {
+                        Fish fish = FishGeneration.GenerateFish(mafia, rank);
+                        mafias.Add(fish);
+                    }
+                }
+            }
+
+            currentDay = new Day(
+                    vips.ToArray(),
+                    mafias.ToArray(),
+                    Mathf.CeilToInt(quota)
+                );
+
             currentDay.OnNewFish += CurrentDayOnOnNewFish;
 
             OnDayBegun?.Invoke(currentDay);
@@ -67,30 +90,6 @@ namespace FishyBusiness
 
             //Reset timer
             CurrentDayTime = GameMetrics.Global.LevelTime;
-        }
-
-        private void SetRank()
-        {
-            foreach (var rank in GameDatabase.Global.MafiaRanks)
-            {
-                rank.sprites.Clear();
-            }
-
-            foreach (var mafia in GameDatabase.Global.Mafias)
-            {
-                List<Sprite> sprites = new List<Sprite>(GameDatabase.Global.FishKeyArts);
-
-                foreach (var rank in GameDatabase.Global.MafiaRanks)
-                {
-                    rank.sprites.Add(mafia.name, new List<Sprite>());
-                    for (int i = 0; i < rank.maxSlot; i++)
-                    {
-                        int index = Random.Range(0, sprites.Count);
-                        rank.sprites[mafia.name].Add(sprites[index]);
-                        sprites.RemoveAt(index);
-                    }
-                }
-            }
         }
 
         private void CurrentDayOnOnNewFish(IDayFish fish)

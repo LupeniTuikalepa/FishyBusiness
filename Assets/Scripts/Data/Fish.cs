@@ -36,7 +36,7 @@ namespace FishyBusiness.Data
                    $" \n - {nameof(birthYear)}: {birthYear}, " +
                    $" \n - {nameof(expiryDate)}: {expiryDate}," +
                    $" \n - {nameof(birthCountry)}: {birthCountry}, " +
-                   $" \n - {nameof(mafia)}: {mafia}, {nameof(rank)}: ";
+                   $" \n - {nameof(mafia)}: {mafia}, {rank}: ";
         }
 
         //TODO
