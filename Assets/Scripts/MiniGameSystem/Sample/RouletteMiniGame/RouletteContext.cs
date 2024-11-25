@@ -1,4 +1,5 @@
 ﻿using FishyBusiness.MiniGameSystem.Interfaces;
+using TMPro;
 
 namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
 {
@@ -10,5 +11,8 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
         
         public GameStatus Status => status;
         public GameStatus status;
+
+        public bool IsComplete;
+        public TMP_Text RouletteResult;
     }
 }

@@ -2,9 +2,9 @@
 {
     public enum CardFamily
     {
+        Diamonds,
         Hearts,
-        Diamonds, 
-        Clubs,
-        Spades
+        Spades,
+        Clubs
     }
 }
