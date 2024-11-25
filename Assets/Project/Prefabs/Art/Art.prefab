@@ -732,6 +732,18 @@ PrefabInstance:
       value: Boite_Poisson
       objectReference: {fileID: 0}
     - target: {fileID: 6583454230092095464, guid: 4845a0f0935831c43b2b21c788a0413d, type: 3}
+      propertyPath: m_Size.x
+      value: 6.324492
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583454230092095464, guid: 4845a0f0935831c43b2b21c788a0413d, type: 3}
+      propertyPath: m_Size.y
+      value: 3.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583454230092095464, guid: 4845a0f0935831c43b2b21c788a0413d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1372741415382381187, guid: faa8252d1bbc8b943b8d5df81c23b075, type: 3}
+    - target: {fileID: 6583454230092095464, guid: 4845a0f0935831c43b2b21c788a0413d, type: 3}
       propertyPath: m_Color.b
       value: 0.6981132
       objectReference: {fileID: 0}
@@ -742,6 +754,26 @@ PrefabInstance:
     - target: {fileID: 6583454230092095464, guid: 4845a0f0935831c43b2b21c788a0413d, type: 3}
       propertyPath: m_Color.r
       value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 6583454230092095464, guid: 4845a0f0935831c43b2b21c788a0413d, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730424741088080409, guid: 4845a0f0935831c43b2b21c788a0413d, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 6.324492
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730424741088080409, guid: 4845a0f0935831c43b2b21c788a0413d, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 3.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730424741088080409, guid: 4845a0f0935831c43b2b21c788a0413d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 6.324492
+      objectReference: {fileID: 0}
+    - target: {fileID: 8730424741088080409, guid: 4845a0f0935831c43b2b21c788a0413d, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.87
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
