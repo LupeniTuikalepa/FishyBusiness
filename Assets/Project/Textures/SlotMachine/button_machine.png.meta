@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e0eee48abdfe08f4383f41ea1fefb0e1
+guid: 1696072fecf70ff4eb092e6368bd9edc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7314491601492555289
-    second: End_Day_background_0
+      213: 5449695975721906146
+    second: button_machine_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: End_Day_background_0
+      name: button_machine_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        x: 876
+        y: 551
+        width: 107
+        height: 59
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e9457c64a4bd7a90800000000000000
-      internalID: -7314491601492555289
+      spriteID: 2efa7cebd9531ab40800000000000000
+      internalID: 5449695975721906146
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      End_Day_background_0: -7314491601492555289
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

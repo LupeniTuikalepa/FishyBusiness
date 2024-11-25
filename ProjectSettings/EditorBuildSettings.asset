@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/ZircliX_MainScene.unity
-    guid: c03dc41b24405a145b050c101051bf8c
-  - enabled: 1
+    path: Assets/Scenes/Debug/ZircliX_MainScene.unity
+    guid: 3f641d0fdc94c2e439880d294a1e2e0f
+  - enabled: 0
     path: Assets/Scenes/Debug/Xictoss_Scene.unity
     guid: 3c1d9b3d5551d144197cba0611b57a71
   m_configObjects:

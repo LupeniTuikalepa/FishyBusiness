@@ -33,7 +33,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
 
         public override void End(ref RouletteContext context)
         {
-            Debug.Log($"End Roulette : {context.status}");
+            //Debug.Log($"End Roulette : {context.status}");
             if (context.status == GameStatus.Success)
             {
                 context.Player.AddMoney(context.BetAmount * 2);

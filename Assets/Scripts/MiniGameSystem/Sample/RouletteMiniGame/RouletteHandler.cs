@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using FishyBusiness.MiniGameSystem.Interfaces;
-using Michsky.UI.ModernUIPack;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
 {
@@ -13,7 +13,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
         [SerializeField] private Player player;
         [SerializeField] private RotateSprite rotateSprite;
         
-        [SerializeField] private ButtonManagerBasic[] gameButtons;
+        [SerializeField] private Button[] gameButtons;
         [SerializeField] private TMP_InputField moneyBet;
         [SerializeField] private TMP_Text playerMoney, rouletteResult;
         private int betAmount, playerChoice;
@@ -33,13 +33,13 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
 
         private void GameStopped(IMiniGameRunner obj)
         {
-            playerMoney.text = player.Money.ToString();
+            RefreshMoney();
             StartCoroutine(ClearRoulette());
         }
 
         private void RefreshMoney()
         {
-            playerMoney.text = player.Money.ToString();
+            playerMoney.text = "Money : " + player.Money;
         }
 
         public void SelectBet(bool choice)
@@ -79,9 +79,9 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
         {
             moneyBet.interactable = false;
 
-            foreach (ButtonManagerBasic button in gameButtons)
+            foreach (Button button in gameButtons)
             {
-                button.buttonVar.interactable = false;
+                button.interactable = false;
             }
             
             player.RemoveMoney(betAmount);
@@ -130,9 +130,9 @@ namespace FishyBusiness.MiniGameSystem.Sample.RouletteMiniGame
             moneyBet.interactable = true;
             waitingForClear = true;
             
-            foreach (ButtonManagerBasic button in gameButtons)
+            foreach (Button button in gameButtons)
             {
-                button.buttonVar.interactable = true;
+                button.interactable = true;
             }
         }
 
