@@ -1,10 +1,11 @@
 using System;
 using DG.Tweening;
+using FishyBusiness.DaySystem;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace FishyBusiness.UI.Menus
+namespace FishyBusiness.UI.Panels
 {
     public class EndDay : MonoBehaviour
     {
@@ -33,10 +34,12 @@ namespace FishyBusiness.UI.Menus
         private void OnEnable()
         {
             LevelManager.Instance.OnGameOver += GameOver;
+            LevelManager.Instance.OnDayEnded += Success;
         }
         private void OnDisable()
         {
             LevelManager.Instance.OnGameOver -= GameOver;
+            LevelManager.Instance.OnDayEnded -= Success;
         }
 
         private void Show()
@@ -46,7 +49,12 @@ namespace FishyBusiness.UI.Menus
             canvasGroup.DOFade(1, .5f);
         }
 
-
+        private void Hide()
+        {
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
+            canvasGroup.DOFade(0, .5f);
+        }
         public void GameOver()
         {
             Show();
@@ -56,15 +64,15 @@ namespace FishyBusiness.UI.Menus
             successButtons.SetActive(false);
         }
 
-        public void Success()
+        public void Success(Day day)
         {
             Show();
-
             background.sprite = successBackground;
             border.color = successColor;
             successButtons.SetActive(true);
             gameOverButtons.SetActive(false);
         }
+
         public void LoadMainMenu()
         {
             GameController.SceneController.LoadScene(GameMetrics.Global.MainMenuScene);
@@ -77,8 +85,8 @@ namespace FishyBusiness.UI.Menus
 
         public void ContinueRunButton()
         {
-
+            Hide();
+            LevelManager.Instance.BeginNight();
         }
-
     }
 }
