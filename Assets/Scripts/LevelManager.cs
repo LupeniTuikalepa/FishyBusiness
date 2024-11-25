@@ -34,7 +34,7 @@ namespace FishyBusiness
         public event Action<IDayFish> OnNewFish;
 
         private Day currentDay;
-        
+
         public DateTime dayDate { get => dayDate.AddDays(CurrentDayIndex); set => dayDate = new DateTime(2024,1,1); }
 
         public DayPhase CurrentDayPhase { get; private set; }
@@ -148,7 +148,7 @@ namespace FishyBusiness
 
         public void MakeChoice(FishFood food)
         {
-            if(currentDay == null)
+            if(currentDay == null || CurrentDayPhase == DayPhase.Day)
                 return;
 
             if (currentDay.MakeChoice(food, out IDayFish choice))

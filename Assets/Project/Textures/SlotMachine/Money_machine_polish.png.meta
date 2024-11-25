@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Money_machine_polish_0: -3323561889937663589
+      Money_machine_polish_1: 8053919555254237020
+      Money_machine_polish_2: -739748507255159768
+      Money_machine_polish_3: 9086258599917368913
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
