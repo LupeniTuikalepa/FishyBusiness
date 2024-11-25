@@ -72,6 +72,7 @@ namespace FishyBusiness
                         draggable.BeginDrag();
                     }
                 }
+                eventData.Use();
             }
             if(!isGrab && CurrentDraggable != null)
             {
@@ -114,6 +115,7 @@ namespace FishyBusiness
                         DeskDocuments.RemoveDocument(deskDocument.Document);
                     }
                 }
+                eventData.Use();
             }
         }
     }

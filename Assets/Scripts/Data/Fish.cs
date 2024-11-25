@@ -17,7 +17,6 @@ namespace FishyBusiness.Data
         public int expiryDate;
 
         public Country birthCountry;
-        public Country nationality;
 
         public Mafia mafia;
         public MafiaRank rank;
@@ -27,7 +26,6 @@ namespace FishyBusiness.Data
         Country IIdentityDocumentInfos.BirthCountry => birthCountry;
         Mafia IIdentityDocumentInfos.Mafia => mafia;
         MafiaRank IIdentityDocumentInfos.MafiaRank => rank;
-        Country IIdentityDocumentInfos.Nationality => nationality;
         int IIdentityDocumentInfos.ExpireDate => expiryDate;
 
         public override string ToString()
@@ -38,14 +36,13 @@ namespace FishyBusiness.Data
                    $" \n - {nameof(birthYear)}: {birthYear}, " +
                    $" \n - {nameof(expiryDate)}: {expiryDate}," +
                    $" \n - {nameof(birthCountry)}: {birthCountry}, " +
-                   $" \n - {nameof(nationality)}: {nationality}, " +
                    $" \n - {nameof(mafia)}: {mafia}, {nameof(rank)}: ";
         }
 
         //TODO
         public Fish Alter() => FishGeneration.AlterFish(this);
 
-        public static Fish GenerateCoherentFish() => FishGeneration.GenerateFish();
+        public static Fish GenerateRealFish() => FishGeneration.GenerateFish();
         public static Fish GenerateLyingFish() => FishGeneration.GenerateFish().Alter();
     }
 }
