@@ -10,6 +10,12 @@ namespace FishyBusiness
         public static GameMetrics Global => GameController.Metrics;
 
 
+        [field: SerializeField, BoxGroup("Feel")]
+        public float DocumentBounceStrength { get; private set; } = .15f;
+
+        [field: SerializeField, BoxGroup("Feel")]
+        public float DocumentBounceDuration { get; private set; } = .5f;
+
         [field: SerializeField, BoxGroup("Levels")]
         public int StartQuota { get; private set; }
 

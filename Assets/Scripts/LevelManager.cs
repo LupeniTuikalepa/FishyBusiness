@@ -96,6 +96,8 @@ namespace FishyBusiness
             {
                 OnFailure?.Invoke(choice, currentDay);
             }
+
+            currentDay.GetNextFish();
         }
 
     }

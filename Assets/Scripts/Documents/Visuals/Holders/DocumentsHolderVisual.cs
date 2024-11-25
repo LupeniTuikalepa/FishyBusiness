@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using DG.Tweening;
 using FishyBusiness.Documents.UI;
 using UnityEngine;
 
@@ -63,6 +64,11 @@ namespace FishyBusiness.Documents.Visuals.Holders
                     {
                         documentVisual.Bind(document);
                         BindDocument(documentVisual, document);
+                        Transform visualTransform = documentVisual.gameObject.transform;
+                        visualTransform.DOPunchScale(
+                            -visualTransform.localScale * GameMetrics.Global.DocumentBounceStrength,
+                            GameMetrics.Global.DocumentBounceDuration,
+                            5);
                         return;
                     }
                 }

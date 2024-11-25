@@ -52,7 +52,7 @@ namespace FishyBusiness.Fishes
 
                 FishRenderer last = currentFish;
                 if(last)
-                    last.MoveTo(exit).OnComplete(() => Destroy(last.gameObject));
+                    last.MoveTo(exit, 1f).OnComplete(() => Destroy(last.gameObject));
 
                 fish.MoveTo(idle);
                 currentFish = fish;

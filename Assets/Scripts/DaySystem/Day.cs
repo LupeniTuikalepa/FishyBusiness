@@ -40,7 +40,8 @@ namespace FishyBusiness.DaySystem
             GetNextFish();
             OnQuotaChanged?.Invoke(Quota, EarnedMoney);
         }
-        private void GetNextFish()
+
+        public void GetNextFish()
         {
             float rand = Random.value;
             GameMetrics metrics = GameMetrics.Global;
@@ -89,14 +90,11 @@ namespace FishyBusiness.DaySystem
                 {
                     GameController.Logger.Log(this, $"SUCCESS {fishFood} + {CurrentFish.FishType}");
                     CurrentFish.OnSuccess(fishFood, Player.Instance, this);
-                    GetNextFish();
                     return true;
                 }
             }
             GameController.Logger.Log(this, $"FAILURE {fishFood} + {CurrentFish.FishType}");
             CurrentFish.OnFail(fishFood, Player.Instance, this);
-            GetNextFish();
-
             return false;
         }
     }

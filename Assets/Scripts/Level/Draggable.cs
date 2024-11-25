@@ -6,16 +6,8 @@ using UnityEngine;
 namespace FishyBusiness
 {
     [RequireComponent(typeof(OutlineFx.OutlineFx))]
-    public class Draggable : MonoBehaviour
+    public class Draggable : Hoverable
     {
-        private OutlineFx.OutlineFx outline;
-
-        [SerializeField, BoxGroup("Colors")]
-        private Color hoverColor = Color.white;
-        [SerializeField, BoxGroup("Colors")]
-        private Color idleColor = Color.clear;
-        [SerializeField, BoxGroup("Colors")]
-        private float fade = 0.5f;
 
 
         [SerializeField, BoxGroup("Drag")]
@@ -26,9 +18,9 @@ namespace FishyBusiness
         protected Vector2 TargetPos { get; private set; }
         public bool IsDragged { get; private set; }
 
-        protected virtual void Awake()
+        protected override void Awake()
         {
-            outline = GetComponent<OutlineFx.OutlineFx>();
+            base.Awake();
             OnMouseExit();
         }
 
@@ -49,22 +41,20 @@ namespace FishyBusiness
             }
         }
 
-        private void OnMouseOver()
+        protected override void OnMouseOver()
         {
             if(IsDragged)
                 return;
 
-            this.DOKill();
-            DOTween.To(() => outline._color, x => outline._color = x, hoverColor, fade).SetTarget(this);
+            base.OnMouseOver();
         }
 
-        private void OnMouseExit()
+        protected override void OnMouseExit()
         {
             if(IsDragged)
                 return;
 
-            this.DOKill();
-            DOTween.To(() => outline._color, x => outline._color = x, idleColor, fade).SetTarget(this);
+            base.OnMouseExit();
         }
 
         public virtual void BeginDrag()

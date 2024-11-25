@@ -72,8 +72,8 @@ namespace FishyBusiness
 
         public void Deselect(IHandDocument handDocument)
         {
-            DeskDocuments.RemoveDocument(handDocument.Document);
-            Hand.AddDocument(handDocument.Document);
+            DeskDocuments.AddDocument(handDocument.Document);
+            Hand.RemoveDocument(handDocument.Document);
         }
 
         private void OnClickInput(InputAction.CallbackContext obj)

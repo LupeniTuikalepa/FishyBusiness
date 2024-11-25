@@ -68,21 +68,26 @@ namespace FishyBusiness.Fishes
             transform.DOShakePosition(.5f, angryShakeStrength, angryShakeVibrato);
         }
 
-        public Tween MoveTo(Transform destination)
+        public Tween MoveTo(Transform destination, float delay = 0)
         {
             // Get the target position
             Vector3 targetPosition = destination.position;
 
             // move towards X linearly
-            var t= transform.DOMoveX(targetPosition.x, moveDuration).SetEase(Ease.Linear);
+            var t= transform.DOMoveX(targetPosition.x, moveDuration)
+                .SetEase(Ease.Linear)
+                .SetDelay(delay);
 
             // Move along y axis following the sine wave
             DOVirtual.Float(0, moveDuration, moveDuration, (t) =>
             {
                 // Calculate the new y position using the sine function and apply the shift to our og y
                 float newY = waveAmplitude * Mathf.Sin(t * waveFrequency * Mathf.PI * 2);
-                transform.position = new Vector3(transform.position.x, destination.position.y + newY, destination.position.z);
-            }).SetEase(Ease.Linear);
+                transform.position = new Vector3(transform.position.x, destination.position.y + newY,
+                    destination.position.z);
+            })
+                .SetEase(Ease.Linear)
+                .SetDelay(delay);
 
             return t;
         }
