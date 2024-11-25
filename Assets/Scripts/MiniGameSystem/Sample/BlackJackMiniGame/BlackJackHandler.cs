@@ -173,7 +173,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
         {
             if (waitingForClear) return;
 
-            if (player.Money > betAmount) return;
+            if (player.Money < betAmount) return;
             
             player.RemoveMoney(betAmount);
             RefreshMoney();

@@ -42,7 +42,7 @@ namespace FishyBusiness.MiniGameSystem.Sample.BlackJack
             {
                 context.status = GameStatus.Failure;
             }
-            else if (dealerValue == 21 && playerValue == 21)
+            if (dealerValue == 21 && playerValue == 21)
             {
                 context.status = GameStatus.Tie;
             }

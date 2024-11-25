@@ -8,5 +8,10 @@ namespace FishyBusiness
 
         public void AddMoney(int amount) => Money += amount;
         public void RemoveMoney(int amount) => Money -= amount;
+
+        public void ResetMoney()
+        {
+            Money = 500;
+        }
     }
 }
