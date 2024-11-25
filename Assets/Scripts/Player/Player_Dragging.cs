@@ -56,11 +56,21 @@ namespace FishyBusiness
                 if(resultsBuffer.Count > 0)
                     return;
 
-                Collider2D hit = Physics2D.OverlapPoint(worldPos, draggableMask);
-                if (hit != null && hit.TryGetComponent(out Draggable draggable))
+                Collider2D[] results = new Collider2D[32];
+                int count = Physics2D.OverlapPoint(worldPos, new ContactFilter2D()
                 {
-                    CurrentDraggable = draggable;
-                    draggable.BeginDrag();
+                    layerMask = draggableMask,
+                },
+                    results);
+
+                for (int i = 0; i < count; i++)
+                {
+                    var hit = results[i];
+                    if (hit != null && hit.TryGetComponent(out Draggable draggable))
+                    {
+                        CurrentDraggable = draggable;
+                        draggable.BeginDrag();
+                    }
                 }
             }
             if(!isGrab && CurrentDraggable != null)
@@ -92,12 +102,17 @@ namespace FishyBusiness
                 if(resultsBuffer.Count > 0)
                     return;
 
+                Collider2D[] results = new Collider2D[32];
+                int count = Physics2D.OverlapPoint(worldPos, new ContactFilter2D(), results);
 
-                Collider2D hit = Physics2D.OverlapPoint(worldPos);
-                if (hit != null && hit.TryGetComponent(out IDeskDocument deskDocument))
+                for (int i = 0; i < count; i++)
                 {
-                    Hand.AddDocument(deskDocument.Document);
-                    DeskDocuments.RemoveDocument(deskDocument.Document);
+                    var hit = results[i];
+                    if (hit != null && hit.TryGetComponent(out IDeskDocument deskDocument))
+                    {
+                        Hand.AddDocument(deskDocument.Document);
+                        DeskDocuments.RemoveDocument(deskDocument.Document);
+                    }
                 }
             }
         }
