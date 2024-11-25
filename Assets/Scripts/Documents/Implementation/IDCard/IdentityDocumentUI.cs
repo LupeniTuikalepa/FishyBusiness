@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 namespace FishyBusiness.Documents
 {
-    public class IdentityDocumentUI : DocumentVisual<IdentityDocument>, IHandDocument
+    public class IdentityDocumentUI : MovableDocumentUI<IdentityDocument>, IHandDocument
     {
         [SerializeField]
         private TextMeshProUGUI nameTmp;

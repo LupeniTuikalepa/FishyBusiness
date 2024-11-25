@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33573e4221414402ac6b3fe1500bb427, type: 3}
   m_Name: South Korea
   m_EditorClassIdentifier: 
-  <Signature>k__BackingField: {fileID: 0}
+  <Signature>k__BackingField: {fileID: 2800000, guid: 989ac7e26bf7ab045aa5db82950f6256, type: 3}
   <Nationality>k__BackingField: South Korean

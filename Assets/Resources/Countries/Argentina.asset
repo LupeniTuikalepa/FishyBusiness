@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33573e4221414402ac6b3fe1500bb427, type: 3}
   m_Name: Argentina
   m_EditorClassIdentifier: 
-  <Signature>k__BackingField: {fileID: 0}
+  <Signature>k__BackingField: {fileID: 2800000, guid: dcb7a9bf09dce984080ef2c6f793956e, type: 3}
   <Nationality>k__BackingField: 'Argentine '

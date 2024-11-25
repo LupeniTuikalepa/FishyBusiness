@@ -57,6 +57,8 @@ namespace FishyBusiness.DaySystem
             }
         }
 
+
+
         private bool TryGetLifeInfluence(FishFood fishFood,out int lifeLoss)
         {
             if (TryGetPair(fishFood, out var pair))

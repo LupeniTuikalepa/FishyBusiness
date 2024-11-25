@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33573e4221414402ac6b3fe1500bb427, type: 3}
   m_Name: India
   m_EditorClassIdentifier: 
-  <Signature>k__BackingField: {fileID: 0}
+  <Signature>k__BackingField: {fileID: 2800000, guid: 0963fd4cabf272c439c2a8daa7b81e19, type: 3}
   <Nationality>k__BackingField: Indian

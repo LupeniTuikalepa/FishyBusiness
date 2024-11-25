@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33573e4221414402ac6b3fe1500bb427, type: 3}
   m_Name: Egypt
   m_EditorClassIdentifier: 
-  <Signature>k__BackingField: {fileID: 0}
+  <Signature>k__BackingField: {fileID: 2800000, guid: d5791e12bf19806459da56f74661581b, type: 3}
   <Nationality>k__BackingField: Egyptian

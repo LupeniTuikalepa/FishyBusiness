@@ -4,5 +4,8 @@ namespace FishyBusiness.Documents
     {
         IDCard,
         PhoneNumber,
+        Tuto,
+        Flags,
+        Vips,
     }
 }

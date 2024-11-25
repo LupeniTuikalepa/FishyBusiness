@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33573e4221414402ac6b3fe1500bb427, type: 3}
   m_Name: New Zealand
   m_EditorClassIdentifier: 
-  <Signature>k__BackingField: {fileID: 0}
+  <Signature>k__BackingField: {fileID: 2800000, guid: abddea888c0ffd8479ef609db9529d3e, type: 3}
   <Nationality>k__BackingField: New Zealander
