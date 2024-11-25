@@ -1,20 +1,24 @@
 using FishyBusiness.MiniGameSystem.Interfaces;
+using UnityEngine;
 
 namespace FishyBusiness.MiniGameSystem.Sample
 {
     public class Slot : MiniGame<SlotContext>
     {
+        private int rouletteResult = -1;
+        
         public override void Begin(ref SlotContext context)
         {
-            context.Content.StartSlotMachine(context);
             context.status = GameStatus.Pending;
+            
+            rouletteResult = Random.Range(0, 3);
         }
 
         public override bool Refresh(ref SlotContext context)
         {
-            if (context.Content.GetResult(out bool slotResult))
+            if (context.IsComplete)
             {
-                context.status = slotResult ? GameStatus.Success : GameStatus.Failure;
+                context.status = rouletteResult == 0 ? GameStatus.Success : GameStatus.Failure;
             }
             
             return context.status != GameStatus.Pending;
@@ -22,7 +26,12 @@ namespace FishyBusiness.MiniGameSystem.Sample
 
         public override void End(ref SlotContext context)
         {
-            context.Content.ShowResult(context);
+            if (context.status == GameStatus.Success)
+            {
+                context.Player.AddMoney(context.BetAmount * 3);
+            }
+            
+            context.SlotResult.text = context.status == GameStatus.Success ? "Win !!!" : "Lose...";
             context.status = GameStatus.None;
         }
     }

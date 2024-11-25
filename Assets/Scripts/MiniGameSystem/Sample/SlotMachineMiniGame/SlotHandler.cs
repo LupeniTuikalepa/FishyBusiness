@@ -8,14 +8,15 @@ namespace FishyBusiness.MiniGameSystem.Sample
 {
     public class SlotHandler : MonoBehaviour, IMiniGameHandler<SlotContext>, ILogSource
     {
+        private static Player Player => Player.Instance;
+        
         public string Name => nameof(SlotHandler);
-
-        [SerializeField] private SlotContent content;
+        
         [SerializeField] private Button startButton, backButton;
         [SerializeField] private TMP_InputField moneyBet;
-        [SerializeField] private TMP_Text playerMoney;
+        [SerializeField] private TMP_Text playerMoney, resultText;
         private int betAmount;
-
+        private bool waitingForClear, isComplete;
         private Slot slot;
 
         private void OnEnable()
@@ -42,6 +43,14 @@ namespace FishyBusiness.MiniGameSystem.Sample
 
         public void StartGame()
         {
+            if (waitingForClear)
+            {
+                context.status = GameStatus.None;
+                GetBetAmount(moneyBet.text);
+
+                waitingForClear = false;
+            }
+            
             Player player = Player.Instance;
             if (betAmount > player.Money || betAmount <= 0)
             {
@@ -55,25 +64,36 @@ namespace FishyBusiness.MiniGameSystem.Sample
                 return;
             }
 
-            player.RemoveMoney(betAmount);
-            RefreshMoney();
+            SetupGame();
+            MiniGameManager.Instance.StartGame(slot, this);
+            StartCoroutine(SetGameEnd());
+        }
 
+        private void SetupGame()
+        {
             startButton.interactable = false;
             backButton.interactable = false;
             moneyBet.interactable = false;
-
+            
+            Player.RemoveMoney(betAmount);
+            RefreshMoney();
+            
+            resultText.text = "";
+            isComplete = false;
+            
+            context.status = GameStatus.Pending;
             slot = new Slot();
-            MiniGameManager.Instance.StartGame(slot, this);
         }
 
         public SlotContext GetContext()
         {
             return new SlotContext
             {
-                Player = Player.Instance,
-                Content = content,
+                Player = Player,
                 BetAmount = betAmount,
-                status = context.status
+                status = context.status,
+                SlotResult = resultText,
+                IsComplete = isComplete,
             };
         }
 
@@ -93,13 +113,20 @@ namespace FishyBusiness.MiniGameSystem.Sample
             betAmount = int.Parse(value);
         }
 
-        public IEnumerator ClearSlot()
+        private IEnumerator ClearSlot()
         {
-            yield return new WaitForSeconds(0f);
+            yield return new WaitForSeconds(0);
 
             moneyBet.interactable = true;
             startButton.interactable = true;
             backButton.interactable = true;
+        }
+
+        private IEnumerator SetGameEnd()
+        {
+            yield return new WaitForSeconds(2f);
+
+            isComplete = true;
         }
     }
 }
