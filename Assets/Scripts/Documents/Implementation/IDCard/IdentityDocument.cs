@@ -8,6 +8,8 @@ namespace FishyBusiness.Documents
         public DocumentType DocumentType => DocumentType.IDCard;
 
         public readonly string name;
+        public readonly Sprite photo;
+
         public readonly int birthYear;
         public readonly int expireDate;
 
@@ -21,6 +23,8 @@ namespace FishyBusiness.Documents
             name = infos.Name;
             birthYear = infos.BirthYear;
             expireDate = infos.ExpireDate;
+
+            photo = infos.Photo;
 
             birthCountry = infos.BirthCountry;
 

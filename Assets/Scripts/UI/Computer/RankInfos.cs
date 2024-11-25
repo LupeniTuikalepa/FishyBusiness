@@ -36,7 +36,6 @@ namespace FishyBusiness
                 Destroy(image.gameObject);
 
             images.Clear();
-
             rankName.text = rank.name;
 
             for (int i = 0; i < day.MafiaFishes.Length; i++)
@@ -47,7 +46,7 @@ namespace FishyBusiness
                     Debug.Log(fish);
 
                     Image image = Instantiate(rankImagePrefab, transform);
-                    image.sprite = fish.image;
+                    image.sprite = fish.photo;
 
                     images.Add(image);
                 }

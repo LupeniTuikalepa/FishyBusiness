@@ -90,7 +90,7 @@ namespace FishyBusiness.Helpers
             Fish fish = new Fish()
             {
                 id = Guid.NewGuid().ToString(),
-                image = gameDatabase.FishKeyArts[Random.Range(0, gameDatabase.FishKeyArts.Length)],
+                photo = gameDatabase.FishKeyArts[Random.Range(0, gameDatabase.FishKeyArts.Length)],
                 name = GenerateMafiaFishName(),
                 birthYear = Random.Range(gameMetrics.Year - gameMetrics.MaxFishAge, gameMetrics.Year),
                 expiryDate = 2024 + Random.Range(1, 7),
