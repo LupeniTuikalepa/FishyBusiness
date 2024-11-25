@@ -268,6 +268,7 @@ MonoBehaviour:
   pfbScreenToLoad: {fileID: 7384222173325503853, guid: 71a9534a50556ec459955838afc43ac7, type: 3}
   icon: {fileID: 4494199613632289471}
   computerManager: {fileID: 0}
+  windowParent: {fileID: 0}
 --- !u!114 &7701703041844032602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +350,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 1782560585068865793, guid: 395636123264e7140ba333a85b374e46, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1

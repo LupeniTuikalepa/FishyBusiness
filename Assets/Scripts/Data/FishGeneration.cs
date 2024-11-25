@@ -74,42 +74,30 @@ namespace FishyBusiness.Helpers
 
         public static Fish GenerateFish()
         {
-            GameMetrics gameMetrics = GameMetrics.Global;
             GameDatabase gameDatabase = GameController.GameDatabase;
 
             Mafia mafia = gameDatabase.Mafias[Random.Range(0, gameDatabase.Mafias.Length)];
             MafiaRank rank = gameDatabase.MafiaRanks[Random.Range(0, gameDatabase.MafiaRanks.Length)];
+
+            return GenerateFish(mafia, rank);
+        }
+
+        public static Fish GenerateFish(Mafia mafia, MafiaRank mafiaRank)
+        {
+            GameMetrics gameMetrics = GameMetrics.Global;
+            GameDatabase gameDatabase = GameController.GameDatabase;
+
             Fish fish = new Fish()
             {
                 id = Guid.NewGuid().ToString(),
-                name = GenerateMafiaFishName(),
                 image = gameDatabase.FishKeyArts[Random.Range(0, gameDatabase.FishKeyArts.Length)],
-
+                name = GenerateMafiaFishName(),
                 birthYear = Random.Range(gameMetrics.Year - gameMetrics.MaxFishAge, gameMetrics.Year),
                 expiryDate = 2024 + Random.Range(1, 7),
 
                 birthCountry = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
                 mafia = mafia,
-                rank = rank,
-            };
-            return fish;
-        }
-
-        public static Data.Fish GenerateFish(string mafiaName)
-        {
-            GameMetrics gameMetrics = GameMetrics.Global;
-            GameDatabase gameDatabase = GameController.GameDatabase;
-
-            Data.Fish fish = new Data.Fish()
-            {
-                id = Guid.NewGuid().ToString(),
-                name = GenerateMafiaFishName(),
-                birthYear = Random.Range(gameMetrics.Year - gameMetrics.MaxFishAge, gameMetrics.Year),
-                expiryDate = 2024 + Random.Range(1, 7),
-
-                birthCountry = gameDatabase.Countries[Random.Range(0, gameDatabase.Countries.Length)],
-                mafia = gameDatabase.Mafias[Random.Range(0, gameDatabase.Mafias.Length)],
-                rank = gameDatabase.MafiaRanks[Random.Range(0, gameDatabase.MafiaRanks.Length)],
+                rank = mafiaRank,
             };
             return fish;
         }
