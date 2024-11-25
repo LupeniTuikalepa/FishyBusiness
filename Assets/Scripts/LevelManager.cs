@@ -6,6 +6,7 @@ using FishyBusiness.DaySystem;
 using FishyBusiness.Fishes;
 using FishyBusiness.Helpers;
 using LTX.Singletons;
+using NaughtyAttributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,38 +14,52 @@ namespace FishyBusiness
 {
 
     [DefaultExecutionOrder(500)]
-    public class LevelManager : MonoSingleton<LevelManager>
+    public class LevelManager : MonoSingleton<LevelManager>, ILogSource
     {
+        [Flags]
+        public enum DayPhase
+        {
+            Day = 1,
+            Night = 2,
+        }
+
         public event Action OnGameOver;
         public event Action<Day> OnDayEnded;
         public event Action<Day> OnDayBegun;
+        public event Action OnNightBegun;
+        public event Action OnNightEnded;
 
         public event Action<IDayFish, Day> OnSuccess;
         public event Action<IDayFish, Day> OnFailure;
+
         public event Action<IDayFish> OnNewFish;
 
         private Day currentDay;
-        
+
         public DateTime dayDate { get => dayDate.AddDays(CurrentDayIndex); set => dayDate = new DateTime(2024,1,1); }
 
+        public DayPhase CurrentDayPhase { get; private set; }
         public int CurrentDayIndex { get; private set; }
         public float CurrentDayTime { get; private set; }
         public bool IsLevelRunning { get; private set; }
 
         private void Start()
         {
-            StartNextDay();
             IsLevelRunning = true;
+            StartNextDay();
         }
 
 
         private void Update()
         {
-            if (currentDay != null && IsLevelRunning)
+            if (currentDay == null || !IsLevelRunning || CurrentDayPhase != DayPhase.Day)
+                return;
+
+            CurrentDayTime -= Time.deltaTime;
+            if (CurrentDayTime <= 0)
             {
-                CurrentDayTime -= Time.deltaTime;
-                if (CurrentDayTime <= 0)
-                    FinishDay();
+                GameController.Logger.Log(this, "Day time as run out");
+                FinishDay();
             }
         }
 
@@ -55,10 +70,6 @@ namespace FishyBusiness
 
             List<Fish> vips = new List<Fish>();
             List<Fish> mafias = new List<Fish>();
-
-            for (int i = 0; i < GameMetrics.Global.VIPsCount; i++)
-                vips.Add(FishGeneration.GenerateFish());
-
 
             Mafia[] mafiasData = GameController.GameDatabase.Mafias;
             MafiaRank[] ranksData = GameController.GameDatabase.MafiaRanks;
@@ -79,6 +90,18 @@ namespace FishyBusiness
                 }
             }
 
+            int vipCount = GameMetrics.Global.VIPsCount;
+            for (int i = 0; i < vipCount; i++)
+            {
+                if(mafias.Count == 0)
+                    break;
+
+                int idx = Random.Range(0, mafias.Count);
+                var fish = mafias[idx];
+                mafias.RemoveAt(idx);
+                vips.Add(fish);
+            }
+
             currentDay = new Day(
                     vips.ToArray(),
                     mafias.ToArray(),
@@ -87,6 +110,9 @@ namespace FishyBusiness
 
             currentDay.OnNewFish += CurrentDayOnOnNewFish;
 
+            CurrentDayPhase = DayPhase.Day;
+
+            OnNightEnded?.Invoke();
             OnDayBegun?.Invoke(currentDay);
             currentDay.Begin();
 
@@ -94,17 +120,27 @@ namespace FishyBusiness
             CurrentDayTime = GameMetrics.Global.LevelTime + GameMetrics.Global.bonusDayTime;
         }
 
+        [Button]
+        public void BeginNight()
+        {
+            IsLevelRunning = true;
+            CurrentDayPhase = DayPhase.Night;
+
+            OnNightBegun?.Invoke();
+        }
+
         private void CurrentDayOnOnNewFish(IDayFish fish)
         {
             OnNewFish?.Invoke(fish);
         }
 
+        [Button]
         private void FinishDay()
         {
-            IsLevelRunning = false;
             if (currentDay.IsQuotaReached)
             {
                 OnDayEnded?.Invoke(currentDay);
+                IsLevelRunning = false;
             }
             else
             {
@@ -115,7 +151,7 @@ namespace FishyBusiness
 
         public void MakeChoice(FishFood food)
         {
-            if(currentDay == null)
+            if(currentDay == null || CurrentDayPhase != DayPhase.Day)
                 return;
 
             if (currentDay.MakeChoice(food, out IDayFish choice))
@@ -130,6 +166,7 @@ namespace FishyBusiness
             currentDay.GetNextFish();
         }
 
+        [Button]
         public void TriggerGameOver()
         {
             IsLevelRunning = false;
@@ -139,5 +176,7 @@ namespace FishyBusiness
         {
             return currentDay;
         }
+
+        public string Name => "Level Manager";
     }
 }
