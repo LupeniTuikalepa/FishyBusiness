@@ -525,6 +525,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4250041459310918309}
+  - component: {fileID: 3146540139104597457}
   m_Layer: 5
   m_Name: Movable Tablet
   m_TagString: Untagged
@@ -554,6 +555,21 @@ RectTransform:
   m_AnchoredPosition: {x: 1206, y: -168}
   m_SizeDelta: {x: 1231.23, y: 642.6492}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3146540139104597457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3174407829370401873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd4468ebe04fa14a9100a84aad957dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  taskBar: {fileID: 7352807329015869402}
+  screenObject: {fileID: 3056486257198347225}
+  pfbTaskBarIcon: {fileID: 3137321651547617052, guid: cbe51383208270a4e993e334d146143d, type: 3}
 --- !u!1 &3230177106273186817
 GameObject:
   m_ObjectHideFlags: 0
