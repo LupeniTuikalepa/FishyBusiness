@@ -117,7 +117,7 @@ namespace FishyBusiness
             currentDay.Begin();
 
             //Reset timer
-            CurrentDayTime = GameMetrics.Global.LevelTime;
+            CurrentDayTime = GameMetrics.Global.LevelTime + GameMetrics.Global.bonusDayTime;
         }
 
         [Button]
