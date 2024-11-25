@@ -11,6 +11,8 @@ namespace FishyBusiness.Fishes
         [SerializeField]
         private FishRenderer fishPrefab;
 
+        [SerializeField] private FishDialogue fishDialogue;
+
         [SerializeField]
         private Transform exit, entrance, idle;
 
@@ -22,6 +24,9 @@ namespace FishyBusiness.Fishes
             LevelManager.Instance.OnDayEnded += UnSyncWithCurrentDay;
             LevelManager.Instance.OnSuccess += PlaySuccessAnim;
             LevelManager.Instance.OnFailure += PlayFailureAnim;
+
+            LevelManager.Instance.OnFailure += fishDialogue.OnFishFailure;
+            LevelManager.Instance.OnSuccess += fishDialogue.OnFishSuccess;
         }
 
 
@@ -31,6 +36,9 @@ namespace FishyBusiness.Fishes
             LevelManager.Instance.OnDayEnded -= UnSyncWithCurrentDay;
             LevelManager.Instance.OnSuccess -= PlaySuccessAnim;
             LevelManager.Instance.OnFailure -= PlayFailureAnim;
+            
+            LevelManager.Instance.OnFailure -= fishDialogue.OnFishFailure;
+            LevelManager.Instance.OnSuccess -= fishDialogue.OnFishSuccess;
         }
 
         private void SyncWithCurrentDay(Day day)
