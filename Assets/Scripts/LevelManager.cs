@@ -24,6 +24,8 @@ namespace FishyBusiness
         public event Action<IDayFish> OnNewFish;
 
         private Day currentDay;
+        
+        public DateTime dayDate { get => dayDate.AddDays(CurrentDayIndex); set => dayDate = new DateTime(2024,1,1); }
 
         public int CurrentDayIndex { get; private set; }
         public float CurrentDayTime { get; private set; }

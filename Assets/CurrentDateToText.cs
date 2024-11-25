@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using FishyBusiness.DaySystem;
 using TMPro;
 using UnityEngine;
@@ -18,8 +19,8 @@ namespace FishyBusiness
 
         private void UpdateDate(Day day)
         {
-            DateTime date = LevelManager.Instance.dayDate;
-            text.text = $"{date.Day}\n{date.Month.ToString()}\n{date.Year}";
+            DateTime date = new DateTime(2024,1,1).AddDays(LevelManager.Instance.CurrentDayIndex);
+            text.text = $"{date.Day}\n{date.ToString("MMM", CultureInfo.InvariantCulture).ToUpper()}\n{date.Year}";
         }
     }
 }
