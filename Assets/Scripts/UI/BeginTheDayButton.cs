@@ -18,6 +18,11 @@ namespace FishyBusiness
         {
             MiniGameManager.Instance.OnGameStarted += Deactivate;
             MiniGameManager.Instance.OnGameStopped += Activate;
+
+            if(LevelManager.Instance.CurrentDayPhase == LevelManager.DayPhase.Day)
+                Deactivate(null);
+            else
+                Activate(null);
         }
 
 

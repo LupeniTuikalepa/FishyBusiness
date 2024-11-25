@@ -5,7 +5,9 @@ using UnityEngine.UI;
 public class ComputerManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject taskBar;
+    [SerializeField]
+    private GameObject taskBar;
+
     public GameObject screenObject;
     [SerializeField]
     private GameObject pfbTaskBarIcon;

@@ -6,6 +6,7 @@ using FishyBusiness.DaySystem;
 using FishyBusiness.Fishes;
 using FishyBusiness.Helpers;
 using LTX.Singletons;
+using NaughtyAttributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -119,6 +120,7 @@ namespace FishyBusiness
             CurrentDayTime = GameMetrics.Global.LevelTime;
         }
 
+        [Button]
         public void BeginNight()
         {
             IsLevelRunning = true;
@@ -132,6 +134,7 @@ namespace FishyBusiness
             OnNewFish?.Invoke(fish);
         }
 
+        [Button]
         private void FinishDay()
         {
             if (currentDay.IsQuotaReached)
@@ -163,6 +166,7 @@ namespace FishyBusiness
             currentDay.GetNextFish();
         }
 
+        [Button]
         public void TriggerGameOver()
         {
             IsLevelRunning = false;
